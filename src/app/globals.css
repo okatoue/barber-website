@@ -703,13 +703,15 @@ a { color: inherit; text-decoration: none; }
   .hero { padding-top: 40px; }
   .hero-grid { grid-template-columns: 1fr; gap: 0; min-height: 540px; align-items: start; }
   .hero-photo::after {
+    /* Taller text column on narrow screens: keep the scrim opaque through
+       the stats row (~90% down) so all copy stays readable, letting the
+       photo bleed in only at the very bottom. */
     background: linear-gradient(
       to bottom,
       var(--bg) 0%,
-      color-mix(in oklab, var(--bg) 92%, transparent) 38%,
-      color-mix(in oklab, var(--bg) 55%, transparent) 56%,
-      color-mix(in oklab, var(--bg) 15%, transparent) 72%,
-      transparent 88%
+      color-mix(in oklab, var(--bg) 92%, transparent) 70%,
+      color-mix(in oklab, var(--bg) 75%, transparent) 92%,
+      color-mix(in oklab, var(--bg) 45%, transparent) 100%
     );
   }
   .barber-feature { grid-template-columns: 1fr; }
