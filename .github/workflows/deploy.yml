@@ -1,0 +1,45 @@
+name: Deploy to Cloudflare Pages
+
+# Builds the static site and deploys it to Cloudflare Pages using an API
+# token (no GitHub<->Cloudflare app link required). Runs on every push to
+# main, once a day (to refresh the build-time Google review count), and
+# on demand from the Actions tab.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 11 * * *" # daily at 11:00 UTC (~3-4 AM Pacific)
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-cloudflare-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build static site
+        run: npm run build
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy out --project-name=royal-look --branch=main --commit-dirty=true
