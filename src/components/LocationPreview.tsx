@@ -52,6 +52,8 @@ export default function FindUs() {
               </a>
             </div>
 
+            {SHOP.landmarks && <p className="find-note">{SHOP.landmarks}</p>}
+
             <OpenStatus variant="pill" />
 
             <div className="hours-grid">

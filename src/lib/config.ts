@@ -35,7 +35,8 @@ export const SHOP = {
     "https://maps.google.com/maps?q=48.496876336605936,-123.38071633357313&t=&z=17&ie=UTF8&iwloc=&output=embed",
   coordinates: { lat: 48.496876336605936, lng: -123.38071633357313 },
   walkIns: true,
-  landmarks: "",
+  landmarks:
+    "Inside Broadmead Village Shopping Centre, just to the left of Starbucks — with free parking in the lot right out front.",
   areasServed: [
     "James Bay",
     "Fernwood",

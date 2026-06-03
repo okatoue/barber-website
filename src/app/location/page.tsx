@@ -100,6 +100,17 @@ export default function LocationPage() {
                 <h3 className="font-semibold text-text mb-1">Address</h3>
                 <p>{SHOP.address.full}</p>
               </div>
+              <div>
+                <h3 className="font-semibold text-text mb-1">Finding us</h3>
+                <p>
+                  We&rsquo;re inside Broadmead Village Shopping Centre, just to
+                  the left of Starbucks.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-text mb-1">Parking</h3>
+                <p>Free parking in the lot right out front.</p>
+              </div>
             </div>
           </div>
         </div>

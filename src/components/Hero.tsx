@@ -9,15 +9,15 @@ export default async function Hero() {
       <div className="container">
         <div className="hero-grid">
           <div className="hero-copy">
-            <div className="eyebrow">ROYAL OAK CENTRE · VICTORIA, BC</div>
+            <div className="eyebrow">BROADMEAD VILLAGE SHOPPING CENTRE · VICTORIA, BC</div>
             <h1 className="serif">
               Best fade in <em>Victoria</em>,
               <br />
               without the wait.
             </h1>
             <p className="lede">
-              Skin fades, scissor cuts, hot shaves. Royal Oak Centre, seven days
-              a week.
+              Skin fades, scissor cuts, hot shaves. Broadmead Village Shopping
+              Centre, seven days a week.
             </p>
             <div className="hero-cta-row">
               <a
