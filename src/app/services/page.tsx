@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SERVICES, SHOP } from "@/lib/config";
+import { SERVICES } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Barber Services in Victoria, BC",
@@ -50,14 +50,6 @@ export default function ServicesPage() {
                         {service.duration}
                       </span>
                     </div>
-                    <a
-                      href={SHOP.booking.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-primary text-sm px-5 py-2"
-                    >
-                      Book
-                    </a>
                   </div>
                 </div>
               ))}
@@ -70,19 +62,11 @@ export default function ServicesPage() {
       <div className="max-w-4xl mx-auto mt-12">
         <div className="card bg-gold/5 border-gold/20 text-center py-8">
           <h3 className="text-lg font-semibold mb-2">Not sure what to book?</h3>
-          <p className="text-text-muted text-sm mb-4">
+          <p className="text-text-muted text-sm">
             Choose &ldquo;Classic Cut&rdquo; or
             &ldquo;Consultation&rdquo; and your barber will customize it for
             you.
           </p>
-          <a
-            href={SHOP.booking.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            Book Now
-          </a>
         </div>
       </div>
     </div>

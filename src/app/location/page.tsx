@@ -106,14 +106,6 @@ export default function LocationPage() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
           <a
-            href={SHOP.booking.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary px-8 py-4"
-          >
-            Book Now
-          </a>
-          <a
             href={`tel:${SHOP.phone.replace(/[^+\d]/g, "")}`}
             className="btn-secondary px-8 py-4"
           >

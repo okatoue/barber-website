@@ -31,13 +31,13 @@ export default function Footer() {
           <h4>Pages</h4>
           <ul>
             <li>
-              <a href="#menu">Menu</a>
+              <a href="/#menu">Menu</a>
             </li>
             <li>
-              <a href="#barbers">Barbers</a>
+              <a href="/barbers">Barbers</a>
             </li>
             <li>
-              <a href="#find">Location</a>
+              <a href="/#find">Location</a>
             </li>
           </ul>
         </div>

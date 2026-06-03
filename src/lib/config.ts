@@ -30,10 +30,36 @@ export const SHOP = {
   googleReviewCount: 127,
   googleReviewUrl: "https://g.page/royallook/review",
   googleMapsEmbed:
-    "https://maps.google.com/maps?q=777+Royal+Oak+Dr+%23530,+Victoria,+BC+V8X+4V1&t=&z=15&ie=UTF8&iwloc=&output=embed",
+    "https://maps.google.com/maps?q=48.496876336605936,-123.38071633357313&t=&z=17&ie=UTF8&iwloc=&output=embed",
   walkIns: true,
   landmarks: "",
-  areasServed: ["Downtown", "Fairfield", "Oak Bay", "Esquimalt", "Saanich"],
+  areasServed: [
+    "James Bay",
+    "Fernwood",
+    "Cook Street Village",
+    "Downtown / Inner Harbour",
+    "Fairfield & Rockland",
+    "Oak Bay",
+    "Jubilee",
+    "Hillside, Quadra & North Park",
+    "Mayfair",
+    "Vic West",
+    "Esquimalt",
+    "Gordon Head",
+    "Cadboro Bay",
+    "Saanich",
+    "Cordova Bay",
+    "Brentwood Bay",
+    "Sidney",
+    "Swartz Bay",
+    "Royal Oak",
+    "View Royal",
+    "Langford",
+    "Colwood",
+    "Metchosin",
+    "Sooke",
+    "Mill Bay",
+  ],
   social: {
     instagram: "https://www.instagram.com/royal10look/",
     facebook: "https://www.facebook.com/p/Royal-Look-barber-shop-61581458855102/",
@@ -228,37 +254,12 @@ export const POLICIES = [
 ];
 
 // ============================================================
-// BEFORE & AFTER
-// ============================================================
-
-export const BEFORE_AFTER = [
-  {
-    id: 1,
-    caption: "Skin Fade Transformation",
-    before: "/images/before-1.png",
-    after: "/images/after-1.png",
-  },
-  {
-    id: 2,
-    caption: "Beard Reshape + Lineup",
-    before: "/images/before-2.png",
-    after: "/images/after-2.png",
-  },
-  {
-    id: 3,
-    caption: "Textured Crop Fade",
-    before: "/images/before-3.png",
-    after: "/images/after-3.png",
-  },
-];
-
-// ============================================================
 // NAV LINKS
 // ============================================================
 
 export const NAV_LINKS_LEFT = [
   { label: "Services", href: "/services" },
-  { label: "Barbers", href: "/#barbers" },
+  { label: "Barbers", href: "/barbers" },
 ];
 
 export const NAV_LINKS_RIGHT = [

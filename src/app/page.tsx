@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero";
 import Menu from "@/components/ServiceHighlights";
-import Work from "@/components/BeforeAfterSlider";
+import Gallery from "@/components/Gallery";
 import FindUs from "@/components/LocationPreview";
 
 export default function HomePage() {
@@ -8,7 +8,7 @@ export default function HomePage() {
     <>
       <Hero />
       <Menu />
-      <Work />
+      <Gallery />
       <FindUs />
     </>
   );

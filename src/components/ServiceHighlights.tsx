@@ -1,15 +1,15 @@
 const MENU_CUTS = [
-  { name: "Skin Fade", dur: "45 min", price: 30 },
-  { name: "Regular Hair Cut", dur: "30 min", price: 28 },
-  { name: "Buzz Cut", dur: "15 min", price: 20 },
-  { name: "Kids", dur: "20 min", price: 25 },
-  { name: "Senior", dur: "30 min", price: 25 },
+  { name: "Skin Fade", price: 30 },
+  { name: "Regular Hair Cut", price: 28 },
+  { name: "Buzz Cut", price: 20 },
+  { name: "Kids", price: 25 },
+  { name: "Senior", price: 25 },
 ];
 
 const MENU_GROOMING = [
-  { name: "Hot Shave", dur: "30 min", price: 35 },
-  { name: "Trim Beard", dur: "20 min", price: 20 },
-  { name: "Hair Wash", dur: "10 min", price: 7 },
+  { name: "Hot Shave", price: 35 },
+  { name: "Trim Beard", price: 20 },
+  { name: "Hair Wash", price: 7 },
 ];
 
 export default function Menu() {
@@ -36,7 +36,6 @@ export default function Menu() {
             {MENU_CUTS.map((s) => (
               <div key={s.name} className="menu-row">
                 <span className="nm">{s.name}</span>
-                <span className="dur">{s.dur}</span>
                 <span className="pr serif">${s.price}</span>
               </div>
             ))}
@@ -47,7 +46,6 @@ export default function Menu() {
             {MENU_GROOMING.map((s) => (
               <div key={s.name} className="menu-row">
                 <span className="nm">{s.name}</span>
-                <span className="dur">{s.dur}</span>
                 <span className="pr serif">${s.price}</span>
               </div>
             ))}
@@ -61,7 +59,6 @@ export default function Menu() {
               }}
             >
               <span className="nm">Cut + Beard</span>
-              <span className="dur">60 min</span>
               <span className="pr serif">$48</span>
             </div>
           </div>

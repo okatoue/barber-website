@@ -32,17 +32,9 @@ export default function PoliciesPage() {
       {/* CTA */}
       <div className="text-center mt-12">
         <p className="text-text-muted text-sm mb-4">
-          Questions? Give us a call or book online.
+          Questions? Give us a call.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href={SHOP.booking.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            Book Now
-          </a>
           <a
             href={`tel:${SHOP.phone.replace(/[^+\d]/g, "")}`}
             className="btn-secondary"

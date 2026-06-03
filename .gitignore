@@ -19,3 +19,6 @@ nul
 /before *.png
 /after *.png
 /interior.jpg
+
+# original photos (the site serves resized copies from public/images/gallery/)
+/Pictures/
