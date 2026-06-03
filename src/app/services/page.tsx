@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Barber Services in Victoria, BC",
   description:
     "Haircuts, fades, beard trims, and grooming services in Victoria, BC. View our full service menu with prices and durations. Book online instantly.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

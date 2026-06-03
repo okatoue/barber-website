@@ -68,11 +68,31 @@ export default async function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BarberShop",
+              "@id": `${SHOP.siteUrl}/#barbershop`,
               name: SHOP.name,
               description: SHOP.description,
               url: SHOP.siteUrl,
               telephone: SHOP.phone,
               email: SHOP.email,
+              image: [
+                `${SHOP.siteUrl}/images/royal-look-interior.jpg`,
+                `${SHOP.siteUrl}/images/gallery/gallery-1.jpeg`,
+              ],
+              priceRange: "$",
+              foundingDate: SHOP.foundedYear,
+              currenciesAccepted: "CAD",
+              paymentAccepted:
+                "Cash, Debit, Visa, Mastercard, Apple Pay, Google Pay",
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: SHOP.coordinates.lat,
+                longitude: SHOP.coordinates.lng,
+              },
+              hasMap: `https://www.google.com/maps?q=${SHOP.coordinates.lat},${SHOP.coordinates.lng}`,
+              areaServed: SHOP.areasServed.map((a) => ({
+                "@type": "Place",
+                name: a,
+              })),
               address: {
                 "@type": "PostalAddress",
                 streetAddress: SHOP.address.street,
@@ -94,9 +114,11 @@ export default async function RootLayout({
                 ratingValue: stats.rating,
                 reviewCount: stats.reviewCount,
               },
-              sameAs: [SHOP.social.instagram, SHOP.social.facebook].filter(
-                Boolean
-              ),
+              sameAs: [
+                SHOP.social.instagram,
+                SHOP.social.facebook,
+                SHOP.googleBusinessUrl,
+              ].filter(Boolean),
             }),
           }}
         />

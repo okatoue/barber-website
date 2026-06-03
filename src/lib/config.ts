@@ -29,8 +29,11 @@ export const SHOP = {
   googleRating: "4.9",
   googleReviewCount: 127,
   googleReviewUrl: "https://g.page/royallook/review",
+  googleBusinessUrl: "https://share.google/4qBkDMqE3hSbidIZQ",
+  foundedYear: "2025",
   googleMapsEmbed:
     "https://maps.google.com/maps?q=48.496876336605936,-123.38071633357313&t=&z=17&ie=UTF8&iwloc=&output=embed",
+  coordinates: { lat: 48.496876336605936, lng: -123.38071633357313 },
   walkIns: true,
   landmarks: "",
   areasServed: [

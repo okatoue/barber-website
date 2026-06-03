@@ -22,3 +22,6 @@ nul
 
 # original photos (the site serves resized copies from public/images/gallery/)
 /Pictures/
+
+# source icon original (site uses src/app/icon.png + apple-icon.png)
+/Favicon.png

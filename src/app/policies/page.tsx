@@ -4,6 +4,7 @@ import { POLICIES, SHOP } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Policies",
   description: `${SHOP.name} booking policies — cancellations, late arrivals, no-shows, and payment information.`,
+  alternates: { canonical: "/policies" },
 };
 
 export default function PoliciesPage() {

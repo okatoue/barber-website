@@ -42,7 +42,7 @@ export default function Navbar() {
               height={724}
               priority
             />
-            <span className="crown">EST. VICTORIA</span>
+            <span className="crown">EST. {SHOP.foundedYear}</span>
           </Link>
           <div className="nav-links">
             {NAV_LINKS.map((link) => (
