@@ -4,72 +4,62 @@ import { SERVICES } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Barber Services in Victoria, BC",
   description:
-    "Haircuts, fades, beard trims, and grooming services in Victoria, BC. View our full service menu with prices and durations. Book online instantly.",
+    "Haircuts, fades, beard trims, and grooming services in Victoria, BC. View our full service menu with prices and durations. Walk in or call to book.",
   alternates: { canonical: "/services" },
+};
+
+const CATEGORY_SUBTITLES: Record<string, string> = {
+  Haircuts: "Clippers · scissors · the works",
+  Grooming: "Beards · shaves · finishing",
 };
 
 export default function ServicesPage() {
   return (
-    <div className="section">
-      <h1 className="section-heading">Barber Services in Victoria, BC</h1>
-      <p className="section-subheading">
-        Expert haircuts, fades, and beard grooming tailored to your style.
-        Not sure what to book? Choose &ldquo;Classic Cut&rdquo; and
-        we&rsquo;ll customize it for you.
-      </p>
+    <section className="section">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <div className="eyebrow">Our Menu · Victoria, BC</div>
+            <h1 className="serif">
+              Barber services in <em>Victoria.</em>
+            </h1>
+          </div>
+          <p className="lede">
+            Expert haircuts, fades, and beard grooming tailored to your style.
+            Not sure what to get? Choose &ldquo;Classic Cut&rdquo; and
+            we&rsquo;ll customize it for you.
+          </p>
+        </div>
 
-      <div className="max-w-4xl mx-auto space-y-12">
-        {SERVICES.map((category) => (
-          <div key={category.category}>
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <span className="w-2 h-8 bg-gold rounded-full" />
-              {category.category}
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="menu-grid">
+          {SERVICES.map((category) => (
+            <div className="menu-col" key={category.category}>
+              <h3 className="serif">{category.category}</h3>
+              {CATEGORY_SUBTITLES[category.category] && (
+                <div className="col-sub">
+                  {CATEGORY_SUBTITLES[category.category]}
+                </div>
+              )}
               {category.items.map((service) => (
-                <div
-                  key={service.name}
-                  className="card flex flex-col gap-4"
-                >
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-lg">{service.name}</h3>
-                    {service.description && (
-                      <p className="text-sm text-text-muted mt-1">
-                        {service.description}
-                      </p>
-                    )}
+                <div className="menu-row" key={service.name}>
+                  <div>
+                    <div className="nm">{service.name}</div>
+                    <div className="dur">{service.duration}</div>
                   </div>
-
-                  <div className="flex items-center gap-6 shrink-0">
-                    <div className="text-right">
-                      <span className="text-gold font-semibold">
-                        {service.price}
-                      </span>
-                      <br />
-                      <span className="text-xs text-text-muted">
-                        {service.duration}
-                      </span>
-                    </div>
-                  </div>
+                  <span className="pr serif">{service.price}</span>
                 </div>
               ))}
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Not sure CTA */}
-      <div className="max-w-4xl mx-auto mt-12">
-        <div className="card bg-gold/5 border-gold/20 text-center py-8">
-          <h3 className="text-lg font-semibold mb-2">Not sure what to book?</h3>
-          <p className="text-text-muted text-sm">
-            Choose &ldquo;Classic Cut&rdquo; or
-            &ldquo;Consultation&rdquo; and your barber will customize it for
-            you.
+        <div className="menu-foot">
+          <p className="note">
+            Walk in 7 days a week, or call ahead — every cut includes a quick
+            consultation so you leave with exactly the look you wanted.
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

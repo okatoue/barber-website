@@ -3,7 +3,7 @@ import { SHOP } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Location — Barber Shop in Victoria, BC",
-  description: `Visit ${SHOP.name} at ${SHOP.address.full}. Open 7 days a week. Book your appointment online.`,
+  description: `Visit ${SHOP.name} at ${SHOP.address.full}. Open 7 days a week. Walk in or call to book.`,
   alternates: { canonical: "/location" },
 };
 

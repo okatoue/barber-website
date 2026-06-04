@@ -8,7 +8,7 @@ const placeholderReviews = [
   {
     name: "Alex M.",
     rating: 5,
-    text: "Best barbershop in Victoria. Marcus always gives me a perfect fade. The vibe is great and booking through Fresha is so easy.",
+    text: "Best barbershop in Victoria. Marcus always gives me a perfect fade. The vibe is great and the whole team looks after you.",
     time: "2 weeks ago",
   },
   {

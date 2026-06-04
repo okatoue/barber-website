@@ -6,7 +6,7 @@ export const SHOP = {
   name: "Royal Look",
   tagline: "Premium Barber Shop in Victoria, BC",
   description:
-    "Modern fades, beard trims, and classic cuts. Book with your preferred barber in seconds.",
+    "Modern fades, beard trims, and classic cuts. Walk in 7 days a week or call to book your preferred barber.",
   phone: "(778) 430-0040",
   email: "royal10look@gmail.com",
   address: {
@@ -38,40 +38,19 @@ export const SHOP = {
   landmarks:
     "Inside Broadmead Village Shopping Centre, just to the left of Starbucks — with free parking in the lot right out front.",
   areasServed: [
-    "James Bay",
-    "Fernwood",
-    "Cook Street Village",
-    "Downtown / Inner Harbour",
-    "Fairfield & Rockland",
-    "Oak Bay",
-    "Jubilee",
-    "Hillside, Quadra & North Park",
-    "Mayfair",
-    "Vic West",
-    "Esquimalt",
+    "Royal Oak",
+    "Broadmead",
+    "Cordova Bay",
     "Gordon Head",
     "Cadboro Bay",
     "Saanich",
-    "Cordova Bay",
-    "Brentwood Bay",
-    "Sidney",
-    "Swartz Bay",
-    "Royal Oak",
-    "View Royal",
-    "Langford",
-    "Colwood",
-    "Metchosin",
-    "Sooke",
-    "Mill Bay",
+    "Oak Bay",
+    "Victoria",
   ],
   social: {
     instagram: "https://www.instagram.com/royal10look/",
     facebook: "https://www.facebook.com/p/Royal-Look-barber-shop-61581458855102/",
     tiktok: "",
-  },
-  booking: {
-    url: "https://www.fresha.com/book-now/royal-look-victoria",
-    label: "Book Now",
   },
   siteUrl: "https://royallook.ca",
 } as const;
@@ -167,7 +146,6 @@ export type Barber = {
   bio: string;
   specialties: string[];
   image: string;
-  bookingUrl: string;
 };
 
 export const BARBERS: Barber[] = [
@@ -178,8 +156,6 @@ export const BARBERS: Barber[] = [
     bio: "",
     specialties: ["Skin Fades", "Modern Styles", "Designs"],
     image: "/images/barber-marcus.jpg",
-    bookingUrl:
-      "https://www.fresha.com/book-now/royal-look-victoria?staff=zakaria",
   },
   {
     name: "Aymen",
@@ -188,8 +164,6 @@ export const BARBERS: Barber[] = [
     bio: "",
     specialties: ["Scissor Cuts", "Classic Styles", "Beards"],
     image: "/images/barber-james.jpg",
-    bookingUrl:
-      "https://www.fresha.com/book-now/royal-look-victoria?staff=aymen",
   },
 ];
 
@@ -201,7 +175,7 @@ export const FAQ_ITEMS = [
   {
     question: "Do you take walk-ins?",
     answer:
-      "Yes! We welcome walk-ins whenever we have availability. For guaranteed times, we recommend booking online through Fresha — it takes about 30 seconds.",
+      "Yes! We welcome walk-ins whenever we have availability.",
   },
   {
     question: "What's the difference between a fade and a taper?",
@@ -216,44 +190,12 @@ export const FAQ_ITEMS = [
   {
     question: "What's your cancellation policy?",
     answer:
-      "We ask for at least 12 hours' notice if you need to cancel or reschedule. Late cancellations or no-shows may incur a fee. You can manage your booking anytime through Fresha.",
+      "We ask for at least 12 hours' notice if you need to cancel or reschedule. Late cancellations or no-shows may incur a fee. Just give us a call to cancel or reschedule.",
   },
   {
     question: "Do you cut kids' hair?",
     answer:
       "Absolutely. We take kids aged 3 and up. Our barbers are patient and experienced with young clients. Kids cuts start at $25.",
-  },
-];
-
-// ============================================================
-// POLICIES
-// ============================================================
-
-export const POLICIES = [
-  {
-    title: "Late Arrivals",
-    content:
-      "If you're more than 10 minutes late, your appointment may need to be rescheduled to avoid impacting other clients. Please call us if you're running behind and we'll do our best to accommodate you.",
-  },
-  {
-    title: "Cancellations",
-    content:
-      "We require at least 12 hours' notice for cancellations or reschedules. You can manage your booking anytime through Fresha. Late cancellations (under 12 hours) may be charged 50% of the service fee.",
-  },
-  {
-    title: "No-Shows",
-    content:
-      "Missed appointments without notice will be charged the full service fee. Repeated no-shows may require a deposit for future bookings. We understand things come up — just let us know in advance.",
-  },
-  {
-    title: "Kids",
-    content:
-      "We welcome children aged 3 and up. A parent or guardian must remain in the shop during the appointment. Kids who are unable to sit still may need to reschedule for another day.",
-  },
-  {
-    title: "Payment",
-    content:
-      "We accept cash, debit, Visa, Mastercard, and Apple Pay / Google Pay. All payments are handled in-shop at the time of service. Tips are appreciated but never expected.",
   },
 ];
 

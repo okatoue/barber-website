@@ -54,6 +54,12 @@ export default function FindUs() {
 
             {SHOP.landmarks && <p className="find-note">{SHOP.landmarks}</p>}
 
+            <p className="find-note">
+              Easy to reach from anywhere in Greater Victoria — we&rsquo;re a
+              quick trip for Royal Oak, Broadmead, Cordova Bay, Gordon Head,
+              Saanich, Oak Bay and beyond.
+            </p>
+
             <OpenStatus variant="pill" />
 
             <div className="hours-grid">

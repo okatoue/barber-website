@@ -3,14 +3,14 @@ import { BARBERS, SHOP, type Barber } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Our Barbers",
-  description: `Meet the barbers at ${SHOP.name} in ${SHOP.address.city}, ${SHOP.address.province} — experienced in skin fades, classic cuts, beards, and hot shaves. Book with your preferred barber online.`,
+  description: `Meet the barbers at ${SHOP.name} in ${SHOP.address.city}, ${SHOP.address.province} — experienced in skin fades, classic cuts, beards, and hot shaves. Walk in or call to book with your preferred barber.`,
   alternates: { canonical: "/barbers" },
 };
 
 function blurb(b: Barber): string {
   if (b.bio) return b.bio;
   const specs = b.specialties.slice(0, 3).join(", ").toLowerCase();
-  return `${b.name} brings ${b.years} on the chair to ${SHOP.name}, with a focus on ${specs}. Book in for a cut dialed to exactly what you're after.`;
+  return `${b.name} brings ${b.years} on the chair to ${SHOP.name}, with a focus on ${specs}. Come in for a cut dialed to exactly what you're after.`;
 }
 
 const teamJsonLd = {
