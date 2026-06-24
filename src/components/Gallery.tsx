@@ -2,21 +2,54 @@ import Image from "next/image";
 import { SHOP } from "@/lib/config";
 
 const PHOTOS = [
-  { src: "/images/gallery/gallery-1.jpeg", alt: "Mid skin fade and beard lineup" },
-  { src: "/images/gallery/gallery-2.jpeg", alt: "Kids cut" },
-  { src: "/images/gallery/gallery-3.jpeg", alt: "Kids cut" },
-  { src: "/images/gallery/gallery-4.jpeg", alt: "Low skin fade" },
-  { src: "/images/gallery/gallery-5.jpeg", alt: "Mid skin fade" },
-  { src: "/images/gallery/gallery-6.jpeg", alt: "Regular haircut" },
+  {
+    src: "/images/gallery/gallery-1.jpeg",
+    alt: "Mid skin fade with a sharp beard lineup at Royal Look Barber Shop in Broadmead Village, Saanich",
+  },
+  {
+    src: "/images/gallery/gallery-2.jpeg",
+    alt: "Kids' haircut in progress at a Broadmead barbershop in Saanich",
+  },
+  {
+    src: "/images/gallery/gallery-3.jpeg",
+    alt: "Young boy getting a fresh haircut at Royal Look Barber Shop near Royal Oak",
+  },
+  {
+    src: "/images/gallery/gallery-4.jpeg",
+    alt: "Low skin fade haircut at Royal Look Barber Shop in Broadmead Village, Saanich",
+  },
+  {
+    src: "/images/gallery/gallery-5.jpeg",
+    alt: "Mid skin fade finished at a barbershop near Royal Oak, Saanich",
+  },
+  {
+    src: "/images/gallery/gallery-6.jpeg",
+    alt: "Classic men's haircut at Royal Look Barber Shop in Broadmead Village, Victoria BC",
+  },
   {
     src: "/images/gallery/gallery-7.jpeg",
-    alt: "Low skin fade, kids cut, hair design and hair dye",
+    alt: "Skin fade with a custom hair design and colour at a Broadmead barbershop in Saanich",
   },
-  { src: "/images/gallery/gallery-8.jpeg", alt: "Low skin fade and beard lineup" },
-  { src: "/images/gallery/gallery-11.jpeg", alt: "High skin fade and beard lineup" },
-  { src: "/images/gallery/gallery-12.jpeg", alt: "Low skin fade" },
-  { src: "/images/gallery/gallery-9.jpg", alt: "Hot towel shave" },
-  { src: "/images/gallery/gallery-10.jpg", alt: "Hot towel shave" },
+  {
+    src: "/images/gallery/gallery-8.jpeg",
+    alt: "Low skin fade and beard lineup at Royal Look Barber Shop near Royal Oak",
+  },
+  {
+    src: "/images/gallery/gallery-11.jpeg",
+    alt: "High skin fade with a beard lineup at Royal Look Barber Shop in Broadmead Village, Saanich",
+  },
+  {
+    src: "/images/gallery/gallery-12.jpeg",
+    alt: "Side view of a low skin fade at a barbershop in Broadmead Village, Saanich",
+  },
+  {
+    src: "/images/gallery/gallery-9.jpg",
+    alt: "Straight razor hot towel shave at Royal Look Barber Shop, Royal Oak",
+  },
+  {
+    src: "/images/gallery/gallery-10.jpg",
+    alt: "Hot towel shave finished with a straight razor at a Broadmead barbershop",
+  },
 ];
 
 export default function Gallery() {
@@ -41,7 +74,7 @@ export default function Gallery() {
             <div key={p.src} className="gallery-item">
               <Image
                 src={p.src}
-                alt={`${p.alt} — ${SHOP.name}, ${SHOP.address.city}, ${SHOP.address.province}`}
+                alt={p.alt}
                 fill
                 sizes="(min-width: 980px) 25vw, (min-width: 681px) 33vw, 50vw"
                 loading={i < 4 ? "eager" : "lazy"}

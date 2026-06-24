@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
 import { SHOP } from "@/lib/config";
-import { getGoogleStats } from "@/lib/google-reviews";
 import "./globals.css";
 
 const geist = Geist({
@@ -29,19 +28,22 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const HOME_DESCRIPTION =
+  "Royal Look Barber Shop in Broadmead Village, Saanich. Skin fades, beard trims, straight razor and hot towel shaves, kids' cuts. Call 778-430-0040 to book.";
+
 export const metadata: Metadata = {
   title: {
-    default: `${SHOP.name} — Barber Shop in Victoria, BC`,
+    default: "Barber in Broadmead Village | Royal Look Barber Shop",
     template: `%s | ${SHOP.name}`,
   },
-  description: SHOP.description,
+  description: HOME_DESCRIPTION,
   metadataBase: new URL(SHOP.siteUrl),
   openGraph: {
     type: "website",
     locale: "en_CA",
     siteName: SHOP.name,
-    title: `${SHOP.name} — Barber Shop in Victoria, BC`,
-    description: SHOP.description,
+    title: "Barber in Broadmead Village | Royal Look Barber Shop",
+    description: HOME_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
@@ -56,7 +58,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const stats = await getGoogleStats();
   return (
     <html
       lang="en"
@@ -70,7 +71,7 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "BarberShop",
               "@id": `${SHOP.siteUrl}/#barbershop`,
-              name: SHOP.name,
+              name: "Royal Look Barber Shop",
               description: SHOP.description,
               url: SHOP.siteUrl,
               telephone: SHOP.phone,
@@ -110,11 +111,6 @@ export default async function RootLayout({
                   opens: h.open,
                   closes: h.close,
                 })),
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: stats.rating,
-                reviewCount: stats.reviewCount,
-              },
               sameAs: [
                 SHOP.social.instagram,
                 SHOP.social.facebook,

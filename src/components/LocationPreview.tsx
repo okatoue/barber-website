@@ -37,7 +37,7 @@ export default function FindUs() {
           </div>
 
           <div className="find-info">
-            <h3 className="serif">{SHOP.name} Barber Shop</h3>
+            <h3 className="serif">{SHOP.name}</h3>
             <div className="addr">
               {SHOP.address.street}
               <br />

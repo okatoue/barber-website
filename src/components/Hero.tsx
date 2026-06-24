@@ -11,13 +11,16 @@ export default async function Hero() {
           <div className="hero-copy">
             <div className="eyebrow">BROADMEAD VILLAGE SHOPPING CENTRE · VICTORIA, BC</div>
             <h1 className="serif">
-              Best fade in <em>Victoria</em>,
-              <br />
-              without the wait.
+              Royal Look Barber Shop — Your Barber in{" "}
+              <em>Broadmead Village</em>, Saanich
             </h1>
             <p className="lede">
-              Skin fades, scissor cuts, hot shaves. Broadmead Village Shopping
-              Centre, seven days a week.
+              Looking for a barber in Broadmead or Royal Oak? Royal Look Barber
+              Shop offers precision haircuts, skin fades, beard trims, and
+              traditional straight razor and hot towel shaves for men and kids
+              across Saanich and Greater Victoria. Walk in any day, or call
+              ahead to book your preferred barber — we&rsquo;ll get you looking
+              sharp.
             </p>
             <div className="hero-cta-row">
               <a

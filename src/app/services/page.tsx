@@ -13,6 +13,44 @@ const CATEGORY_SUBTITLES: Record<string, string> = {
   Grooming: "Beards · shaves · finishing",
 };
 
+const SERVICE_DETAILS: { name: string; description: string }[] = [
+  {
+    name: "Skin Fade",
+    description:
+      "A skin fade blended by hand for a sharp, clean finish — low, mid, or high, cut to how you like it. Popular with guys across Broadmead and Royal Oak who want a look that grows out clean.",
+  },
+  {
+    name: "Haircut & Fade",
+    description:
+      "Classic men's haircuts finished with a tapered or faded edge, tailored to your preference. A neighbourhood cut for Broadmead Village and the wider Saanich area.",
+  },
+  {
+    name: "Beard Trim",
+    description:
+      "Beard shaping and trims that keep your facial hair tidy and defined. Finished with a clean lineup along the cheeks and neck.",
+  },
+  {
+    name: "Straight Razor Shave",
+    description:
+      "A traditional straight razor shave for the closest, smoothest finish you can get. A real barbershop experience most quick-cut chains nearby don't offer.",
+  },
+  {
+    name: "Hot Towel Shave",
+    description:
+      "Warm lather and a hot towel to soften the skin, finished with a straight razor. Relaxing, precise, and one of the standout services at the shop.",
+  },
+  {
+    name: "Kids' Haircut",
+    description:
+      "Patient, friendly haircuts for kids and teens, whether it's a first cut or a regular trim for school. A no-stress chair for younger clients in the Broadmead and Royal Oak community.",
+  },
+  {
+    name: "Beard Lineup / Edge-Up",
+    description:
+      "Crisp edge-ups for your hairline and beard, finished with detail. Quick and sharp to keep you tidy between full cuts.",
+  },
+];
+
 export default function ServicesPage() {
   return (
     <section className="section">
@@ -58,6 +96,38 @@ export default function ServicesPage() {
             Walk in 7 days a week, or call ahead — every cut includes a quick
             consultation so you leave with exactly the look you wanted.
           </p>
+        </div>
+
+        <div className="section-head" style={{ marginTop: 80 }}>
+          <div>
+            <div className="eyebrow">What we do · Broadmead &amp; Royal Oak</div>
+            <h2 className="serif">Our services in detail</h2>
+          </div>
+        </div>
+
+        <div className="menu-col" style={{ maxWidth: 820 }}>
+          {SERVICE_DETAILS.map((service, i) => (
+            <div
+              key={service.name}
+              style={{
+                padding: "22px 0",
+                borderTop: i === 0 ? "none" : "1px dashed var(--hairline)",
+              }}
+            >
+              <h3 className="serif">{service.name}</h3>
+              <p
+                style={{
+                  margin: "8px 0 0",
+                  color: "var(--muted)",
+                  fontSize: 16,
+                  lineHeight: 1.55,
+                  maxWidth: "62ch",
+                }}
+              >
+                {service.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
