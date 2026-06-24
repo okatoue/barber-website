@@ -23,6 +23,7 @@ export default async function Hero() {
               <a
                 href={`tel:${SHOP.phone.replace(/\D/g, "")}`}
                 className="btn btn-ghost"
+                data-call-location="hero"
               >
                 Call {SHOP.phone}
               </a>

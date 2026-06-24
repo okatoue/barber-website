@@ -23,7 +23,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href={`tel:${SHOP.phone.replace(/\D/g, "")}`}>{SHOP.phone}</a>
+              <a href={`tel:${SHOP.phone.replace(/\D/g, "")}`} data-call-location="footer">{SHOP.phone}</a>
             </li>
           </ul>
         </div>

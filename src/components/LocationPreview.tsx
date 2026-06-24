@@ -47,6 +47,7 @@ export default function FindUs() {
               <a
                 href={`tel:${SHOP.phone.replace(/\D/g, "")}`}
                 style={{ color: "var(--accent)" }}
+                data-call-location="home_find"
               >
                 {SHOP.phone}
               </a>

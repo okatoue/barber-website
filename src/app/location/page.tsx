@@ -49,6 +49,7 @@ export default function LocationPage() {
                 <a
                   href={`tel:${SHOP.phone.replace(/[^+\d]/g, "")}`}
                   className="text-gold hover:text-gold-light transition-colors"
+                  data-call-location="location_page_address"
                 >
                   {SHOP.phone}
                 </a>
@@ -120,6 +121,7 @@ export default function LocationPage() {
           <a
             href={`tel:${SHOP.phone.replace(/[^+\d]/g, "")}`}
             className="btn-secondary px-8 py-4"
+            data-call-location="location_page_cta"
           >
             Call {SHOP.phone}
           </a>
