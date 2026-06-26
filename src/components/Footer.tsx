@@ -44,11 +44,19 @@ export default function Footer() {
         <div>
           <h4>Areas Served</h4>
           <ul>
-            {SHOP.areasServed.map((area) => (
-              <li key={area}>
-                <a>{area}</a>
-              </li>
-            ))}
+            {SHOP.areasServed.map((area) => {
+              const href =
+                area === "Royal Oak"
+                  ? "/royal-oak-barber-shop"
+                  : area === "Saanich"
+                  ? "/beard-trim-saanich"
+                  : undefined;
+              return (
+                <li key={area}>
+                  <a href={href}>{area}</a>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className="ft-bottom">
