@@ -14,13 +14,12 @@ Show up in local search for the neighbourhoods Royal Look serves and make it dea
 
 <!-- Shipped and confirmed valuable. -->
 
-(None yet — ship to validate)
+- [x] Local-SEO landing pages for the areas/services Royal Look targets — `/royal-oak-barber-shop` + `/beard-trim-saanich` (SEO-01..08). *Shipped in Phase 1; local-ranking impact to be confirmed over time.*
 
 ### Active
 
 <!-- Current scope. Building toward these. -->
 
-- [ ] Local-SEO landing pages for the areas/services Royal Look targets (see REQUIREMENTS.md)
 - [ ] Dedicated FAQ page with FAQPage schema covering BrightLocal's seven topics (see REQUIREMENTS.md)
 - [ ] Google Business Profile services audit + alignment with the website menu (off-site; see REQUIREMENTS.md)
 
@@ -51,9 +50,9 @@ Show up in local search for the neighbourhoods Royal Look serves and make it dea
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Homepage remains the primary "Barber in Broadmead Village" page; no separate Broadmead landing page | Homepage is the strongest page and already titled for that query; a duplicate would split ranking signals (cannibalization) | — Pending |
-| Build area/service landing pages from one reusable, data-driven component | Keeps the two pages (and future areas) consistent and cheap to extend | — Pending |
+| Homepage remains the primary "Barber in Broadmead Village" page; no separate Broadmead landing page | Homepage is the strongest page and already titled for that query; a duplicate would split ranking signals (cannibalization) | Applied in Phase 1 — shipped Royal Oak + Saanich pages, no Broadmead page |
+| Build area/service landing pages from one reusable, data-driven component | Keeps the two pages (and future areas) consistent and cheap to extend | Applied in Phase 1 — single `LandingPage.tsx` renders both routes from `landing.ts` data |
 | Dedicated `/faq` page owns the full FAQ set + FAQPage schema; homepage FAQ becomes a curated subset | The homepage already emits FAQPage schema from `FAQ_ITEMS`; a second identical block would duplicate. Keep one full indexable page and a trimmed homepage teaser | — Pending |
 
 ---
-*Last updated: 2026-06-26 after bootstrapping GSD planning for the local-SEO landing-page work*
+*Last updated: 2026-06-26 — Phase 1 complete (two local-SEO landing pages shipped & verified)*
