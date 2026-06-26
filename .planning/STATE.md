@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed RL-01-01-PLAN.md — foundation data layer done
-last_updated: "2026-06-26T10:06:31.226Z"
+stopped_at: Completed RL-01-02-PLAN.md — LandingPage.tsx component done
+last_updated: "2026-06-26T10:30:00.000Z"
 last_activity: 2026-06-26
 progress:
   total_phases: 3
   completed_phases: 0
   total_plans: 4
-  completed_plans: 1
-  percent: 0
+  completed_plans: 2
+  percent: 50
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-06-26)
 ## Current Position
 
 Phase: 01 (local-seo-landing-pages-royal-oak-saanich) — EXECUTING
-Plan: 2 of 4
+Plan: 3 of 4
 Status: Ready to execute
 Last activity: 2026-06-26
 
-Progress: [███░░░░░░░] 25%
+Progress: [█████░░░░░] 50%
 
 ## Performance Metrics
 
@@ -49,6 +49,7 @@ Progress: [███░░░░░░░] 25%
 ## Accumulated Context
 
 | Phase RL-01 P01 | 12 | 3 tasks | 3 files |
+| Phase RL-01 P02 | 10 | 2 tasks | 1 file |
 
 ### Roadmap Evolution
 
@@ -64,6 +65,8 @@ Recent decisions affecting current work:
 - Phase 1: Homepage remains the primary "Barber in Broadmead Village" page — no separate Broadmead landing page (avoid cannibalization).
 - Phase 1: Build the area/service pages from one reusable, data-driven landing-page component.
 - Phase 2: Dedicated `/faq` owns the full FAQ set + FAQPage schema; homepage FAQ becomes a curated subset (homepage already emits FAQPage schema, so avoid a duplicate identical block).
+- Phase 1 (P02): JSON-LD Service.provider emits only @id pointer to #barbershop — no duplicate BarberShop node
+- Phase 1 (P02): h1Emphasis carries trailing period; component strips it to find split point in h1
 - [Phase ?]: Config-sourced pricing for landing pages
 - [Phase ?]: Separate landmark fields per landing page context
 
@@ -83,5 +86,5 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-26T10:06:31.213Z
-Stopped at: Completed RL-01-01-PLAN.md — foundation data layer done
+Last session: 2026-06-26T10:30:00.000Z
+Stopped at: Completed RL-01-02-PLAN.md — LandingPage.tsx component done

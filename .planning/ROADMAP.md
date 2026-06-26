@@ -41,7 +41,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 01-02-PLAN.md — Reusable `LandingPage` Server Component: header/intro/config-priced services + map/NAP/hours/Call CTA + per-page JSON-LD `@graph`
+- [x] 01-02-PLAN.md — Reusable `LandingPage` Server Component: header/intro/config-priced services + map/NAP/hours/Call CTA + per-page JSON-LD `@graph`
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
@@ -96,6 +96,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Local SEO Landing Pages — Royal Oak & Saanich | 1/4 | In Progress|  |
+| 1. Local SEO Landing Pages — Royal Oak & Saanich | 2/4 | In Progress|  |
 | 2. FAQ Page with FAQPage Schema | 0/TBD | Not started | - |
 | 3. Google Business Profile Services Alignment | 0/TBD | Not started | - |
