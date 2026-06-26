@@ -1,0 +1,67 @@
+Plan 01-04 Task 1 — Full Build + Per-Requirement Assertion Log
+Executed: 2026-06-26
+Branch: feat/local-seo-landing-pages
+
+BUILD
+  npm run build exit code: 0
+  Pages generated: 13 (including /royal-oak-barber-shop and /beard-trim-saanich)
+
+OUTPUT PATHS (actual Next.js static export layout)
+  HTML: out/royal-oak-barber-shop.html
+  HTML: out/beard-trim-saanich.html
+  Sitemap: out/sitemap.xml
+  Note: Next.js output: "export" produces flat .html files, not /slug/index.html
+
+SEO-01 — Royal Oak page: H1, landmark, skin, kids
+  PASS  "Royal Oak Barber Shop" present
+  PASS  "Royal Oak Transit Exchange" present
+  PASS  "skin" present
+  PASS  "kids" present
+
+SEO-02 — Saanich page: H1, beard, hot/straight razor
+  PASS  "Beard Trim in Saanich" present
+  PASS  "beard" present
+  PASS  "hot" (hot-towel straight-razor) present
+
+SEO-04 — Prices from config (not hardcoded)
+  PASS  Royal Oak: $30 (Skin Fade)
+  PASS  Royal Oak: $25 (Kids)
+  PASS  Saanich:   $20 (Trim Beard)
+  PASS  Saanich:   $35 (Hot Shave)
+
+SEO-05 — Map + NAP + tel: CTA with data-call-location
+  PASS  Royal Oak: maps.google.com/maps?q= present
+  PASS  Royal Oak: "777 Royal Oak Dr" present
+  PASS  Royal Oak: href="tel: present
+  PASS  Royal Oak: data-call-location present
+  PASS  Royal Oak: "royal_oak_page_cta" present
+  PASS  Saanich:   maps.google.com/maps?q= present
+  PASS  Saanich:   "777 Royal Oak Dr" present
+  PASS  Saanich:   href="tel: present
+  PASS  Saanich:   data-call-location present
+  PASS  Saanich:   "saanich_beard_page_cta" present
+
+SEO-06 — Canonical + JSON-LD with #barbershop reference
+  PASS  Royal Oak: canonical "https://royallook.ca/royal-oak-barber-shop"
+  PASS  Royal Oak: application/ld+json script present
+  PASS  Royal Oak: #barbershop reference present (provider @id pointer only, no duplicate BarberShop node)
+  PASS  Saanich:   canonical "https://royallook.ca/beard-trim-saanich"
+  PASS  Saanich:   application/ld+json script present
+  PASS  Saanich:   #barbershop reference present (provider @id pointer only, no duplicate BarberShop node)
+
+SEO-07 — Design classes / no stale tokens
+  PASS  Royal Oak: section, container, section-head, find-grid, find-map, find-info all present
+  PASS  Royal Oak: text-gold absent, bg-surface absent, border-border absent
+  PASS  Saanich:   section, container, section-head, find-grid, find-map, find-info all present
+  PASS  Saanich:   text-gold absent, bg-surface absent, border-border absent
+
+SEO-08 — Sitemap contains both URLs
+  PASS  out/sitemap.xml contains "royallook.ca/royal-oak-barber-shop"
+  PASS  out/sitemap.xml contains "royallook.ca/beard-trim-saanich"
+
+COMPOSITE ASSERTION (plan verify command)
+  PASS  All greppable assertions combined
+
+RESULT: ALL SEO-01..SEO-08 AUTOMATED ASSERTIONS PASS
+        Build exits 0 — clean static export confirmed.
+        Awaiting human checkpoint (Task 2): external JSON-LD validation + intro uniqueness/quality review.
