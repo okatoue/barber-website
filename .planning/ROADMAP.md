@@ -45,7 +45,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 01-03-PLAN.md — Route pages (`/royal-oak-barber-shop`, `/beard-trim-saanich`) with metadata + canonical, sitemap entries, and Footer internal links
+- [x] 01-03-PLAN.md — Route pages (`/royal-oak-barber-shop`, `/beard-trim-saanich`) with metadata + canonical, sitemap entries, and Footer internal links
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
@@ -96,6 +96,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Local SEO Landing Pages — Royal Oak & Saanich | 2/4 | In Progress|  |
+| 1. Local SEO Landing Pages — Royal Oak & Saanich | 3/4 | In Progress|  |
 | 2. FAQ Page with FAQPage Schema | 0/TBD | Not started | - |
 | 3. Google Business Profile Services Alignment | 0/TBD | Not started | - |

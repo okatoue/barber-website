@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed RL-01-02-PLAN.md — LandingPage.tsx component done
-last_updated: "2026-06-26T10:30:00.000Z"
+stopped_at: Completed RL-01-03-PLAN.md — routes, sitemap, and footer links done
+last_updated: "2026-06-26T10:19:00.000Z"
 last_activity: 2026-06-26
 progress:
   total_phases: 3
   completed_phases: 0
   total_plans: 4
-  completed_plans: 2
-  percent: 50
+  completed_plans: 3
+  percent: 75
 ---
 
 # Project State
@@ -26,30 +26,31 @@ See: .planning/PROJECT.md (updated 2026-06-26)
 ## Current Position
 
 Phase: 01 (local-seo-landing-pages-royal-oak-saanich) — EXECUTING
-Plan: 3 of 4
+Plan: 4 of 4
 Status: Ready to execute
 Last activity: 2026-06-26
 
-Progress: [█████░░░░░] 50%
+Progress: [███████░░░] 75%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 0
-- Average duration: — min
-- Total execution time: 0 hours
+- Total plans completed: 3
+- Average duration: 8.7 min
+- Total execution time: ~26 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| RL-01 | 3 | ~26 min | ~8.7 min |
 
 ## Accumulated Context
 
 | Phase RL-01 P01 | 12 | 3 tasks | 3 files |
 | Phase RL-01 P02 | 10 | 2 tasks | 1 file |
+| Phase RL-01 P03 | 4  | 3 tasks | 4 files |
 
 ### Roadmap Evolution
 
@@ -67,6 +68,8 @@ Recent decisions affecting current work:
 - Phase 2: Dedicated `/faq` owns the full FAQ set + FAQPage schema; homepage FAQ becomes a curated subset (homepage already emits FAQPage schema, so avoid a duplicate identical block).
 - Phase 1 (P02): JSON-LD Service.provider emits only @id pointer to #barbershop — no duplicate BarberShop node
 - Phase 1 (P02): h1Emphasis carries trailing period; component strips it to find split point in h1
+- Phase 1 (P03): metadata.title uses bare page title only — layout template appends brand suffix, no double-branding
+- Phase 1 (P03): Footer href computed inline in the map (undefined for non-targeted areas) — minimal diff
 - [Phase ?]: Config-sourced pricing for landing pages
 - [Phase ?]: Separate landmark fields per landing page context
 
@@ -86,5 +89,5 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-26T10:30:00.000Z
-Stopped at: Completed RL-01-02-PLAN.md — LandingPage.tsx component done
+Last session: 2026-06-26T10:19:00.000Z
+Stopped at: Completed RL-01-03-PLAN.md — routes, sitemap, and footer links done
