@@ -13,7 +13,7 @@ The site already ranks for its brand and homepage targets "Barber in Broadmead V
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Local SEO Landing Pages — Royal Oak & Saanich** - Two unique area/service landing pages with the full local-SEO checklist
+- [x] **Phase 1: Local SEO Landing Pages — Royal Oak & Saanich** - Two unique area/service landing pages with the full local-SEO checklist (completed 2026-06-26)
 - [ ] **Phase 2: FAQ Page with FAQPage Schema** - Dedicated, indexable FAQ page covering BrightLocal's seven topics, with FAQPage structured data
 - [ ] **Phase 3: Google Business Profile Services Alignment** - Audit current GBP, reconcile with the website menu, produce five paste-ready service entries
 
@@ -49,7 +49,7 @@ Plans:
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
-- [ ] 01-04-PLAN.md — Build verification + sign-off: full static build, SEO-01..08 assertions over `out/`, external JSON-LD + intro-uniqueness human checkpoint
+- [x] 01-04-PLAN.md — Build verification + sign-off: full static build, SEO-01..08 assertions over `out/`, external JSON-LD + intro-uniqueness human checkpoint
 
 ### Phase 2: FAQ Page with FAQPage Schema
 
@@ -96,6 +96,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Local SEO Landing Pages — Royal Oak & Saanich | 3/4 | In Progress|  |
+| 1. Local SEO Landing Pages — Royal Oak & Saanich | 4/4 | Complete   | 2026-06-26 |
 | 2. FAQ Page with FAQPage Schema | 0/TBD | Not started | - |
 | 3. Google Business Profile Services Alignment | 0/TBD | Not started | - |

@@ -14,9 +14,9 @@ Requirements for the current milestone (local-SEO landing pages). Each maps to a
 - [x] **SEO-03**: Each page has a unique 150–250 word intro written for its area/service — no copy shared between pages or with the homepage (avoids thin/duplicate content).
 - [x] **SEO-04**: Each page surfaces the relevant services and prices from `SERVICES` in `src/lib/config.ts` (not hardcoded duplicates).
 - [ ] **SEO-05**: Each page embeds the Google Map (`SHOP.googleMapsEmbed`), shows NAP, and has obvious call/book CTAs (`tel:` links with analytics `data-call-location`).
-- [ ] **SEO-06**: Each page sets a per-page canonical and emits valid `Service` / `LocalBusiness` JSON-LD structured data.
+- [x] **SEO-06**: Each page sets a per-page canonical and emits valid `Service` / `LocalBusiness` JSON-LD structured data.
 - [x] **SEO-07**: The pages are built from one reusable, data-driven landing-page component and match the existing design system (`section`, `container`, `section-head`, `eyebrow`, `serif`, `lede`, `card`, `btn-secondary`, `find-*`).
-- [ ] **SEO-08**: Both routes are added to `src/app/sitemap.ts`, and `npm run build` completes a clean static export including the two new routes.
+- [x] **SEO-08**: Both routes are added to `src/app/sitemap.ts`, and `npm run build` completes a clean static export including the two new routes.
 
 ### FAQ Page
 
@@ -64,9 +64,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SEO-03 | Phase 1 | Complete |
 | SEO-04 | Phase 1 | Complete |
 | SEO-05 | Phase 1 | Pending |
-| SEO-06 | Phase 1 | Pending |
+| SEO-06 | Phase 1 | Complete |
 | SEO-07 | Phase 1 | Complete |
-| SEO-08 | Phase 1 | Pending |
+| SEO-08 | Phase 1 | Complete |
 | FAQ-01 | Phase 2 | Pending |
 | FAQ-02 | Phase 2 | Pending |
 | FAQ-03 | Phase 2 | Pending |
