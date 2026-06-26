@@ -37,6 +37,8 @@ export const SHOP = {
   walkIns: true,
   landmarks:
     "Inside Broadmead Village Shopping Centre, just to the left of Starbucks — with free parking in the lot right out front.",
+  landmarkRoyalOak:
+    "Steps from Royal Oak Transit Exchange (BC Transit hub on Royal Oak Drive) — and right inside Broadmead Village Shopping Centre.",
   areasServed: [
     "Royal Oak",
     "Broadmead",
