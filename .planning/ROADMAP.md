@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Local SEO Landing Pages — Royal Oak & Saanich** - Two unique area/service landing pages with the full local-SEO checklist (completed 2026-06-26)
 - [x] **Phase 2: FAQ Page with FAQPage Schema** - Dedicated, indexable FAQ page covering BrightLocal's seven topics, with FAQPage structured data (completed 2026-06-27)
-- [ ] **Phase 3: Google Business Profile Services Alignment** - Audit current GBP, reconcile with the website menu, produce five paste-ready service entries
+- [x] **Phase 3: Google Business Profile Services Alignment** - Audit current GBP, reconcile with the website menu, produce five paste-ready service entries (completed 2026-06-27)
 
 ## Phase Details
 
@@ -99,7 +99,7 @@ Plans:
 
 **Wave 1**
 
-- [ ] 03-01-PLAN.md — Author + self-verify the paste-ready 03-GBP-ALIGNMENT.md deliverable: current GBP state, GBP-vs-site gap table, all 8 paste-ready service entries (no phone/URL), and the no-rename / category / review-count / eyebrow-trim decision notes
+- [x] 03-01-PLAN.md — Author + self-verify the paste-ready 03-GBP-ALIGNMENT.md deliverable: current GBP state, GBP-vs-site gap table, all 8 paste-ready service entries (no phone/URL), and the no-rename / category / review-count / eyebrow-trim decision notes
 
 ## Progress
 
@@ -110,4 +110,4 @@ Phases execute in numeric order: 1 → 2 → 3
 |-------|----------------|--------|-----------|
 | 1. Local SEO Landing Pages — Royal Oak & Saanich | 4/4 | Complete   | 2026-06-26 |
 | 2. FAQ Page with FAQPage Schema | 4/4 | Complete   | 2026-06-27 |
-| 3. Google Business Profile Services Alignment | 0/1 | Not started | - |
+| 3. Google Business Profile Services Alignment | 1/1 | Complete   | 2026-06-27 |

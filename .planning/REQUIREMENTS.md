@@ -27,10 +27,10 @@ Requirements for the current milestone (local-SEO landing pages). Each maps to a
 
 ### Google Business Profile Services (off-site, with optional config tweak)
 
-- [ ] **GBP-01**: Current GBP state is documented — primary/secondary categories, existing Services list + descriptions (or "none present"), and relevant attributes.
-- [ ] **GBP-02**: A gap table reconciles GBP services against the website `SERVICES`, flagging mismatched names and missing entries.
-- [ ] **GBP-03**: Paste-ready GBP service entries exist for Skin Fade, Classic Men's Cut, Kids' Cut, Hot-Towel Straight-Razor Shave, and Beard Trim or Lineup — clear names, short plain-English descriptions, **no phone numbers or URLs**, prices noted for the GBP price field.
-- [ ] **GBP-04**: Any site-side renames for site↔GBP consistency are listed for `config.ts` (e.g., "Trim Beard" → "Beard Trim", "Hot Shave" → "Hot-Towel Straight-Razor Shave").
+- [x] **GBP-01**: Current GBP state is documented — primary/secondary categories, existing Services list + descriptions (or "none present"), and relevant attributes.
+- [x] **GBP-02**: A gap table reconciles GBP services against the website `SERVICES`, flagging mismatched names and missing entries.
+- [x] **GBP-03**: Paste-ready GBP service entries exist for Skin Fade, Classic Men's Cut, Kids' Cut, Hot-Towel Straight-Razor Shave, and Beard Trim or Lineup — clear names, short plain-English descriptions, **no phone numbers or URLs**, prices noted for the GBP price field.
+- [x] **GBP-04**: Any site-side renames for site↔GBP consistency are listed for `config.ts` (e.g., "Trim Beard" → "Beard Trim", "Hot Shave" → "Hot-Towel Straight-Razor Shave"). Resolved as "no renames" per D-01 — deliberate owner choice.
 
 ## v2 Requirements
 
@@ -71,10 +71,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FAQ-02 | Phase 2 | Complete |
 | FAQ-03 | Phase 2 | Complete |
 | FAQ-04 | Phase 2 | Complete |
-| GBP-01 | Phase 3 | Pending |
-| GBP-02 | Phase 3 | Pending |
-| GBP-03 | Phase 3 | Pending |
-| GBP-04 | Phase 3 | Pending |
+| GBP-01 | Phase 3 | Complete |
+| GBP-02 | Phase 3 | Complete |
+| GBP-03 | Phase 3 | Complete |
+| GBP-04 | Phase 3 | Complete |
 
 **Coverage:**
 - v1 requirements: 16 total

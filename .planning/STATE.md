@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Phase 3 context gathered
-last_updated: "2026-06-27T18:43:36.601Z"
-last_activity: 2026-06-27 -- Phase 03 planning complete
+status: complete
+stopped_at: Phase 3 Plan 01 complete — all plans done
+last_updated: "2026-06-27T18:51:00Z"
+last_activity: 2026-06-27 -- Phase 03 Plan 01 executed (GBP-ALIGNMENT deliverable authored and verified)
 progress:
   total_phases: 3
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 9
-  completed_plans: 8
-  percent: 67
+  completed_plans: 9
+  percent: 100
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-26)
 
 **Core value:** Show up in local search for the areas Royal Look serves and make it dead-simple to call or walk in.
-**Current focus:** Phase 3 — google business profile services alignment
+**Current focus:** Phase 03 — gbp-services-alignment
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
-Status: Ready to execute
-Last activity: 2026-06-27 -- Phase 03 planning complete
+Phase: 03 (gbp-services-alignment) — COMPLETE
+Plan: 1 of 1 — COMPLETE
+Status: All phases complete (v1.0 milestone done)
+Last activity: 2026-06-27 -- Phase 03 Plan 01 executed (GBP-ALIGNMENT deliverable authored and verified)
 
-Progress: [██████████] 100%
+Progress: [██████████] 100% (9/9 plans complete)
 
 ## Performance Metrics
 
@@ -84,6 +84,10 @@ Recent decisions affecting current work:
 - Phase 2 (P04): Next.js trailingSlash: false emits out/faq.html not out/faq/index.html — build-gate assertions use the .html path
 - [Phase ?]: External schema validator confirmed per human sign-off
 - [Phase ?]: Human confirmed intro quality and uniqueness (SEO-03 closed)
+- Phase 3 (P01) / D-01: config.ts SERVICES names stay untouched; descriptive GBP names live only in the dashboard entries — GBP-04 resolved as no renames
+- Phase 3 (P01) / D-03: Eyebrow trim excluded from site menu and GBP Services — not offered as a standalone service
+- Phase 3 (P01) / D-04: googleReviewCount (127) is offline fallback only; live count auto-pulled at build — no code change
+- Phase 3 (P01) / D-05: GBP primary-only category ("Barber shop") is deliberate — no secondary added
 
 ### Pending Todos
 
@@ -101,5 +105,5 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-27T18:24:47.042Z
-Stopped at: Phase 3 context gathered
+Last session: 2026-06-27T18:51:00Z
+Stopped at: Phase 3 Plan 01 complete — all plans done — v1.0 milestone complete
