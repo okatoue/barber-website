@@ -3,28 +3,13 @@
 import { useState } from "react";
 import { FAQ_ITEMS } from "@/lib/config";
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
+const homepageFaqs = FAQ_ITEMS.filter((item) => item.homepage);
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section className="section" id="faq" style={{ paddingTop: 0 }}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
       <div className="container">
         <div className="section-head">
           <div>
@@ -36,7 +21,7 @@ export default function FAQ() {
         </div>
 
         <div className="faq-list">
-          {FAQ_ITEMS.map((item, i) => {
+          {homepageFaqs.map((item, i) => {
             const isOpen = open === i;
             return (
               <div key={i} className={`faq-item ${isOpen ? "open" : ""}`}>
