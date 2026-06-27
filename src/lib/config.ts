@@ -220,6 +220,26 @@ export const FAQ_ITEMS: FaqItem[] = [
       "We ask for at least 12 hours' notice if you need to cancel or reschedule. Late cancellations or no-shows may incur a fee. Just give us a call to cancel or reschedule.",
     category: "Visiting",
   },
+  {
+    question: "How does a skin fade work?",
+    answer: `Our barbers blend the hair by hand from low to mid to high, fading it right down to the skin for a sharp, clean finish. A skin fade takes ${findService("Skin Fade").duration} and is ${findService("Skin Fade").price}.`,
+    category: "Services",
+  },
+  {
+    question: "What beard services do you offer?",
+    answer: `We shape the beard and do a clean lineup along the cheeks and neck — a beard trim takes ${findService("Trim Beard").duration} at ${findService("Trim Beard").price}. We also offer a hot towel and straight-razor finish for a closer, more precise edge.`,
+    category: "Services",
+  },
+  {
+    question: "Is a straight-razor shave safe and sanitary?",
+    answer: `Absolutely. We use a fresh single-use blade for every client, along with a clean hot-towel setup to soften the skin before we start. Our hot shave takes ${findService("Hot Shave").duration} and is ${findService("Hot Shave").price}.`,
+    category: "Services",
+  },
+  {
+    question: "Is there parking nearby?",
+    answer: SHOP.landmarks,
+    category: "Visiting",
+  },
 ];
 
 // ============================================================
