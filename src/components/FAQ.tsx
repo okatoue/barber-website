@@ -41,6 +41,9 @@ export default function FAQ() {
             );
           })}
         </div>
+        <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
+          <a href="/faq">See all FAQs &rarr;</a>
+        </div>
       </div>
     </section>
   );
