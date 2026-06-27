@@ -23,7 +23,7 @@ Requirements for the current milestone (local-SEO landing pages). Each maps to a
 - [x] **FAQ-01**: A dedicated, indexable FAQ page exists at `/faq` answering all seven BrightLocal topics — walk-ins vs appointments, kids' cuts approach, skin-fade technique, beard-trim options, straight-razor shave hygiene, parking, and typical timing/pricing ranges — with genuinely useful 1–3 sentence answers.
 - [x] **FAQ-02**: The `/faq` page emits valid `FAQPage` JSON-LD whose questions/answers match the visible content, and sets a per-page canonical.
 - [x] **FAQ-03**: FAQ content is config-driven (expanded `FAQ_ITEMS`); the homepage FAQ shows a curated subset rather than a byte-identical duplicate of `/faq` (avoids duplicate-page concerns).
-- [ ] **FAQ-04**: `/faq` is linked from the nav/footer and added to `src/app/sitemap.ts`; `npm run build` completes a clean static export including `/faq`.
+- [x] **FAQ-04**: `/faq` is linked from the nav/footer and added to `src/app/sitemap.ts`; `npm run build` completes a clean static export including `/faq`.
 
 ### Google Business Profile Services (off-site, with optional config tweak)
 
@@ -70,7 +70,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FAQ-01 | Phase 2 | Complete |
 | FAQ-02 | Phase 2 | Complete |
 | FAQ-03 | Phase 2 | Complete |
-| FAQ-04 | Phase 2 | Pending |
+| FAQ-04 | Phase 2 | Complete |
 | GBP-01 | Phase 3 | Pending |
 | GBP-02 | Phase 3 | Pending |
 | GBP-03 | Phase 3 | Pending |

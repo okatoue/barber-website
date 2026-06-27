@@ -74,7 +74,7 @@ Plans:
 **Wave 2** *(blocked on Wave 1 completion)*
 
 - [x] 02-02-PLAN.md — Static `/faq` route page: metadata + canonical, category-grouped all-answers-visible list, sole `FAQPage` JSON-LD
-- [ ] 02-03-PLAN.md — Site integration: trim homepage FAQ to subset + drop its JSON-LD + "See all FAQs" link, footer `/faq` link, sitemap entry
+- [x] 02-03-PLAN.md — Site integration: trim homepage FAQ to subset + drop its JSON-LD + "See all FAQs" link, footer `/faq` link, sitemap entry
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
@@ -107,5 +107,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Local SEO Landing Pages — Royal Oak & Saanich | 4/4 | Complete   | 2026-06-26 |
-| 2. FAQ Page with FAQPage Schema | 2/4 | In Progress|  |
+| 2. FAQ Page with FAQPage Schema | 3/4 | In Progress|  |
 | 3. Google Business Profile Services Alignment | 0/TBD | Not started | - |
