@@ -173,31 +173,52 @@ export const BARBERS: Barber[] = [
 // FAQ
 // ============================================================
 
-export const FAQ_ITEMS = [
+export type FaqItem = {
+  question: string;
+  answer: string;
+  category: string;
+  homepage?: boolean;
+};
+
+function findService(name: string): Service {
+  for (const cat of SERVICES) {
+    const item = cat.items.find((s) => s.name === name);
+    if (item) return item;
+  }
+  throw new Error(`Service "${name}" not found in SERVICES`);
+}
+
+export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Do you take walk-ins?",
     answer:
-      "Yes! We welcome walk-ins whenever we have availability.",
+      "Yes! We welcome walk-ins whenever we have availability — no appointment needed. Just stop by during our open hours and we'll get you in.",
+    category: "Visiting",
+    homepage: true,
+  },
+  {
+    question: "How long does a haircut take?",
+    answer: `A regular cut takes about ${findService("Regular Hair Cut").duration} and is ${findService("Regular Hair Cut").price}. A skin fade takes ${findService("Skin Fade").duration} at ${findService("Skin Fade").price}. We never rush — every cut gets the time it needs.`,
+    category: "Pricing",
+    homepage: true,
+  },
+  {
+    question: "Do you cut kids' hair?",
+    answer: `Absolutely. We take kids aged 3 and up. Our barbers are patient and experienced with young clients. Kids cuts are ${findService("Kids").price} and take about ${findService("Kids").duration}.`,
+    category: "Kids",
+    homepage: true,
   },
   {
     question: "What's the difference between a fade and a taper?",
     answer:
       "A fade blends the hair down to the skin for a sharper contrast, while a taper gradually shortens the hair but doesn't go all the way to the skin. Not sure which to pick? Your barber will help you decide.",
-  },
-  {
-    question: "How long does a haircut take?",
-    answer:
-      "A classic cut takes about 30–45 minutes. Skin fades take 45–60 minutes. Combos (cut + beard) take 60–75 minutes. We never rush — every cut gets the time it needs.",
+    category: "Services",
   },
   {
     question: "What's your cancellation policy?",
     answer:
       "We ask for at least 12 hours' notice if you need to cancel or reschedule. Late cancellations or no-shows may incur a fee. Just give us a call to cancel or reschedule.",
-  },
-  {
-    question: "Do you cut kids' hair?",
-    answer:
-      "Absolutely. We take kids aged 3 and up. Our barbers are patient and experienced with young clients. Kids cuts start at $25.",
+    category: "Visiting",
   },
 ];
 
