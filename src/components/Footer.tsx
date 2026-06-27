@@ -39,6 +39,9 @@ export default function Footer() {
             <li>
               <a href="/#find">Location</a>
             </li>
+            <li>
+              <a href="/faq">FAQ</a>
+            </li>
           </ul>
         </div>
         <div>
