@@ -93,11 +93,13 @@ Plans:
   4. Any site-side renames needed for site↔GBP consistency are listed (e.g., "Trim Beard" → "Beard Trim", "Hot Shave" → "Hot-Towel Straight-Razor Shave") to apply in `config.ts`.
 
 **Note**: The public listing exposes category / some services / attributes without login; the editable Services section is owner-only, so confirming and publishing requires signing into the GBP dashboard. Descriptions must never contain phone/URL or Google flags them as spam.
-**Plans**: TBD (set during plan-phase)
+**Plans**: 1 plan
 
 Plans:
 
-- [ ] 03-01: TBD — created by /gsd:plan-phase 3
+**Wave 1**
+
+- [ ] 03-01-PLAN.md — Author + self-verify the paste-ready 03-GBP-ALIGNMENT.md deliverable: current GBP state, GBP-vs-site gap table, all 8 paste-ready service entries (no phone/URL), and the no-rename / category / review-count / eyebrow-trim decision notes
 
 ## Progress
 
@@ -108,4 +110,4 @@ Phases execute in numeric order: 1 → 2 → 3
 |-------|----------------|--------|-----------|
 | 1. Local SEO Landing Pages — Royal Oak & Saanich | 4/4 | Complete   | 2026-06-26 |
 | 2. FAQ Page with FAQPage Schema | 4/4 | Complete   | 2026-06-27 |
-| 3. Google Business Profile Services Alignment | 0/TBD | Not started | - |
+| 3. Google Business Profile Services Alignment | 0/1 | Not started | - |
