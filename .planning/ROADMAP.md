@@ -69,7 +69,7 @@ Plans:
 Plans:
 **Wave 1**
 
-- [ ] 02-01-PLAN.md — FAQ data model + content: add `FaqItem` type, expand `FAQ_ITEMS` to all 7 BrightLocal topics, cite prices from `SERVICES`, flag the homepage subset
+- [x] 02-01-PLAN.md — FAQ data model + content: add `FaqItem` type, expand `FAQ_ITEMS` to all 7 BrightLocal topics, cite prices from `SERVICES`, flag the homepage subset
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -107,5 +107,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Local SEO Landing Pages — Royal Oak & Saanich | 4/4 | Complete   | 2026-06-26 |
-| 2. FAQ Page with FAQPage Schema | 0/4 | Planned | - |
+| 2. FAQ Page with FAQPage Schema | 1/4 | In Progress|  |
 | 3. Google Business Profile Services Alignment | 0/TBD | Not started | - |
