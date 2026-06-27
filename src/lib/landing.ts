@@ -105,3 +105,59 @@ Both services can be combined with a haircut or booked on their own. Royal Look 
   breadcrumbLabel: "Beard Trim in Saanich",
   areaServedName: "Saanich, Victoria BC",
 };
+
+export const GORDON_HEAD_DATA: LandingPageData = {
+  slug: "gordon-head-barber-shop",
+  metaTitle:
+    "Gordon Head Barber Shop — Skin Fades & Student Cuts | Royal Look Victoria BC",
+  metaDescription:
+    "Barber shop for Gordon Head and the UVic area at Royal Look, inside Broadmead Village Shopping Centre. Sharp skin fades, quick buzz cuts, and classic cuts. Walk-ins welcome seven days a week.",
+  eyebrow: "Gordon Head · Victoria, BC",
+  h1: "Gordon Head Barber Shop",
+  h1Emphasis: "Barber Shop.",
+  intro: `For Gordon Head residents and University of Victoria students, Royal Look is a short drive across Saanich — out to Broadmead Village near the Royal Oak interchange, with free parking in the lot right out front. Swing by on the way to or from campus; no appointment needed.
+
+Skin fades are what most students come in for, and our barbers take the time to get them right — blended clean down to the skin, shaped to suit your hairline and the length you want left on top. Mid-fade, high-and-tight, or a softer taper, every finish is a sharp one.
+
+When you just need to look tidy before class or a shift, a buzz cut is quick, even, and easy to maintain — in and out without the wait. We also handle classic scissor cuts for anyone who wants something more grown-out and natural.
+
+Royal Look is open every day of the week, nine to seven Monday through Friday and nine to five on weekends, so a cut fits easily around lectures, work, or the weekend. Give us a call to check how busy we are, or simply walk in.`,
+  emphasizedServices: [
+    { displayName: "Skin Fade", configName: "Skin Fade" },
+    { displayName: "Buzz Cut", configName: "Buzz Cut" },
+    { displayName: "Regular Hair Cut", configName: "Regular Hair Cut" },
+  ],
+  landmark: SHOP.landmarks,
+  callLocation: "gordon_head_page_cta",
+  callLocationPrimary: "gordon_head_page_cta_primary",
+  breadcrumbLabel: "Gordon Head Barber Shop",
+  areaServedName: "Gordon Head, Victoria BC",
+};
+
+export const CORDOVA_BAY_DATA: LandingPageData = {
+  slug: "cordova-bay-barber-shop",
+  metaTitle:
+    "Cordova Bay Barber Shop — Classic Cuts & Beard Trims | Royal Look Victoria BC",
+  metaDescription:
+    "Barber shop for Cordova Bay at Royal Look, inside Broadmead Village Shopping Centre. Classic men's cuts, beard trims, and clean skin fades, minutes from Cordova Bay Road. Walk-ins welcome.",
+  eyebrow: "Cordova Bay · Victoria, BC",
+  h1: "Cordova Bay Barber Shop",
+  h1Emphasis: "Barber Shop.",
+  intro: `Royal Look is the closest proper barber shop to Cordova Bay — just a few minutes inland from Cordova Bay Road, inside Broadmead Village Shopping Centre at Royal Oak. There's free parking right out front, so a fresh cut slots easily into a grocery run or a trip past Mattick's Farm.
+
+Our bread and butter is the classic men's cut: a clean, well-proportioned scissor or clipper cut, finished tidy around the ears and neck, done at an unhurried pace. It's the kind of dependable haircut a neighbourhood relies on, week in and week out.
+
+We also do careful beard work — checking your line, talking through the shape you want, then trimming and edging it clean by hand. And if you'd rather a more modern finish, our barbers cut sharp skin fades to whatever length suits you.
+
+Royal Look is open seven days a week, nine to seven on weekdays and nine to five on weekends. Walk in whenever it suits you, or call ahead and we'll give you a straight answer on the wait.`,
+  emphasizedServices: [
+    { displayName: "Regular Hair Cut", configName: "Regular Hair Cut" },
+    { displayName: "Beard Trim", configName: "Trim Beard" },
+    { displayName: "Skin Fade", configName: "Skin Fade" },
+  ],
+  landmark: SHOP.landmarks,
+  callLocation: "cordova_bay_page_cta",
+  callLocationPrimary: "cordova_bay_page_cta_primary",
+  breadcrumbLabel: "Cordova Bay Barber Shop",
+  areaServedName: "Cordova Bay, Victoria BC",
+};
