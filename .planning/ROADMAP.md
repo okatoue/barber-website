@@ -64,11 +64,21 @@ Plans:
   4. `/faq` is linked from the nav/footer and added to `sitemap.ts`; `npm run build` completes a clean static export including `/faq`.
 
 **Note**: Google restricted FAQ *rich results* (the accordion in search) to authoritative gov/health sites in 2023 — don't expect rich snippets here. The value is topical relevance, answer clarity, and voice / AI-overview eligibility.
-**Plans**: TBD (set during plan-phase)
+**Plans**: 4 plans
 
 Plans:
+**Wave 1**
 
-- [ ] 02-01: TBD — created by /gsd:plan-phase 2
+- [ ] 02-01-PLAN.md — FAQ data model + content: add `FaqItem` type, expand `FAQ_ITEMS` to all 7 BrightLocal topics, cite prices from `SERVICES`, flag the homepage subset
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] 02-02-PLAN.md — Static `/faq` route page: metadata + canonical, category-grouped all-answers-visible list, sole `FAQPage` JSON-LD
+- [ ] 02-03-PLAN.md — Site integration: trim homepage FAQ to subset + drop its JSON-LD + "See all FAQs" link, footer `/faq` link, sitemap entry
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
+- [ ] 02-04-PLAN.md — Build verification + sign-off: full static build, FAQ-01..04 assertions over `out/`, external FAQPage validity + non-duplication human checkpoint
 
 ### Phase 3: Google Business Profile Services Alignment
 
@@ -97,5 +107,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Local SEO Landing Pages — Royal Oak & Saanich | 4/4 | Complete   | 2026-06-26 |
-| 2. FAQ Page with FAQPage Schema | 0/TBD | Not started | - |
+| 2. FAQ Page with FAQPage Schema | 0/4 | Planned | - |
 | 3. Google Business Profile Services Alignment | 0/TBD | Not started | - |
