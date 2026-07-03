@@ -31,6 +31,16 @@ const jetbrainsMono = JetBrains_Mono({
 const HOME_DESCRIPTION =
   "Royal Look Barber Shop in Broadmead Village, Saanich. Skin fades, beard trims, straight razor and hot towel shaves, kids' cuts. Call 778-430-0040 to book.";
 
+// schema.org expects 24-hour "HH:MM"; config keeps the 12-hour display strings.
+function to24Hour(time: string): string {
+  const match = time.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (!match) return time;
+  const [, h, minutes, period] = match;
+  let hour = Number(h) % 12;
+  if (period.toUpperCase() === "PM") hour += 12;
+  return `${String(hour).padStart(2, "0")}:${minutes}`;
+}
+
 export const metadata: Metadata = {
   title: {
     default: "Barber in Broadmead Village | Royal Look Barber Shop",
@@ -108,12 +118,13 @@ export default async function RootLayout({
                 .map((h) => ({
                   "@type": "OpeningHoursSpecification",
                   dayOfWeek: h.day,
-                  opens: h.open,
-                  closes: h.close,
+                  opens: to24Hour(h.open),
+                  closes: to24Hour(h.close),
                 })),
               sameAs: [
                 SHOP.social.instagram,
                 SHOP.social.facebook,
+                SHOP.social.tiktok,
                 SHOP.googleBusinessUrl,
               ].filter(Boolean),
             }),

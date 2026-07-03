@@ -52,7 +52,7 @@ export const SHOP = {
   social: {
     instagram: "https://www.instagram.com/royal10look/",
     facebook: "https://www.facebook.com/p/Royal-Look-barber-shop-61581458855102/",
-    tiktok: "",
+    tiktok: "https://www.tiktok.com/@royal.look.barber",
   },
   siteUrl: "https://royallook.ca",
 } as const;
