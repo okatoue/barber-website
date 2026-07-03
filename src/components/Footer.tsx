@@ -1,5 +1,12 @@
 import { SHOP } from "@/lib/config";
 
+const AREA_LINKS: Record<string, string> = {
+  "Royal Oak": "/royal-oak-barber-shop",
+  Saanich: "/beard-trim-saanich",
+  "Gordon Head": "/gordon-head-barber-shop",
+  "Cordova Bay": "/cordova-bay-barber-shop",
+};
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -48,12 +55,7 @@ export default function Footer() {
           <h4>Areas Served</h4>
           <ul>
             {SHOP.areasServed.map((area) => {
-              const href =
-                area === "Royal Oak"
-                  ? "/royal-oak-barber-shop"
-                  : area === "Saanich"
-                  ? "/beard-trim-saanich"
-                  : undefined;
+              const href = AREA_LINKS[area];
               return (
                 <li key={area}>
                   <a href={href}>{area}</a>
