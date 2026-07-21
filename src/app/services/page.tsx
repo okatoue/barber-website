@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { SERVICES } from "@/lib/config";
+import { SERVICES, SHOP } from "@/lib/config";
+
+const DESCRIPTION =
+  "Haircuts, fades, beard trims, and grooming services in Victoria, BC. View our full service menu with prices and durations. Walk in or call to book.";
 
 export const metadata: Metadata = {
   title: "Barber Services in Victoria, BC",
-  description:
-    "Haircuts, fades, beard trims, and grooming services in Victoria, BC. View our full service menu with prices and durations. Walk in or call to book.",
+  description: DESCRIPTION,
   alternates: { canonical: "/services" },
+  openGraph: {
+    title: `Barber Services in Victoria, BC | ${SHOP.name}`,
+    description: DESCRIPTION,
+  },
 };
 
 const CATEGORY_SUBTITLES: Record<string, string> = {

@@ -29,7 +29,8 @@ export const SHOP = {
   googleRating: "4.9",
   googleReviewCount: 127,
   googleReviewUrl: "https://g.page/royallook/review",
-  googleBusinessUrl: "https://share.google/4qBkDMqE3hSbidIZQ",
+  googleBusinessUrl:
+    "https://www.google.com/maps/place/Royal+Look+Barber+Shop/data=!4m2!3m1!1s0x0:0x41df978b9274788d?sa=X&ved=1t:2428&hl=en&ictx=111",
   foundedYear: "2025",
   googleMapsEmbed:
     "https://maps.google.com/maps?q=48.496876336605936,-123.38071633357313&t=&z=17&ie=UTF8&iwloc=&output=embed",
@@ -56,6 +57,23 @@ export const SHOP = {
   },
   siteUrl: "https://royallook.ca",
 } as const;
+
+// ============================================================
+// AREA LINKS — maps each served area to its best-fit page.
+// Shared by the footer and the /location "areas we serve" block
+// so the two never drift. Keys must match SHOP.areasServed.
+// ============================================================
+
+export const AREA_LINKS: Record<string, string> = {
+  "Royal Oak": "/royal-oak-barber-shop",
+  Broadmead: "/",
+  "Cordova Bay": "/cordova-bay-barber-shop",
+  "Gordon Head": "/gordon-head-barber-shop",
+  "Cadboro Bay": "/cadboro-bay-barber-shop",
+  Saanich: "/beard-trim-saanich",
+  "Oak Bay": "/oak-bay-barber-shop",
+  Victoria: "/victoria-barber-shop",
+};
 
 // ============================================================
 // SERVICES

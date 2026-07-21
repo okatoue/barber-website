@@ -15,5 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/beard-trim-saanich`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/gordon-head-barber-shop`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/cordova-bay-barber-shop`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/cadboro-bay-barber-shop`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/oak-bay-barber-shop`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/victoria-barber-shop`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
   ];
 }

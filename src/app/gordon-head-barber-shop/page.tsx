@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import LandingPage from "@/components/LandingPage";
 import { GORDON_HEAD_DATA } from "@/lib/landing";
+import { SHOP } from "@/lib/config";
+
+const DESCRIPTION = GORDON_HEAD_DATA.metaDescription;
 
 export const metadata: Metadata = {
   title: "Gordon Head Barber Shop",
-  description:
-    "Barber shop for Gordon Head and the UVic area at Royal Look, inside Broadmead Village Shopping Centre. Sharp skin fades, quick buzz cuts, and classic cuts. Walk-ins welcome seven days a week.",
+  description: DESCRIPTION,
   alternates: { canonical: "/gordon-head-barber-shop" },
+  openGraph: {
+    title: `Gordon Head Barber Shop | ${SHOP.name}`,
+    description: DESCRIPTION,
+  },
 };
 
 export default function GordonHeadPage() {

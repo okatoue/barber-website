@@ -1,11 +1,4 @@
-import { SHOP } from "@/lib/config";
-
-const AREA_LINKS: Record<string, string> = {
-  "Royal Oak": "/royal-oak-barber-shop",
-  Saanich: "/beard-trim-saanich",
-  "Gordon Head": "/gordon-head-barber-shop",
-  "Cordova Bay": "/cordova-bay-barber-shop",
-};
+import { SHOP, AREA_LINKS } from "@/lib/config";
 
 export default function Footer() {
   return (

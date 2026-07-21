@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { FAQ_ITEMS } from "@/lib/config";
+import { FAQ_ITEMS, SHOP } from "@/lib/config";
+
+const DESCRIPTION =
+  "Answers to common questions about haircuts, fades, beard trims, and visiting our barber shop in Broadmead Village, Saanich. Walk-ins welcome 7 days a week.";
 
 export const metadata: Metadata = {
   title: "Barber FAQ — Victoria, BC",
-  description:
-    "Answers to common questions about haircuts, fades, beard trims, and visiting our barber shop in Broadmead Village, Saanich. Walk-ins welcome 7 days a week.",
+  description: DESCRIPTION,
   alternates: { canonical: "/faq" },
+  openGraph: {
+    title: `Barber FAQ — Victoria, BC | ${SHOP.name}`,
+    description: DESCRIPTION,
+  },
 };
 
 const CATEGORY_ORDER = ["Visiting", "Pricing", "Kids", "Services"];

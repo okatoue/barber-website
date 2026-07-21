@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { BARBERS, SHOP, type Barber } from "@/lib/config";
 
+const BARBERS_DESCRIPTION = `Meet the barbers at ${SHOP.name} in ${SHOP.address.city}, ${SHOP.address.province} — experienced in skin fades, classic cuts, beards, and hot shaves. Walk in or call to book with your preferred barber.`;
+
 export const metadata: Metadata = {
   title: "Our Barbers",
-  description: `Meet the barbers at ${SHOP.name} in ${SHOP.address.city}, ${SHOP.address.province} — experienced in skin fades, classic cuts, beards, and hot shaves. Walk in or call to book with your preferred barber.`,
+  description: BARBERS_DESCRIPTION,
   alternates: { canonical: "/barbers" },
+  openGraph: {
+    title: `Our Barbers | ${SHOP.name}`,
+    description: BARBERS_DESCRIPTION,
+  },
 };
 
 function blurb(b: Barber): string {
@@ -41,9 +47,9 @@ export default function BarbersPage() {
         <div className="section-head">
           <div>
             <div className="eyebrow">In the chair</div>
-            <h2 className="serif">
+            <h1 className="serif">
               Meet the <em>team</em>
-            </h2>
+            </h1>
           </div>
         </div>
 

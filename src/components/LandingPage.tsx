@@ -1,13 +1,23 @@
 import { SHOP } from "@/lib/config";
 import { resolveService, type LandingPageData } from "@/lib/landing";
+import { getGoogleStats } from "@/lib/google-reviews";
+import Menu from "@/components/ServiceHighlights";
+import Gallery from "@/components/Gallery";
+import FAQ from "@/components/FAQ";
+import OpenStatus from "@/components/OpenStatus";
 
-export default function LandingPage({ data }: { data: LandingPageData }) {
+export default async function LandingPage({ data }: { data: LandingPageData }) {
+  const stats = await getGoogleStats();
+
   // Split h1 into the plain prefix and the italicised emphasis.
   // h1Emphasis carries a trailing period (e.g. "Barber Shop."); strip it to
   // locate the match inside h1, then render the full h1Emphasis in the <em>.
   const emphasisBase = data.h1Emphasis.replace(/\.$/, "");
   const emphasisIdx = data.h1.indexOf(emphasisBase);
   const h1Before = emphasisIdx >= 0 ? data.h1.slice(0, emphasisIdx) : "";
+
+  // Short area label for the intro heading, e.g. "Royal Oak · Victoria, BC" → "Royal Oak".
+  const shortArea = data.eyebrow.split("·")[0].trim();
 
   // Build-time today name used to highlight the current day row in the hours
   // grid — mirrors the same pattern in LocationPreview.tsx (static export site;
@@ -16,9 +26,9 @@ export default function LandingPage({ data }: { data: LandingPageData }) {
     weekday: "long",
   });
 
-  // ── JSON-LD @graph ──────────────────────────────────────────────────────────
   const phoneDigits = SHOP.phone.replace(/\D/g, "");
 
+  // ── JSON-LD @graph ──────────────────────────────────────────────────────────
   const serviceNodes = data.emphasizedServices.map((svc) => {
     const resolved = resolveService(svc.configName);
     return {
@@ -42,12 +52,7 @@ export default function LandingPage({ data }: { data: LandingPageData }) {
   const breadcrumbNode = {
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SHOP.siteUrl,
-      },
+      { "@type": "ListItem", position: 1, name: "Home", item: SHOP.siteUrl },
       {
         "@type": "ListItem",
         position: 2,
@@ -71,75 +76,101 @@ export default function LandingPage({ data }: { data: LandingPageData }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
       />
 
-      {/* ── Section 1: Header · Intro · Emphasized Services ─────────────── */}
-      <section className="section">
+      {/* ── Hero: photo · headline · call CTA · trust bar ───────────────── */}
+      <section className="hero">
+        <div className="hero-photo" aria-hidden="true" />
         <div className="container">
-          <div className="section-head">
-            <div>
+          <div className="hero-grid">
+            <div className="hero-copy">
               <div className="eyebrow">{data.eyebrow}</div>
               <h1 className="serif">
                 {h1Before}
                 <em>{data.h1Emphasis}</em>
               </h1>
+              <div className="hero-cta-row">
+                <a
+                  href={`tel:${phoneDigits}`}
+                  className="btn btn-ghost"
+                  data-call-location={data.callLocationPrimary}
+                >
+                  Call {SHOP.phone}
+                </a>
+              </div>
+              <div className="hero-trust">
+                <div className="stat">
+                  <div className="n serif">
+                    {stats.rating}
+                    <span style={{ color: "var(--accent)" }}>★</span>
+                  </div>
+                  <div className="l">Google · {stats.reviewCount} reviews</div>
+                </div>
+                <div className="vrule" />
+                <div className="stat">
+                  <div className="n serif">20+</div>
+                  <div className="l">Years combined</div>
+                </div>
+                <div className="vrule" />
+                <div className="stat">
+                  <div className="n serif">7</div>
+                  <div className="l">Days a week</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Unique local intro ──────────────────────────────────────────── */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow" />
+              <h2 className="serif">
+                Your barber in <em>{shortArea}.</em>
+              </h2>
             </div>
           </div>
 
-          {/* Unique multi-paragraph intro — constrained width */}
-          <div style={{ maxWidth: "70ch", marginBottom: 48 }}>
+          <div style={{ maxWidth: "70ch" }}>
             {data.intro.split("\n\n").map((para, i) => (
               <p
                 key={i}
                 style={{
                   margin: "0 0 20px",
                   color: "var(--muted)",
-                  fontSize: 16,
-                  lineHeight: 1.65,
+                  fontSize: 17,
+                  lineHeight: 1.7,
                 }}
               >
                 {para}
               </p>
             ))}
           </div>
-
-          {/* Emphasized services — prices resolved from config via resolveService */}
-          <div className="menu-col" style={{ maxWidth: 820 }}>
-            {data.emphasizedServices.map((svc) => {
-              const resolved = resolveService(svc.configName);
-              return (
-                <div key={svc.configName}>
-                  <div className="menu-row">
-                    <div>
-                      <div className="nm">{svc.displayName}</div>
-                      {resolved && (
-                        <div className="dur">{resolved.duration}</div>
-                      )}
-                    </div>
-                    {resolved && (
-                      <span className="pr serif">{resolved.price}</span>
-                    )}
-                  </div>
-                  {svc.description ? (
-                    <p
-                      style={{
-                        margin: "4px 0 8px",
-                        color: "var(--muted)",
-                        fontSize: 15,
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      {svc.description}
-                    </p>
-                  ) : null}
-                </div>
-              );
-            })}
-          </div>
         </div>
       </section>
 
-      {/* ── Section 2: Google Map · NAP · Hours · Call CTA ──────────────── */}
-      <section className="section">
+      {/* ── Full services menu (shared with homepage) ───────────────────── */}
+      <Menu />
+
+      {/* ── Full gallery (shared with homepage) ─────────────────────────── */}
+      <Gallery />
+
+      {/* ── Good to know (shared FAQ) ───────────────────────────────────── */}
+      <FAQ />
+
+      {/* ── Find us: Google Map · NAP · Hours · Call CTA ────────────────── */}
+      <section className="section" id="find" style={{ paddingTop: 0 }}>
         <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow" />
+              <h2 className="serif">
+                Find the <em>shop.</em>
+              </h2>
+            </div>
+          </div>
+
           <div className="find-grid">
             {/* Map */}
             <div className="find-map">
@@ -178,6 +209,8 @@ export default function LandingPage({ data }: { data: LandingPageData }) {
                 <p className="find-note">{data.landmark}</p>
               ) : null}
 
+              <OpenStatus variant="pill" />
+
               <div className="hours-grid">
                 {SHOP.hours.map((h) => {
                   const isToday = h.day === todayName;
@@ -200,6 +233,7 @@ export default function LandingPage({ data }: { data: LandingPageData }) {
                 className="btn btn-secondary"
                 href={`tel:${phoneDigits}`}
                 data-call-location={data.callLocationPrimary}
+                style={{ alignSelf: "flex-start" }}
               >
                 Call {SHOP.phone}
               </a>

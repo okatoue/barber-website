@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import LandingPage from "@/components/LandingPage";
 import { CORDOVA_BAY_DATA } from "@/lib/landing";
+import { SHOP } from "@/lib/config";
+
+const DESCRIPTION = CORDOVA_BAY_DATA.metaDescription;
 
 export const metadata: Metadata = {
   title: "Cordova Bay Barber Shop",
-  description:
-    "Barber shop for Cordova Bay at Royal Look, inside Broadmead Village Shopping Centre. Classic men's cuts, beard trims, and clean skin fades, minutes from Cordova Bay Road. Walk-ins welcome.",
+  description: DESCRIPTION,
   alternates: { canonical: "/cordova-bay-barber-shop" },
+  openGraph: {
+    title: `Cordova Bay Barber Shop | ${SHOP.name}`,
+    description: DESCRIPTION,
+  },
 };
 
 export default function CordovaBayPage() {

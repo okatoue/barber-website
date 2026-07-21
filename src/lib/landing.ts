@@ -52,7 +52,7 @@ export const ROYAL_OAK_DATA: LandingPageData = {
   metaTitle:
     "Royal Oak Barber Shop — Skin Fades & Kids' Cuts | Royal Look Victoria BC",
   metaDescription:
-    "Royal Oak Barber Shop inside Broadmead Village Shopping Centre. Expert skin fades, kids' haircuts, and classic cuts. Steps from Royal Oak Transit Exchange. Walk-ins welcome seven days a week.",
+    "Royal Oak barber shop inside Broadmead Village, steps from the transit exchange. Expert skin fades, kids' cuts, and classic cuts. Walk in seven days a week.",
   eyebrow: "Royal Oak · Victoria, BC",
   h1: "Royal Oak Barber Shop",
   h1Emphasis: "Barber Shop.",
@@ -80,7 +80,7 @@ export const SAANICH_DATA: LandingPageData = {
   metaTitle:
     "Beard Trim in Saanich — Hot-Towel Straight-Razor Shave | Royal Look Victoria BC",
   metaDescription:
-    "Professional beard trim in Saanich at Royal Look Barber Shop, inside Broadmead Village Shopping Centre. Hot-towel straight-razor shaves, beard shaping, and classic cuts. Walk-ins welcome.",
+    "Beard trim in Saanich at Royal Look, inside Broadmead Village. Hot-towel straight-razor shaves, beard shaping, and classic cuts. Walk in seven days a week.",
   eyebrow: "Saanich · Victoria, BC",
   h1: "Beard Trim in Saanich",
   h1Emphasis: "in Saanich.",
@@ -111,7 +111,7 @@ export const GORDON_HEAD_DATA: LandingPageData = {
   metaTitle:
     "Gordon Head Barber Shop — Skin Fades & Student Cuts | Royal Look Victoria BC",
   metaDescription:
-    "Barber shop for Gordon Head and the UVic area at Royal Look, inside Broadmead Village Shopping Centre. Sharp skin fades, quick buzz cuts, and classic cuts. Walk-ins welcome seven days a week.",
+    "Barber shop for Gordon Head and the UVic area at Royal Look in Broadmead Village. Sharp skin fades, buzz cuts, and classic cuts. Walk in seven days a week.",
   eyebrow: "Gordon Head · Victoria, BC",
   h1: "Gordon Head Barber Shop",
   h1Emphasis: "Barber Shop.",
@@ -134,12 +134,67 @@ Royal Look is open every day of the week, nine to seven Monday through Friday an
   areaServedName: "Gordon Head, Victoria BC",
 };
 
+export const CADBORO_BAY_DATA: LandingPageData = {
+  slug: "cadboro-bay-barber-shop",
+  metaTitle:
+    "Cadboro Bay Barber Shop — Family Cuts & Beard Trims | Royal Look Victoria BC",
+  metaDescription:
+    "Barber shop for Cadboro Bay families at Royal Look in Broadmead Village. Classic cuts, kids' haircuts, and beard trims. Walk in seven days a week.",
+  eyebrow: "Cadboro Bay · Victoria, BC",
+  h1: "Cadboro Bay Barber Shop",
+  h1Emphasis: "Barber Shop.",
+  intro: `Royal Look is a short drive from Cadboro Bay Village, out past the university end of Cadboro Bay Road to Broadmead Village Shopping Centre at Royal Oak. It's an easy trip whether you're coming from the beach at Gyro Park or just passing through on the way somewhere else — with free parking in the lot right out front.
+
+Most of what we do here is the dependable, well-proportioned men's cut — scissor or clipper, finished clean around the ears and neck, at a pace that isn't rushed. It's the kind of haircut a family can rely on visit after visit, without surprises.
+
+We also see plenty of kids from Cadboro Bay and the surrounding streets, from first haircuts through to regular school trims. Our barbers are patient with younger clients, so there's no stress for parents or kids in the chair.
+
+For dads and older brothers, our beard trim keeps things tidy without changing the shape you already like — a quick check of the line, then a clean edge-up by hand. Royal Look is open seven days a week, nine to seven on weekdays and nine to five on weekends. Walk in whenever suits you, or call ahead and we'll tell you straight how busy it is.`,
+  emphasizedServices: [
+    { displayName: "Regular Hair Cut", configName: "Regular Hair Cut" },
+    { displayName: "Kids' Haircut", configName: "Kids" },
+    { displayName: "Beard Trim", configName: "Trim Beard" },
+  ],
+  landmark: SHOP.landmarks,
+  callLocation: "cadboro_bay_page_cta",
+  callLocationPrimary: "cadboro_bay_page_cta_primary",
+  breadcrumbLabel: "Cadboro Bay Barber Shop",
+  areaServedName: "Cadboro Bay, Victoria BC",
+};
+
+export const OAK_BAY_DATA: LandingPageData = {
+  slug: "oak-bay-barber-shop",
+  metaTitle: "Oak Bay Barber Shop — Classic Cuts & Skin Fades | Royal Look Victoria BC",
+  metaDescription:
+    "Barber shop for Oak Bay at Royal Look in Broadmead Village. Classic gentleman's cuts, clean skin fades, and senior cuts. Walk in seven days a week.",
+  eyebrow: "Oak Bay · Victoria, BC",
+  h1: "Oak Bay Barber Shop",
+  h1Emphasis: "Barber Shop.",
+  intro: `Oak Bay Village and the Avenue are a short drive from Broadmead Village Shopping Centre, where Royal Look sits at Royal Oak — free parking right out front, so a stop on the way past Willows Beach or the Uplands costs you nothing but a few minutes.
+
+Oak Bay has always had a taste for a properly done classic cut, and that's exactly what we specialize in — scissor work and a clean taper, finished the old-fashioned way with no shortcuts taken.
+
+For anyone after something sharper, our skin fades are blended by hand down to the skin, shaped to suit your hairline rather than a one-size template. Low, mid, or high, every fade leaves clean.
+
+We also see a good number of long-time Oak Bay residents in for our senior cut — an easier, more comfortable haircut at a gentler pace. Royal Look is open every day of the week, nine to seven Monday through Friday and nine to five on weekends. Call ahead to check the wait, or just walk in.`,
+  emphasizedServices: [
+    { displayName: "Regular Hair Cut", configName: "Regular Hair Cut" },
+    { displayName: "Skin Fade", configName: "Skin Fade" },
+    { displayName: "Senior Cut", configName: "Senior" },
+  ],
+  landmark: SHOP.landmarks,
+  callLocation: "oak_bay_page_cta",
+  callLocationPrimary: "oak_bay_page_cta_primary",
+  breadcrumbLabel: "Oak Bay Barber Shop",
+  areaServedName: "Oak Bay, Victoria BC",
+};
+
 export const CORDOVA_BAY_DATA: LandingPageData = {
   slug: "cordova-bay-barber-shop",
   metaTitle:
     "Cordova Bay Barber Shop — Classic Cuts & Beard Trims | Royal Look Victoria BC",
   metaDescription:
-    "Barber shop for Cordova Bay at Royal Look, inside Broadmead Village Shopping Centre. Classic men's cuts, beard trims, and clean skin fades, minutes from Cordova Bay Road. Walk-ins welcome.",
+    "Barber shop for Cordova Bay at Royal Look in Broadmead Village. Classic men's cuts, beard trims, and clean skin fades. Walk in seven days a week.",
   eyebrow: "Cordova Bay · Victoria, BC",
   h1: "Cordova Bay Barber Shop",
   h1Emphasis: "Barber Shop.",
@@ -160,4 +215,32 @@ Royal Look is open seven days a week, nine to seven on weekdays and nine to five
   callLocationPrimary: "cordova_bay_page_cta_primary",
   breadcrumbLabel: "Cordova Bay Barber Shop",
   areaServedName: "Cordova Bay, Victoria BC",
+};
+
+export const VICTORIA_DATA: LandingPageData = {
+  slug: "victoria-barber-shop",
+  metaTitle:
+    "Victoria Barber Shop — Skin Fades, Classic Cuts & Beards | Royal Look BC",
+  metaDescription:
+    "Royal Look is a Victoria, BC barber shop in Broadmead Village. Skin fades, classic cuts, beard trims, and hot-towel shaves. Walk in seven days a week.",
+  eyebrow: "Victoria, BC",
+  h1: "Victoria Barber Shop",
+  h1Emphasis: "Barber Shop.",
+  intro: `Royal Look is a full-service barber shop in the heart of Greater Victoria, set inside Broadmead Village Shopping Centre where Royal Oak Drive meets the Pat Bay Highway. That central spot puts us within easy reach of downtown, Saanich, and the western communities alike — a straight drive in, with free parking in the lot right out front. No meters, no circling the block.
+
+Skin fades are what we're best known for. Our barbers blend the hair down to the skin by hand, shaping every fade to your hairline and the length you want left on top rather than forcing it into a template. Low, mid, or high, the finish comes out clean and sharp every time.
+
+If you're after something more traditional, the classic men's cut is our bread and butter — a well-proportioned scissor or clipper cut, tidied clean around the ears and neck at an unhurried pace. It's the dependable haircut you can come back for week after week and know exactly what you'll get.
+
+We round it out with careful beard work and a hot-towel straight-razor shave for anyone who wants the full treatment. Royal Look is open every day of the week, nine to seven Monday through Friday and nine to five on weekends. Walk in whenever it suits you, or give us a call and we'll tell you straight how busy we are.`,
+  emphasizedServices: [
+    { displayName: "Skin Fade", configName: "Skin Fade" },
+    { displayName: "Regular Hair Cut", configName: "Regular Hair Cut" },
+    { displayName: "Beard Trim", configName: "Trim Beard" },
+  ],
+  landmark: SHOP.landmarks,
+  callLocation: "victoria_page_cta",
+  callLocationPrimary: "victoria_page_cta_primary",
+  breadcrumbLabel: "Victoria Barber Shop",
+  areaServedName: "Victoria, BC",
 };
