@@ -10,6 +10,28 @@ export type EmphasizedService = {
   description?: string;
 };
 
+/**
+ * Structured directions for an AREA page. Every value here came from the shop
+ * owner — no road, landmark, drive time, or bus route in this file is inferred
+ * from a map. If the owner did not supply it, the field is left off.
+ *
+ * Only the five area pages carry this. Service pages (beard trim, skin fade,
+ * kids' cuts, hot shave) have no origin neighbourhood, so they omit the field
+ * entirely and the renderer skips the block.
+ */
+export type GettingHere = {
+  /** Where the directions start from, e.g. "Royal Oak Shopping Centre" */
+  from: string;
+  /** Road-by-road route, e.g. "West Saanich Rd → Elk Lake Dr → Royal Oak Dr → Chatterton Way" */
+  route: string;
+  /** Approximate drive, e.g. "about 4 minutes" */
+  driveTime: string;
+  /** Transit note. Omit entirely when none was supplied. */
+  transit?: string;
+  /** Practical note — parking, busiest times. Omit when none. */
+  note?: string;
+};
+
 export type LandingPageData = {
   slug: string;
   metaTitle: string;
@@ -19,6 +41,7 @@ export type LandingPageData = {
   h1Emphasis: string;
   intro: string;
   emphasizedServices: EmphasizedService[];
+  gettingHere?: GettingHere;
   landmark: string;
   callLocation: string;
   callLocationPrimary: string;
@@ -58,6 +81,12 @@ export function resolveService(configName: string): Service | null {
 // Every `description` below is written fresh per page. The same service
 // appears on several pages and each instance must say something different
 // — reusing phrasing across pages defeats the point of having the pages.
+//
+// The same goes for `intro`. Each area intro is built around what the owner
+// told us about that neighbourhood's clients — who comes in and when — which
+// is the one thing a competitor cannot copy off a map. Nothing local in these
+// intros is inferred: if the owner did not say it, it is not on the page.
+// `gettingHere` is area-pages-only; service pages leave it undefined.
 
 export const ROYAL_OAK_DATA: LandingPageData = {
   slug: "royal-oak-barber-shop",
@@ -68,13 +97,13 @@ export const ROYAL_OAK_DATA: LandingPageData = {
   eyebrow: "Royal Oak · Victoria, BC",
   h1: "Royal Oak Barber Shop",
   h1Emphasis: "Barber Shop.",
-  intro: `Royal Oak Barber Shop at Broadmead Village is the neighbourhood spot for men and kids who want a clean, precise cut without travelling far. Whether you step off a bus at the Royal Oak Transit Exchange on Royal Oak Drive or drive in from a side street, the shop is easy to reach — with free parking in the lot right out front.
+  intro: `Two groups make up most of what we do for Royal Oak: retirees, and parents bringing kids in. That mix sets the pace of the shop. One wants an unhurried chair and a haircut done the way it has always been done; the other wants it finished before a three-year-old runs out of patience. Both happen inside the same half hour more often than you would think.
 
-Skin fades are a cornerstone of what we do here. Our barbers blend hair down to the skin with careful, unhurried technique, shaping each fade to suit your face and the look you have in mind. Whether it's a mid-fade, a high-and-tight, or something more tapered, every finish is a clean one.
+It shows in what gets asked for. Senior cuts, the regular men's cut, and kids' cuts are the three that fill the chairs here. A senior cut is the same haircut as the regular one, at a gentler pace and a lower rate. A kids' cut is built around a short attention span — the shape first, the fine detail second. Skin fades and beard work get asked for plenty too, but those three are the backbone of a Royal Oak day.
 
-Kids' cuts are handled with the same focus. We see children aged three and up, and our barbers are patient and straightforward, which helps younger clients settle in quickly. There's no rush, and first-timers are always welcome.
+Of all the neighbourhoods we serve, Royal Oak is the one we are actually in. From Royal Oak Shopping Centre it is about four minutes by car — Elk Lake Drive onto Royal Oak Drive, then Chatterton Way into the Broadmead plaza. Parking is free in the lot right out front. The one thing worth knowing is that the roads around here are busiest in the afternoon, so a morning trip moves faster if the timing is yours to pick.
 
-Royal Look sits inside Broadmead Village Shopping Centre, steps from the transit exchange and surrounded by everyday amenities. There's no need to make a separate trip — a fresh cut fits easily into an errand run. The shop is open every day of the week, nine to seven Monday through Friday and nine to five on weekends. Give us a call to check availability, or simply come in.`,
+We are open every day: nine to seven Monday through Friday, nine to five Saturday and Sunday. Walk in whenever it suits you. If you would rather not sit and wait, phone first and we will tell you straight how many people are ahead of you.`,
   emphasizedServices: [
     {
       displayName: "Skin Fade",
@@ -95,6 +124,12 @@ Royal Look sits inside Broadmead Village Shopping Centre, steps from the transit
         "A scissor or clipper cut built around your head shape rather than a set number. Your barber reads the growth pattern, takes weight out where it sits heavy, and finishes the neck clean.",
     },
   ],
+  gettingHere: {
+    from: "Royal Oak Shopping Centre",
+    route: "West Saanich Rd → Elk Lake Dr → Royal Oak Dr → Chatterton Way",
+    driveTime: "about 4 minutes",
+    note: "Free parking in the lot right out front. Traffic around Royal Oak is busiest in the afternoon.",
+  },
   landmark: SHOP.landmarkRoyalOak,
   callLocation: "royal_oak_page_cta",
   callLocationPrimary: "royal_oak_page_cta_primary",
@@ -111,13 +146,13 @@ export const SAANICH_DATA: LandingPageData = {
   eyebrow: "Saanich · Victoria, BC",
   h1: "Beard Trim in Saanich",
   h1Emphasis: "in Saanich.",
-  intro: `A proper Beard Trim in Saanich is easier to find than most people expect. Royal Look Barber Shop is right inside Broadmead Village Shopping Centre in the Royal Oak neighbourhood — the same Village that draws Saanich residents for groceries, pharmacy runs, and coffee. Fitting in a beard appointment on the same trip is straightforward: free parking is right out front.
+  intro: `A beard trim is mostly a decision about two lines. The cheek line sets how high the beard sits on the face; the neck line sets where it stops underneath. Length and bulk follow from those two, and getting them wrong is what makes a beard look untidy straight after a trim. Your barber agrees both with you before anything comes off.
 
-Our beard trim is a focused service. Your barber checks your beard line, discusses the shape you want, then scissors and shaves the edges clean with a steady hand. We do not rush through grooming. If the line needs more definition or you want more bulk removed, we adjust on the spot.
+The work then runs in that order. The shape is set by eye rather than to a guard number: a beard follows the jaw, and no two jaws are alike. The length is evened through next — clippers on a short beard, scissor-over-comb on a longer one, bulk taken out of the cheeks and the ends levelled. The edges are cut last, so the finish reads deliberate rather than just shorter.
 
-For clients who want to go further, our hot-towel straight-razor shave is one of the most-requested services at the shop. The hot towel softens the skin and opens the pores, the straight razor delivers a closer finish than any cartridge blade, and the combination leaves your face smooth and settled. It takes thirty to forty minutes and the results speak for themselves.
+The hot-towel straight-razor shave is a different service. A hot towel goes on first to soften the beard and relax the skin, lather is worked in with a brush, and the razor takes a first pass with the grain before being re-lathered and taken across it. The difference from a cartridge is mechanical: one sharp edge cutting the hair level with the skin in a single stroke, rather than three blades dragged twice over the same patch — so it finishes closer and pulls less. Every shave uses a fresh single-use blade.
 
-Both services can be combined with a haircut or booked on their own. Royal Look is open every day of the week, with weekday hours running nine to seven. Come in when it suits you, or call ahead to check how busy we are — we will give you a straight answer.`,
+Between visits, the two lines are the thing to leave alone; those are the ones people creep upward on at home, and once they are off it takes weeks to bring them back. Comb the beard daily so it lies the way it was cut, and take stray hairs off with scissors rather than clippers. Royal Look is in the Royal Oak neighbourhood of Saanich, inside Broadmead Village Shopping Centre, with free parking right out front. Beard work stands on its own or gets added to a haircut, and we take walk-ins every day of the week.`,
   emphasizedServices: [
     {
       displayName: "Beard Trim",
@@ -154,13 +189,13 @@ export const GORDON_HEAD_DATA: LandingPageData = {
   eyebrow: "Gordon Head · Victoria, BC",
   h1: "Gordon Head Barber Shop",
   h1Emphasis: "Barber Shop.",
-  intro: `For Gordon Head residents and University of Victoria students, Royal Look is a short drive across Saanich — out to Broadmead Village near the Royal Oak interchange, with free parking in the lot right out front. Swing by on the way to or from campus; no appointment needed.
+  intro: `Thursday and Friday are the Gordon Head days. That is when the students come in — hair sorted before the weekend starts rather than after it, which is the sensible order and not the one most people manage. It is the most consistent pattern we see from any neighbourhood we serve, and it means the back half of the week is the busier one for anyone coming from the university side of Saanich.
 
-Skin fades are what most students come in for, and our barbers take the time to get them right — blended clean down to the skin, shaped to suit your hairline and the length you want left on top. Mid-fade, high-and-tight, or a softer taper, every finish is a sharp one.
+Two things get asked for above everything else: the regular men's cut and the skin fade. The fade is the one that decides your week. It is sharpest in the first two weeks and softens as the skin section grows back in, so if you want it crisp for a Friday, come in on the Thursday rather than the week before. The regular cut holds its shape longer and asks less of you. A buzz cut, if that is genuinely all you need, is quicker than either.
 
-When you just need to look tidy before class or a shift, a buzz cut is quick, even, and easy to maintain — in and out without the wait. We also handle classic scissor cuts for anyone who wants something more grown-out and natural.
+Getting here without a car is straightforward. The 14 picks up at the UVic bus loop and runs through to Broadmead — but be clear on the last stretch, because the stop is not at our door. It is a four-minute walk from the shop, and about two minutes from the edge of Broadmead plaza. Budget that on top of the ride and you will not be caught out.
 
-Royal Look is open every day of the week, nine to seven Monday through Friday and nine to five on weekends, so a cut fits easily around lectures, work, or the weekend. Give us a call to check how busy we are, or simply walk in.`,
+By car it is a straight run down McKenzie Avenue to Quadra, then Chatterton Way into the plaza. We are open every day of the week, nine to seven Monday through Friday and nine to five on weekends, which leaves room around lectures, a shift, or the gap between the two. Walk in when it suits you, or call ahead and we will tell you what the wait looks like.`,
   emphasizedServices: [
     {
       displayName: "Skin Fade",
@@ -181,6 +216,13 @@ Royal Look is open every day of the week, nine to seven Monday through Friday an
         "For hair you want kept longer and looking natural — scissor work through the top, a soft taper at the sides, nothing blunt or over-shaped. It grows out without an awkward stage.",
     },
   ],
+  gettingHere: {
+    from: "UVic",
+    route: "McKenzie Ave → Quadra St → Chatterton Way",
+    driveTime: "a short drive across Saanich",
+    transit:
+      "Bus 14 picks up at the UVic bus loop. The stop at this end is a 4-minute walk from the shop — about 2 minutes from Broadmead plaza.",
+  },
   landmark: SHOP.landmarks,
   callLocation: "gordon_head_page_cta",
   callLocationPrimary: "gordon_head_page_cta_primary",
@@ -197,13 +239,13 @@ export const CADBORO_BAY_DATA: LandingPageData = {
   eyebrow: "Cadboro Bay · Victoria, BC",
   h1: "Cadboro Bay Barber Shop",
   h1Emphasis: "Barber Shop.",
-  intro: `Royal Look is a short drive from Cadboro Bay Village, out past the university end of Cadboro Bay Road to Broadmead Village Shopping Centre at Royal Oak. It's an easy trip whether you're coming from the beach at Gyro Park or just passing through on the way somewhere else — with free parking in the lot right out front.
+  intro: `Here is a piece of local knowledge worth having: from Cadboro Bay, leaving later is faster. Google Maps puts the drive at about twenty-two minutes at five o'clock and about thirty at three. The road is identical either way — Sinclair Road onto McKenzie, McKenzie to Quadra, then Chatterton Way into the Broadmead plaza — so the whole difference is traffic, and it does not run the direction most people assume.
 
-Most of what we do here is the dependable, well-proportioned men's cut — scissor or clipper, finished clean around the ears and neck, at a pace that isn't rushed. It's the kind of haircut a family can rely on visit after visit, without surprises.
+Our Cadboro Bay clients are a full cross-section: students, families, and retirees, spread through the week rather than bunched into one part of it. Students turn up at the weekend. Retirees come through the day, whenever suits them. Families arrive in the evenings, once work is finished. There is no single Cadboro Bay hour — they filter through, and the shop stays open either way.
 
-We also see plenty of kids from Cadboro Bay and the surrounding streets, from first haircuts through to regular school trims. Our barbers are patient with younger clients, so there's no stress for parents or kids in the chair.
+The mix shows in the work. Senior cuts, the regular men's cut, kids' cuts, and skin fades are the four we do most from this end of town, with beard trims alongside. Whoever is in the chair, the method does not change: the shape agreed before anything comes off, the length cut to what you asked for rather than to what is quick, and the ears and neck finished properly at the end.
 
-For dads and older brothers, our beard trim keeps things tidy without changing the shape you already like — a quick check of the line, then a clean edge-up by hand. Royal Look is open seven days a week, nine to seven on weekdays and nine to five on weekends. Walk in whenever suits you, or call ahead and we'll tell you straight how busy it is.`,
+Whether you set out from Cadboro-Gyro Park or from the university end of the neighbourhood, it is the same road in. Parking is free in the lot right out front. We are open seven days a week, nine to seven on weekdays and nine to five on weekends, and walk-ins are welcome on all of them — call first if you want to know what the wait looks like.`,
   emphasizedServices: [
     {
       displayName: "Regular Hair Cut",
@@ -224,6 +266,12 @@ For dads and older brothers, our beard trim keeps things tidy without changing t
         "Maintenance rather than a redesign. We hold the shape you already wear, take off the stray growth, and clean up the edges so the whole thing looks deliberate again.",
     },
   ],
+  gettingHere: {
+    from: "Cadboro-Gyro Park",
+    route: "Sinclair Rd → McKenzie Ave → Quadra St → Chatterton Way",
+    driveTime: "about 22 minutes at 5pm, about 30 minutes at 3pm",
+    note: "Free parking in the lot right out front. Per Google Maps, leaving later beats leaving mid-afternoon.",
+  },
   landmark: SHOP.landmarks,
   callLocation: "cadboro_bay_page_cta",
   callLocationPrimary: "cadboro_bay_page_cta_primary",
@@ -239,13 +287,13 @@ export const OAK_BAY_DATA: LandingPageData = {
   eyebrow: "Oak Bay · Victoria, BC",
   h1: "Oak Bay Barber Shop",
   h1Emphasis: "Barber Shop.",
-  intro: `Oak Bay Village and the Avenue are a short drive from Broadmead Village Shopping Centre, where Royal Look sits at Royal Oak — free parking right out front, so a stop on the way past Willows Beach or the Uplands costs you nothing but a few minutes.
+  intro: `Oak Bay is a real drive to Broadmead, and we would rather say so than pretend otherwise. Bay Street to Cook, Cook to Quadra, then Chatterton Way into the plaza. On clear roads it moves; in rush hour the same trip can stretch to thirty minutes. The 14 runs the whole way without a transfer at around fifty-six minutes end to end, and the stop at this end is a four-minute walk from the shop — about two minutes from the edge of Broadmead plaza, so leave yourself that on top of the ride.
 
-Oak Bay has always had a taste for a properly done classic cut, and that's exactly what we specialize in — scissor work and a clean taper, finished the old-fashioned way with no shortcuts taken.
+The Oak Bay clients who make the trip sort themselves into three groups, each keeping its own hours. Students come at the weekend. Families and office workers come in the evenings, once work is done. Given the distance, a phone call before you set out is the single most useful thing you can do — thirty minutes is a long way to travel to sit and wait.
 
-For anyone after something sharper, our skin fades are blended by hand down to the skin, shaped to suit your hairline rather than a one-size template. Low, mid, or high, every fade leaves clean.
+Two services account for most of it. The regular men's cut is traditional barbering: scissor work through the sides, a graduated taper, a neckline finished the way you have always worn it. The skin fade is the sharper end of the same skill, blended by hand down to bare skin and shaped to your hairline rather than to a template. If you want the easier version of the regular cut, a senior cut is the same haircut at a gentler pace and a reduced rate.
 
-We also see a good number of long-time Oak Bay residents in for our senior cut — an easier, more comfortable haircut at a gentler pace. Royal Look is open every day of the week, nine to seven Monday through Friday and nine to five on weekends. Call ahead to check the wait, or just walk in.`,
+We are open every day of the week, nine to seven Monday through Friday and nine to five on weekends, and no appointment is needed. Ask for Zaki or Aymen by name if you have a preference — call ahead and we will tell you who is working and roughly when they are free.`,
   emphasizedServices: [
     {
       displayName: "Regular Hair Cut",
@@ -266,6 +314,14 @@ We also see a good number of long-time Oak Bay residents in for our senior cut �
         "An unhurried cut at a pace that suits — less time held in one position, careful work through finer or thinning hair, and the ears and neck tidied properly at the end.",
     },
   ],
+  gettingHere: {
+    from: "Royal Jubilee Hospital",
+    route: "Bay St → Cook St → Quadra St → Chatterton Way",
+    driveTime: "up to 30 minutes in rush hour",
+    transit:
+      "Bus 14 runs the whole way, about 56 minutes. The stop at this end is a 4-minute walk from the shop — about 2 minutes from Broadmead plaza.",
+    note: "Free parking in the lot right out front.",
+  },
   landmark: SHOP.landmarks,
   callLocation: "oak_bay_page_cta",
   callLocationPrimary: "oak_bay_page_cta_primary",
@@ -282,13 +338,13 @@ export const CORDOVA_BAY_DATA: LandingPageData = {
   eyebrow: "Cordova Bay · Victoria, BC",
   h1: "Cordova Bay Barber Shop",
   h1Emphasis: "Barber Shop.",
-  intro: `Royal Look is the closest proper barber shop to Cordova Bay — just a few minutes inland from Cordova Bay Road, inside Broadmead Village Shopping Centre at Royal Oak. There's free parking right out front, so a fresh cut slots easily into a grocery run or a trip past Mattick's Farm.
+  intro: `The Cordova Bay half of our week arrives in two waves. Seniors come through the morning, when the shop is quiet and there is time to talk. Families come after work on weekdays and at any hour over the weekend, usually with at least one child who would rather be somewhere else. Two very different visits, and the shop runs at two different speeds because of it.
 
-Our bread and butter is the classic men's cut: a clean, well-proportioned scissor or clipper cut, finished tidy around the ears and neck, done at an unhurried pace. It's the kind of dependable haircut a neighbourhood relies on, week in and week out.
+The service list follows the same split. Senior cuts and the regular men's cut, kids' cuts, and the hot-towel straight-razor shave are what Cordova Bay asks for most. The shave is the outlier there and the one worth planning around — it runs slower than any haircut on the menu, so it sits better in a morning than squeezed into the end of a working day. Beard trims and skin fades cover most of the rest.
 
-We also do careful beard work — checking your line, talking through the shape you want, then trimming and edging it clean by hand. And if you'd rather a more modern finish, our barbers cut sharp skin fades to whatever length suits you.
+If you would rather not drive, the 32 is the easy answer: about eleven minutes, and it stops right in front of Broadmead plaza rather than a walk away. Driving, it is roughly ten minutes from Cordova Bay Beach — Cordova Bay Road onto Royal Oak Drive, then Chatterton Way into the plaza, with free parking in the lot out front.
 
-Royal Look is open seven days a week, nine to seven on weekdays and nine to five on weekends. Walk in whenever it suits you, or call ahead and we'll give you a straight answer on the wait.`,
+We are open seven days, nine to seven on weekdays and nine to five on weekends, and we take walk-ins on all of them. If you want the quiet end of the day rather than the busy one, give us a call before you set out and we will tell you honestly how it looks.`,
   emphasizedServices: [
     {
       displayName: "Regular Hair Cut",
@@ -309,6 +365,13 @@ Royal Look is open seven days a week, nine to seven on weekdays and nine to five
         "Sharpest in the first couple of weeks, then the skin section fills back in and the contrast softens. Two to three weeks is the interval that keeps it looking freshly cut.",
     },
   ],
+  gettingHere: {
+    from: "Cordova Bay Beach",
+    route: "Cordova Bay Rd → Royal Oak Dr → Chatterton Way",
+    driveTime: "about 10 minutes",
+    transit: "Bus 32 stops right in front of Broadmead plaza — about 11 minutes.",
+    note: "Free parking in the lot right out front.",
+  },
   landmark: SHOP.landmarks,
   callLocation: "cordova_bay_page_cta",
   callLocationPrimary: "cordova_bay_page_cta_primary",

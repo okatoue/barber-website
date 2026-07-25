@@ -56,6 +56,38 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
   // — the generic homepage FAQs render, never an empty block.
   const faqArea = FAQ_AREA_BY_SLUG[data.slug];
 
+  // Directions, present on AREA pages only — the service pages have no origin
+  // neighbourhood, so the whole block is omitted rather than emptied.
+  const gettingHere = data.gettingHere;
+
+  // `route` reads "A → B → C". Split on the arrow so each leg can be rendered
+  // as its own unbreakable chunk in a wrapping row: on a narrow phone the line
+  // then breaks between legs rather than mid-street-name or off the side.
+  // An arrow-less route yields a single leg and renders verbatim.
+  const routeLegs = gettingHere
+    ? gettingHere.route
+        .split("→")
+        .map((leg) => leg.trim())
+        .filter(Boolean)
+    : [];
+
+  // Row styling for the directions list. Mono labels echo the hours grid
+  // directly above them; values stay in the sans face because the transit and
+  // parking lines are sentences, not tabular data.
+  const ghLabel = {
+    margin: 0,
+    fontFamily: "var(--font-mono)",
+    fontSize: 12,
+    letterSpacing: "0.04em",
+    color: "var(--muted)",
+  };
+  const ghValue = {
+    margin: 0,
+    fontSize: 14,
+    lineHeight: 1.6,
+    color: "var(--ink-2)",
+  };
+
   // ── JSON-LD @graph ──────────────────────────────────────────────────────────
   const serviceNodes = data.emphasizedServices.map((svc) => {
     const resolved = resolveService(svc.configName);
@@ -302,6 +334,76 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
                   );
                 })}
               </div>
+
+              {/* Getting here — area pages only; absent on the service pages */}
+              {gettingHere ? (
+                <div>
+                  <h4 className="eyebrow" style={{ margin: "0 0 14px" }}>
+                    Getting here
+                  </h4>
+
+                  <dl
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "auto 1fr",
+                      gap: "10px 18px",
+                      alignItems: "baseline",
+                      margin: 0,
+                    }}
+                  >
+                    <dt style={ghLabel}>From</dt>
+                    <dd style={ghValue}>{gettingHere.from}</dd>
+
+                    {routeLegs.length > 0 ? (
+                      <>
+                        <dt style={ghLabel}>Route</dt>
+                        <dd style={ghValue}>
+                          <span
+                            style={{
+                              display: "flex",
+                              flexWrap: "wrap",
+                              gap: "0 6px",
+                            }}
+                          >
+                            {routeLegs.map((leg, i) => (
+                              <span
+                                key={`${i}-${leg}`}
+                                style={{ whiteSpace: "nowrap" }}
+                              >
+                                {i > 0 ? (
+                                  <span
+                                    style={{
+                                      color: "var(--accent)",
+                                      marginRight: 6,
+                                    }}
+                                  >
+                                    &rarr;
+                                  </span>
+                                ) : null}
+                                {leg}
+                              </span>
+                            ))}
+                          </span>
+                        </dd>
+                      </>
+                    ) : null}
+
+                    <dt style={ghLabel}>Drive</dt>
+                    <dd style={ghValue}>{gettingHere.driveTime}</dd>
+
+                    {gettingHere.transit ? (
+                      <>
+                        <dt style={ghLabel}>Transit</dt>
+                        <dd style={ghValue}>{gettingHere.transit}</dd>
+                      </>
+                    ) : null}
+                  </dl>
+
+                  {gettingHere.note ? (
+                    <p className="find-note">{gettingHere.note}</p>
+                  ) : null}
+                </div>
+              ) : null}
 
               {/* Primary Call CTA — tracked via Analytics delegated listener */}
               <a

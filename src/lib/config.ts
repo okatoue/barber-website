@@ -256,13 +256,52 @@ export const FAQ_ITEMS: FaqItem[] = [
     question: "Is there parking nearby?",
     answer: SHOP.landmarks,
     category: "Visiting",
+    areas: ["cadboro-bay"],
   },
   {
+    question: "Which shopping centre are you in?",
+    answer:
+      "Broadmead Village Shopping Centre — we're inside the plaza, just to the left of Starbucks, with free parking in the lot right out front. It's a different centre from Royal Oak Shopping Centre, which is about four minutes away by car: West Saanich Road to Elk Lake Drive, down Royal Oak Drive, then Chatterton Way in. From Cordova Bay Beach it's about ten minutes — Cordova Bay Road onto Royal Oak Drive and the same turn onto Chatterton Way.",
+    category: "Visiting",
+    areas: ["royal-oak", "cordova-bay"],
+  },
+  {
+    // gordon-head is served by the route-14 detail in "Which bus routes stop
+    // near the shop?" below; tagging both here would put two bus questions on
+    // the one page.
     question: "Can I get to the shop by bus?",
     answer:
       "Yes. We're a short walk from the Royal Oak Transit Exchange on Royal Oak Drive, so you can get here on BC Transit without a car. From the exchange, head into Broadmead Village Shopping Centre — we're inside, just to the left of Starbucks. Check the BC Transit schedule for the route that works from your end.",
     category: "Visiting",
-    areas: ["royal-oak", "gordon-head"],
+    areas: ["royal-oak"],
+  },
+  {
+    question: "Which bus routes stop near the shop?",
+    answer:
+      "Two of them get you close. The 32 comes up from Cordova Bay in about 11 minutes and stops right in front of Broadmead Village. The 14 runs from Oak Bay, roughly 56 minutes end to end, and picks up at UVic's bus loop if you're starting from that side of town — its stop is a two-minute walk from the plaza and about four minutes from our door. Check the BC Transit schedule for times at your end.",
+    category: "Visiting",
+    areas: ["cordova-bay", "gordon-head", "oak-bay"],
+  },
+  {
+    question: "How long does it take to drive here from Oak Bay?",
+    answer:
+      "Bay Street to Cook, up Quadra, then Chatterton Way into Broadmead Village — Royal Jubilee Hospital is the landmark at the Oak Bay end of that run. Outside the busy hours it's a straightforward drive. At rush hour give it up to 30 minutes, so if you're coming after work, leave yourself more room than you think you need.",
+    category: "Visiting",
+    areas: ["oak-bay"],
+  },
+  {
+    question: "When is the drive from Cadboro Bay quickest?",
+    answer:
+      "Later in the day, which catches most people out. Google Maps puts the trip at about 30 minutes at 3pm and about 22 minutes at 5pm — the mid-afternoon run is the slow one, not the after-work one. The route either way is Sinclair Road to McKenzie Avenue, up Quadra Street, then Chatterton Way into Broadmead Village. Coming from around Cadboro-Gyro Park or UVic, it's the same road out.",
+    category: "Visiting",
+    areas: ["cadboro-bay"],
+  },
+  {
+    question: "When is the shop quietest?",
+    answer:
+      "Weekday mornings. We open at nine, and the early part of the day is mostly our senior and retired clients — there's usually a chair free and nothing feels rushed. Afternoons are the busy stretch, on the roads around here as much as in the shop. Evenings fill up with families and people coming off work, Thursday and Friday get busy with students tidying up before the weekend, and weekends are steady all day, with a five o'clock close instead of seven. If you want the shortest wait, come early on a weekday.",
+    category: "Visiting",
+    areas: ["royal-oak", "cadboro-bay", "gordon-head"],
   },
   {
     question: "What's your cancellation policy?",
