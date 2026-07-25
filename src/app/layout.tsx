@@ -3,6 +3,7 @@ import { Geist, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
+import MetaPixel from "@/components/MetaPixel";
 import { SHOP } from "@/lib/config";
 import "./globals.css";
 
@@ -136,6 +137,7 @@ export default async function RootLayout({
         <main>{children}</main>
         <Footer />
         <Analytics />
+        <MetaPixel />
       </body>
     </html>
   );

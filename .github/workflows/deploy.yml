@@ -36,6 +36,9 @@ jobs:
         env:
           GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
           GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+          # Static export inlines this at build time. Unset (no secret) →
+          # the Meta Pixel renders nothing and no Meta script loads.
+          NEXT_PUBLIC_FB_PIXEL_ID: ${{ secrets.NEXT_PUBLIC_FB_PIXEL_ID }}
 
       - name: Deploy to Cloudflare Pages
         env:

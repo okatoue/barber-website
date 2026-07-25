@@ -1,0 +1,58 @@
+"use client";
+
+import Script from "next/script";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
+import { FB_PIXEL_ID } from "@/lib/meta-pixel";
+
+export default function MetaPixel() {
+  const pathname = usePathname();
+  const isFirstRun = useRef(true);
+
+  // The init snippet below fires the first PageView itself, so skip the
+  // mount run here or the landing page counts twice. Every client-side
+  // route change after that fires from this effect.
+  useEffect(() => {
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      return;
+    }
+    if (!FB_PIXEL_ID) return;
+    window.fbq?.("track", "PageView");
+  }, [pathname]);
+
+  // Track taps on any "Call" button as a Contact event — a phone call is
+  // the closest thing this site has to a conversion. One delegated
+  // listener catches every tel: link, current and future, the same way
+  // Analytics.tsx does for GA4.
+  useEffect(() => {
+    if (!FB_PIXEL_ID) return;
+    const handler = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      const link = target?.closest?.('a[href^="tel:"]');
+      if (!link) return;
+      window.fbq?.("track", "Contact", {
+        call_location: link.getAttribute("data-call-location") || "unknown",
+      });
+    };
+    document.addEventListener("click", handler);
+    return () => document.removeEventListener("click", handler);
+  }, []);
+
+  if (!FB_PIXEL_ID) return null;
+
+  return (
+    <Script id="meta-pixel" strategy="afterInteractive">
+      {`!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '${FB_PIXEL_ID}');
+fbq('track', 'PageView');`}
+    </Script>
+  );
+}
