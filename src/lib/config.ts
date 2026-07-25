@@ -165,9 +165,11 @@ export type Barber = {
   years: string;
   bio: string;
   specialties: string[];
-  image: string;
 };
 
+// bio is intentionally blank for both barbers — real copy needs to come
+// from the shop owner, not be invented. blurb() in app/barbers/page.tsx
+// generates fallback text from years + specialties until bios are supplied.
 export const BARBERS: Barber[] = [
   {
     name: "Zak",
@@ -175,7 +177,6 @@ export const BARBERS: Barber[] = [
     years: "12 yrs",
     bio: "",
     specialties: ["Skin Fades", "Modern Styles", "Designs"],
-    image: "/images/barber-marcus.jpg",
   },
   {
     name: "Aymen",
@@ -183,7 +184,6 @@ export const BARBERS: Barber[] = [
     years: "10 yrs",
     bio: "",
     specialties: ["Scissor Cuts", "Classic Styles", "Beards"],
-    image: "/images/barber-james.jpg",
   },
 ];
 
@@ -263,13 +263,15 @@ export const FAQ_ITEMS: FaqItem[] = [
 // ============================================================
 // NAV LINKS
 // ============================================================
+// Single source of truth for the header nav — Navbar.tsx renders this.
+// Prefer a real route over a homepage anchor wherever one exists: an
+// anchor like "/#menu" navigates a landing-page visitor away to the
+// homepage and passes no link signal to /services or /location. "Work"
+// stays an anchor because the gallery lives only on the homepage.
 
-export const NAV_LINKS_LEFT = [
-  { label: "Services", href: "/services" },
-  { label: "Barbers", href: "/barbers" },
-];
-
-export const NAV_LINKS_RIGHT = [
-  { label: "Reviews", href: "/#reviews" },
-  { label: "Location", href: "/location" },
+export const NAV_LINKS = [
+  { label: "Menu", href: "/services" },
+  { label: "Work", href: "/#work" },
+  { label: "Team", href: "/barbers" },
+  { label: "Find Us", href: "/location" },
 ];

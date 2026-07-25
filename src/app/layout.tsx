@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
 import MetaPixel from "@/components/MetaPixel";
+import MobileBottomBar from "@/components/MobileBottomBar";
 import { SHOP } from "@/lib/config";
 import "./globals.css";
 
@@ -136,6 +137,7 @@ export default async function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <MobileBottomBar />
         <Analytics />
         <MetaPixel />
       </body>

@@ -150,6 +150,56 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
         </div>
       </section>
 
+      {/* ── Locally emphasized services ──────────────────────────────────── */}
+      <section className="section section-warm" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow" />
+              <h2 className="serif">
+                {shortArea} <em>favourites.</em>
+              </h2>
+            </div>
+            <p className="lede">
+              The services {shortArea} clients ask for most, priced straight
+              — no surprises at the chair.
+            </p>
+          </div>
+
+          <div style={{ maxWidth: 640 }}>
+            {data.emphasizedServices.map((svc) => {
+              const resolved = resolveService(svc.configName);
+              return (
+                <div className="menu-row" key={svc.configName}>
+                  <div>
+                    <div className="nm">{svc.displayName}</div>
+                    {resolved ? (
+                      <div className="dur">{resolved.duration}</div>
+                    ) : null}
+                    {svc.description ? (
+                      <p
+                        style={{
+                          margin: "8px 0 0",
+                          color: "var(--muted)",
+                          fontSize: 14,
+                          lineHeight: 1.6,
+                          maxWidth: "52ch",
+                        }}
+                      >
+                        {svc.description}
+                      </p>
+                    ) : null}
+                  </div>
+                  {resolved ? (
+                    <span className="pr serif">{resolved.price}</span>
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* ── Full services menu (shared with homepage) ───────────────────── */}
       <Menu />
 

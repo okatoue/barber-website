@@ -266,13 +266,24 @@ a { color: inherit; text-decoration: none; }
 .hero-photo {
   position: absolute;
   inset: 0;
-  background-image: url("/images/interior.jpg");
+  background-image: url("/images/interior.webp");
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
   background-color: var(--card);
   pointer-events: none;
   z-index: 0;
+}
+
+/* Phones pull a 900px variant instead of the 1920px desktop file — 57 KB
+   vs 191 KB on the LCP element, where most of this shop's traffic is.
+   Uses the same 680px breakpoint as the rest of this stylesheet; the
+   image is a darkened backdrop under the ::after gradient, so the lower
+   pixel density doesn't read on the largest phones. */
+@media (max-width: 680px) {
+  .hero-photo {
+    background-image: url("/images/interior-mobile.webp");
+  }
 }
 .hero-photo::after {
   content: "";
@@ -994,4 +1005,30 @@ a { color: inherit; text-decoration: none; }
   font-size: 14px;
   line-height: 1.6;
   max-width: 44ch;
+}
+
+/* ─── Mobile call bar (sticky CTA, phone-only conversion) ─── */
+.mobile-callbar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 50;
+  padding: 12px 16px;
+  background: color-mix(in oklab, var(--bg) 95%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid var(--hairline);
+}
+.mobile-callbar .btn {
+  width: 100%;
+  justify-content: center;
+}
+.mobile-callbar-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .mobile-callbar {
+    display: none;
+  }
 }

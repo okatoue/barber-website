@@ -58,84 +58,138 @@ const SERVICE_DETAILS: { name: string; description: string }[] = [
 ];
 
 export default function ServicesPage() {
+  // ── JSON-LD @graph ──────────────────────────────────────────────────────────
+  // One Service node per menu category (Haircuts, Grooming), each carrying an
+  // OfferCatalog of its individual line items. Driven entirely by SERVICES —
+  // never hardcode a price or duration here.
+  const serviceNodes = SERVICES.map((category) => ({
+    "@type": "Service",
+    name: `${category.category} — ${SHOP.name}`,
+    serviceType: category.category,
+    // ID pointer only — the full BarberShop node lives in layout.tsx.
+    // Do NOT emit "@type"/"name"/"address" here (RESEARCH Pitfall 4).
+    provider: { "@id": `${SHOP.siteUrl}/#barbershop` },
+    areaServed: { "@type": "Place", name: SHOP.address.city },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${category.category} Price List`,
+      itemListElement: category.items.map((service) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: service.name },
+        priceCurrency: "CAD",
+        // Strip leading "$" so the value is a bare number string.
+        price: service.price.replace("$", ""),
+      })),
+    },
+  }));
+
+  const breadcrumbNode = {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SHOP.siteUrl },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: `${SHOP.siteUrl}/services`,
+      },
+    ],
+  };
+
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [...serviceNodes, breadcrumbNode],
+  };
+
   return (
-    <section className="section">
-      <div className="container">
-        <div className="section-head">
-          <div>
-            <div className="eyebrow">Our Menu · Victoria, BC</div>
-            <h1 className="serif">
-              Barber services in <em>Victoria.</em>
-            </h1>
-          </div>
-          <p className="lede">
-            Expert haircuts, fades, and beard grooming tailored to your style.
-            Not sure what to get? Choose &ldquo;Classic Cut&rdquo; and
-            we&rsquo;ll customize it for you.
-          </p>
-        </div>
+    <>
+      {/* Per-page JSON-LD — Service/OfferCatalog entities + BreadcrumbList */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      />
 
-        <div className="menu-grid">
-          {SERVICES.map((category) => (
-            <div className="menu-col" key={category.category}>
-              <h3 className="serif">{category.category}</h3>
-              {CATEGORY_SUBTITLES[category.category] && (
-                <div className="col-sub">
-                  {CATEGORY_SUBTITLES[category.category]}
-                </div>
-              )}
-              {category.items.map((service) => (
-                <div className="menu-row" key={service.name}>
-                  <div>
-                    <div className="nm">{service.name}</div>
-                    <div className="dur">{service.duration}</div>
-                  </div>
-                  <span className="pr serif">{service.price}</span>
-                </div>
-              ))}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">Our Menu · Victoria, BC</div>
+              <h1 className="serif">
+                Barber services in <em>Victoria.</em>
+              </h1>
             </div>
-          ))}
-        </div>
-
-        <div className="menu-foot">
-          <p className="note">
-            Walk in 7 days a week, or call ahead — every cut includes a quick
-            consultation so you leave with exactly the look you wanted.
-          </p>
-        </div>
-
-        <div className="section-head" style={{ marginTop: 80 }}>
-          <div>
-            <div className="eyebrow">What we do · Broadmead &amp; Royal Oak</div>
-            <h2 className="serif">Our services in detail</h2>
+            <p className="lede">
+              Expert haircuts, fades, and beard grooming tailored to your
+              style. Not sure what to get? Choose &ldquo;Classic
+              Cut&rdquo; and we&rsquo;ll customize it for you.
+            </p>
           </div>
-        </div>
 
-        <div className="menu-col" style={{ maxWidth: 820 }}>
-          {SERVICE_DETAILS.map((service, i) => (
-            <div
-              key={service.name}
-              style={{
-                padding: "22px 0",
-                borderTop: i === 0 ? "none" : "1px dashed var(--hairline)",
-              }}
-            >
-              <h3 className="serif">{service.name}</h3>
-              <p
+          <div className="menu-grid">
+            {SERVICES.map((category) => (
+              <div className="menu-col" key={category.category}>
+                <h3 className="serif">{category.category}</h3>
+                {CATEGORY_SUBTITLES[category.category] && (
+                  <div className="col-sub">
+                    {CATEGORY_SUBTITLES[category.category]}
+                  </div>
+                )}
+                {category.items.map((service) => (
+                  <div className="menu-row" key={service.name}>
+                    <div>
+                      <div className="nm">{service.name}</div>
+                      <div className="dur">{service.duration}</div>
+                    </div>
+                    <span className="pr serif">{service.price}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          <div className="menu-foot">
+            <p className="note">
+              Walk in 7 days a week, or call ahead — every cut includes a
+              quick consultation so you leave with exactly the look you
+              wanted.
+            </p>
+          </div>
+
+          <div className="section-head" style={{ marginTop: 80 }}>
+            <div>
+              <div className="eyebrow">
+                What we do · Broadmead &amp; Royal Oak
+              </div>
+              <h2 className="serif">Our services in detail</h2>
+            </div>
+          </div>
+
+          <div className="menu-col" style={{ maxWidth: 820 }}>
+            {SERVICE_DETAILS.map((service, i) => (
+              <div
+                key={service.name}
                 style={{
-                  margin: "8px 0 0",
-                  color: "var(--muted)",
-                  fontSize: 16,
-                  lineHeight: 1.55,
-                  maxWidth: "62ch",
+                  padding: "22px 0",
+                  borderTop: i === 0 ? "none" : "1px dashed var(--hairline)",
                 }}
               >
-                {service.description}
-              </p>
-            </div>
-          ))}
+                <h3 className="serif">{service.name}</h3>
+                <p
+                  style={{
+                    margin: "8px 0 0",
+                    color: "var(--muted)",
+                    fontSize: 16,
+                    lineHeight: 1.55,
+                    maxWidth: "62ch",
+                  }}
+                >
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

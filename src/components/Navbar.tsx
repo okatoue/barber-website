@@ -3,14 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { SHOP } from "@/lib/config";
-
-const NAV_LINKS = [
-  { label: "Menu", href: "/#menu" },
-  { label: "Work", href: "/#work" },
-  { label: "Team", href: "/barbers" },
-  { label: "Find Us", href: "/#find" },
-];
+import { SHOP, NAV_LINKS } from "@/lib/config";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -36,20 +29,28 @@ export default function Navbar() {
           >
             <Image
               className="nav-logo-img"
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt={SHOP.name}
-              width={2172}
-              height={724}
+              width={240}
+              height={80}
               priority
             />
             <span className="crown">EST. {SHOP.foundedYear}</span>
           </Link>
           <div className="nav-links">
-            {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href}>
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) =>
+              // Hash targets stay plain anchors; real routes go through Link
+              // so they client-navigate and prefetch.
+              link.href.startsWith("/#") ? (
+                <a key={link.href} href={link.href}>
+                  {link.label}
+                </a>
+              ) : (
+                <Link key={link.href} href={link.href}>
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
         </div>
       </nav>
