@@ -2,9 +2,32 @@ import { SHOP } from "@/lib/config";
 import { resolveService, type LandingPageData } from "@/lib/landing";
 import { getGoogleStats } from "@/lib/google-reviews";
 import Menu from "@/components/ServiceHighlights";
-import Gallery from "@/components/Gallery";
 import FAQ from "@/components/FAQ";
 import OpenStatus from "@/components/OpenStatus";
+
+/**
+ * Page slug → FAQ topic key.
+ *
+ * The topic keys are shorter than the slugs and the relationship is not a plain
+ * transform ("beard-trim-saanich" → "saanich", "skin-fade-victoria" →
+ * "skin-fade"), so the mapping is spelled out explicitly. Kept local to this
+ * component rather than added to LandingPageData: it is a presentation detail
+ * of the FAQ block, not page data.
+ *
+ * Any slug missing from this map yields `undefined`, which renders the generic
+ * homepage FAQ set — see the `faqArea` note below.
+ */
+const FAQ_AREA_BY_SLUG: Record<string, string | undefined> = {
+  "royal-oak-barber-shop": "royal-oak",
+  "beard-trim-saanich": "saanich",
+  "gordon-head-barber-shop": "gordon-head",
+  "cadboro-bay-barber-shop": "cadboro-bay",
+  "oak-bay-barber-shop": "oak-bay",
+  "cordova-bay-barber-shop": "cordova-bay",
+  "skin-fade-victoria": "skin-fade",
+  "kids-haircut-victoria": "kids-haircut",
+  "hot-towel-shave-victoria": "hot-towel-shave",
+};
 
 export default async function LandingPage({ data }: { data: LandingPageData }) {
   const stats = await getGoogleStats();
@@ -27,6 +50,11 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
   });
 
   const phoneDigits = SHOP.phone.replace(/\D/g, "");
+
+  // Topic key for the FAQ block. An unrecognised slug leaves this `undefined`,
+  // which is exactly the no-argument case for FAQ({ area }: { area?: string })
+  // — the generic homepage FAQs render, never an empty block.
+  const faqArea = FAQ_AREA_BY_SLUG[data.slug];
 
   // ── JSON-LD @graph ──────────────────────────────────────────────────────────
   const serviceNodes = data.emphasizedServices.map((svc) => {
@@ -203,11 +231,8 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
       {/* ── Full services menu (shared with homepage) ───────────────────── */}
       <Menu />
 
-      {/* ── Full gallery (shared with homepage) ─────────────────────────── */}
-      <Gallery />
-
-      {/* ── Good to know (shared FAQ) ───────────────────────────────────── */}
-      <FAQ />
+      {/* ── Good to know (area-specific FAQs, generic fallback) ─────────── */}
+      <FAQ area={faqArea} />
 
       {/* ── Find us: Google Map · NAP · Hours · Call CTA ────────────────── */}
       <section className="section" id="find" style={{ paddingTop: 0 }}>

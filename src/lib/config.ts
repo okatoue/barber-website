@@ -72,7 +72,11 @@ export const AREA_LINKS: Record<string, string> = {
   "Cadboro Bay": "/cadboro-bay-barber-shop",
   Saanich: "/beard-trim-saanich",
   "Oak Bay": "/oak-bay-barber-shop",
-  Victoria: "/victoria-barber-shop",
+  // Victoria and Broadmead both point at the homepage: it already targets the
+  // broad Victoria/Broadmead term, and /victoria-barber-shop was removed (it
+  // competed with the homepage for that head term). public/_redirects 301s the
+  // old URL here.
+  Victoria: "/",
 };
 
 // ============================================================
@@ -191,11 +195,20 @@ export const BARBERS: Barber[] = [
 // FAQ
 // ============================================================
 
+// `areas` tags an FAQ to the landing-page topics it genuinely answers, so each
+// landing page can render a set relevant to IT rather than the same three
+// homepage items everywhere (duplicate content across landing pages).
+// Valid keys — area pages: "royal-oak", "saanich", "gordon-head",
+// "cadboro-bay", "oak-bay", "cordova-bay"; service pages: "skin-fade",
+// "kids-haircut", "hot-towel-shave". FAQ.tsx reads this.
+// Every key has at least 3 tagged items, and no two landing pages share more
+// than one — that overlap budget is the point of the field.
 export type FaqItem = {
   question: string;
   answer: string;
   category: string;
   homepage?: boolean;
+  areas?: string[];
 };
 
 function findService(name: string): Service {
@@ -206,7 +219,12 @@ function findService(name: string): Service {
   throw new Error(`Service "${name}" not found in SERVICES`);
 }
 
+// Ordered by category to match CATEGORY_ORDER in app/faq/page.tsx, which
+// renders every item here and owns the site's only FAQPage JSON-LD. An item
+// whose `category` is outside that list would enter the schema but render
+// nowhere — keep new items within Visiting / Pricing / Kids / Services.
 export const FAQ_ITEMS: FaqItem[] = [
+  // ── Visiting ──────────────────────────────────────────────────────────────
   {
     question: "Do you take walk-ins?",
     answer:
@@ -215,22 +233,36 @@ export const FAQ_ITEMS: FaqItem[] = [
     homepage: true,
   },
   {
-    question: "How long does a haircut take?",
-    answer: `A regular cut takes about ${findService("Regular Hair Cut").duration} and is ${findService("Regular Hair Cut").price}. A skin fade takes ${findService("Skin Fade").duration} at ${findService("Skin Fade").price}. We never rush — every cut gets the time it needs.`,
-    category: "Pricing",
-    homepage: true,
-  },
-  {
-    question: "Do you cut kids' hair?",
-    answer: `Absolutely. We take kids aged 3 and up. Our barbers are patient and experienced with young clients. Kids cuts are ${findService("Kids").price} and take about ${findService("Kids").duration}.`,
-    category: "Kids",
-    homepage: true,
-  },
-  {
-    question: "What's the difference between a fade and a taper?",
+    question: "How long is the wait if I walk in?",
     answer:
-      "A fade blends the hair down to the skin for a sharper contrast, while a taper gradually shortens the hair but doesn't go all the way to the skin. Not sure which to pick? Your barber will help you decide.",
-    category: "Services",
+      "It depends on how many chairs are full when you arrive — sometimes you sit straight down, sometimes there are a couple of people ahead of you. Weekdays run nine to seven, so there's more room in the day than on a weekend, when we close at five. If you'd rather not guess, give us a call before you head over and we'll tell you straight what the wait looks like.",
+    category: "Visiting",
+    areas: ["cordova-bay"],
+  },
+  {
+    question: "Can I ask for a specific barber?",
+    answer:
+      "Yes. Ask for Zak or Aymen when you come in, and if they're free you'll go straight to their chair. If you have a preference, it's worth a quick call first — we'll tell you who's working and roughly when they're open.",
+    category: "Visiting",
+    areas: ["oak-bay"],
+  },
+  {
+    question: "Do I need to wash my hair before I come in?",
+    answer: `No — come as you are. Clean or not, dry or damp, your barber will work with it. If you'd rather have it washed at the shop, a hair wash is ${findService("Hair Wash").price} and takes ${findService("Hair Wash").duration}. Just ask when you sit down.`,
+    category: "Visiting",
+    areas: ["cordova-bay"],
+  },
+  {
+    question: "Is there parking nearby?",
+    answer: SHOP.landmarks,
+    category: "Visiting",
+  },
+  {
+    question: "Can I get to the shop by bus?",
+    answer:
+      "Yes. We're a short walk from the Royal Oak Transit Exchange on Royal Oak Drive, so you can get here on BC Transit without a car. From the exchange, head into Broadmead Village Shopping Centre — we're inside, just to the left of Starbucks. Check the BC Transit schedule for the route that works from your end.",
+    category: "Visiting",
+    areas: ["royal-oak", "gordon-head"],
   },
   {
     question: "What's your cancellation policy?",
@@ -238,25 +270,137 @@ export const FAQ_ITEMS: FaqItem[] = [
       "We ask for at least 12 hours' notice if you need to cancel or reschedule. Late cancellations or no-shows may incur a fee. Just give us a call to cancel or reschedule.",
     category: "Visiting",
   },
+
+  // ── Pricing ───────────────────────────────────────────────────────────────
+  {
+    question: "How long does a haircut take?",
+    answer: `A regular cut takes about ${findService("Regular Hair Cut").duration} and is ${findService("Regular Hair Cut").price}. A skin fade takes ${findService("Skin Fade").duration} at ${findService("Skin Fade").price}. We never rush — every cut gets the time it needs.`,
+    category: "Pricing",
+    homepage: true,
+  },
+  {
+    question: "What's included in a senior cut?",
+    answer: `The same haircut as our regular cut — cut, shape, and a clean finish around the ears and neck — at a reduced rate of ${findService("Senior").price}, and at a pace that isn't rushed. It takes ${findService("Senior").duration}. Just mention it when you come in.`,
+    category: "Pricing",
+    areas: ["oak-bay"],
+  },
+
+  // ── Kids ──────────────────────────────────────────────────────────────────
+  {
+    question: "Do you cut kids' hair?",
+    answer: `Absolutely. We take kids aged 3 and up. Our barbers are patient and experienced with young clients. Kids cuts are ${findService("Kids").price} and take about ${findService("Kids").duration}.`,
+    category: "Kids",
+    homepage: true,
+    areas: ["kids-haircut"],
+  },
+  {
+    question: "My child won't sit still for a haircut — what do you suggest?",
+    answer:
+      "Bring them when they're rested and not hungry, and pick a simple shape — a short, even cut goes on quickly and doesn't ask them to hold a pose. Parents are welcome to stay right beside the chair, and smaller kids can sit on a lap if that settles them. Our barbers have done plenty of first haircuts and won't rush or make a fuss if it takes a few tries.",
+    category: "Kids",
+    areas: ["kids-haircut", "royal-oak"],
+  },
+  {
+    question: "Can I bring more than one kid in at once?",
+    answer:
+      "Yes — bring the whole crew. Give us a call before you come and we'll tell you when there's room to take them one after another instead of everyone waiting. If the youngest is nervous, put them in the chair after they've watched an older sibling go first; it works more often than not.",
+    category: "Kids",
+    areas: ["kids-haircut", "cadboro-bay"],
+  },
+
+  // ── Services ──────────────────────────────────────────────────────────────
+  {
+    question: "I'm not sure what to ask for — can you help me pick?",
+    answer:
+      "That's a normal question and there's no wrong answer. Bring a photo if you have one, or just tell your barber how you want it to sit and how much work you're willing to put in each morning. We'll talk it through before the clippers come out, and if you're stuck between two ideas we'll point you at the one that suits your hair and the way it grows.",
+    category: "Services",
+    areas: ["cadboro-bay"],
+  },
+  {
+    question: "What's the difference between a fade and a taper?",
+    answer:
+      "A fade blends the hair down to the skin for a sharper contrast, while a taper gradually shortens the hair but doesn't go all the way to the skin. Not sure which to pick? Your barber will help you decide.",
+    category: "Services",
+    areas: ["skin-fade"],
+  },
   {
     question: "How does a skin fade work?",
     answer: `Our barbers blend the hair by hand from low to mid to high, fading it right down to the skin for a sharp, clean finish. A skin fade takes ${findService("Skin Fade").duration} and is ${findService("Skin Fade").price}.`,
     category: "Services",
+    areas: ["skin-fade", "royal-oak"],
+  },
+  {
+    question: "How often should I come in to keep a fade looking sharp?",
+    answer:
+      "A skin fade holds its shape for roughly two to three weeks — the tighter the blend, the sooner it grows out of it. A longer scissor cut will sit well for four to six weeks. If you want it kept crisp, come in on a rhythm; if you're happy letting it soften, come in when it starts to bother you.",
+    category: "Services",
+    areas: ["skin-fade", "gordon-head"],
+  },
+  {
+    question: "Can you do hair designs or patterns?",
+    answer:
+      "Yes — Zak does line work and designs shaved into the fade. Mention it before we start so there's time to plan it properly rather than squeeze it in at the end, and bring a picture if you have something specific in mind.",
+    category: "Services",
+    areas: ["skin-fade"],
+  },
+  {
+    question: "What's a buzz cut, and which guard should I ask for?",
+    answer: `A buzz cut is one length all over, straight off the clipper, with no blending. The guard number sets that length — a one is very short, a four leaves noticeably more on top. If you're unsure, start longer; we can always take more off. It takes ${findService("Buzz Cut").duration} and is ${findService("Buzz Cut").price}.`,
+    category: "Services",
+    areas: ["gordon-head"],
+  },
+  {
+    question: "Do you cut longer styles, or only short ones?",
+    answer:
+      "Both. Aymen does scissor work for anyone growing their hair out or keeping a longer classic shape — taking the weight out and tidying the ends without losing the length. Tell your barber how long you want to keep it and we'll cut to that, not shorter.",
+    category: "Services",
+    areas: ["cadboro-bay"],
+  },
+  {
+    question: "What cut works best for thinning hair or a receding hairline?",
+    answer:
+      "Usually something shorter and evenly balanced. Taking the sides down tighter makes the top read fuller by contrast, and a softer front line draws less attention to a receding hairline than a hard, straight one. Heavy product and long sweeps across the top tend to do the opposite. Tell your barber what's bothering you and they'll cut to play it down rather than highlight it.",
+    category: "Services",
+    areas: ["oak-bay"],
   },
   {
     question: "What beard services do you offer?",
     answer: `We shape the beard and do a clean lineup along the cheeks and neck — a beard trim takes ${findService("Trim Beard").duration} at ${findService("Trim Beard").price}. We also offer a hot towel and straight-razor finish for a closer, more precise edge.`,
     category: "Services",
+    areas: ["saanich"],
+  },
+  {
+    question: "Can I get a beard trim without a haircut?",
+    answer: `Yes — a beard trim stands on its own, ${findService("Trim Beard").price} for ${findService("Trim Beard").duration}, and plenty of clients come in for just that. If you want both, we'll do the haircut first and shape the beard to match it. That's the right order for getting the lines to agree with each other.`,
+    category: "Services",
+    areas: ["saanich"],
+  },
+  {
+    question: "How do I keep my beard tidy between trims?",
+    answer:
+      "Brush or comb it daily so it lies the way it was cut — that alone keeps the shape honest. Leave the cheek line and the neckline where your barber set them; those are the two lines people creep upward at home, and once they're off it takes weeks to bring them back. Take stray long hairs off with scissors rather than clippers, and come in every few weeks to reset the shape.",
+    category: "Services",
+    areas: ["saanich", "cordova-bay"],
   },
   {
     question: "Is a straight-razor shave safe and sanitary?",
     answer: `Absolutely. We use a fresh single-use blade for every client, along with a clean hot-towel setup to soften the skin before we start. Our hot shave takes ${findService("Hot Shave").duration} and is ${findService("Hot Shave").price}.`,
     category: "Services",
+    areas: ["hot-towel-shave"],
   },
   {
-    question: "Is there parking nearby?",
-    answer: SHOP.landmarks,
-    category: "Visiting",
+    question: "How long does a straight-razor shave stay smooth?",
+    answer:
+      "It gets closer than a cartridge razor and usually holds a day longer, because the blade takes the hair off level with the skin instead of skating over it. How long that lasts comes down to how fast your beard grows. Plenty of clients book one ahead of a wedding, an interview, or anything they'll be photographed at.",
+    category: "Services",
+    areas: ["hot-towel-shave"],
+  },
+  {
+    question: "Will a straight-razor shave irritate my skin?",
+    answer:
+      "The hot towel is there to prevent exactly that — it softens the beard and relaxes the skin so the blade cuts cleanly instead of dragging. Most irritation comes from a dull blade and too many passes, and we start with a fresh blade every time. If you're prone to razor bumps or ingrown hairs, say so before we begin and we'll shave with the grain rather than against it.",
+    category: "Services",
+    areas: ["hot-towel-shave"],
   },
 ];
 

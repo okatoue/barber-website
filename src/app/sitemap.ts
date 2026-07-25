@@ -17,7 +17,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/cordova-bay-barber-shop`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/cadboro-bay-barber-shop`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/oak-bay-barber-shop`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/victoria-barber-shop`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/skin-fade-victoria`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/kids-haircut-victoria`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/hot-towel-shave-victoria`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/privacy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
 }
