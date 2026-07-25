@@ -176,7 +176,7 @@ export type Barber = {
 // generates fallback text from years + specialties until bios are supplied.
 export const BARBERS: Barber[] = [
   {
-    name: "Zak",
+    name: "Zaki",
     slug: "zakaria",
     years: "12 yrs",
     bio: "",
@@ -242,7 +242,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Can I ask for a specific barber?",
     answer:
-      "Yes. Ask for Zak or Aymen when you come in, and if they're free you'll go straight to their chair. If you have a preference, it's worth a quick call first — we'll tell you who's working and roughly when they're open.",
+      "Yes. Ask for Zaki or Aymen when you come in, and if they're free you'll go straight to their chair. If you have a preference, it's worth a quick call first — we'll tell you who's working and roughly when they're open.",
     category: "Visiting",
     areas: ["oak-bay"],
   },
@@ -339,7 +339,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Can you do hair designs or patterns?",
     answer:
-      "Yes — Zak does line work and designs shaved into the fade. Mention it before we start so there's time to plan it properly rather than squeeze it in at the end, and bring a picture if you have something specific in mind.",
+      "Yes — Zaki does line work and designs shaved into the fade. Mention it before we start so there's time to plan it properly rather than squeeze it in at the end, and bring a picture if you have something specific in mind.",
     category: "Services",
     areas: ["skin-fade"],
   },
