@@ -175,15 +175,19 @@ export type Barber = {
   imageAlt: string;
 };
 
-// bio is intentionally blank for both barbers — real copy needs to come
-// from the shop owner, not be invented. blurb() in app/barbers/page.tsx
-// generates fallback text from years + specialties until bios are supplied.
+// Bios are the owner's own words, lightly edited for house voice. blurb() in
+// app/barbers/page.tsx still generates fallback text from years + specialties,
+// but only fires when `bio` is empty — which it no longer is for either barber.
+//
+// Note `years` is total time on the chair; the bios date their time here. Zaki
+// has 12 years but has been in Victoria since 2022; Aymen has 10 but came via
+// Montreal. Both are consistent — they cut elsewhere before Royal Look.
 export const BARBERS: Barber[] = [
   {
     name: "Zaki",
     slug: "zakaria",
     years: "12 yrs",
-    bio: "",
+    bio: "Zaki comes from a long line of barbers and has been cutting in Victoria since 2022. He's the one regulars ask for when they want line work or a design shaved into the fade.",
     specialties: ["Skin Fades", "Modern Styles", "Designs"],
     image: "/images/barbers/zaki.webp",
     imageAlt:
@@ -193,7 +197,7 @@ export const BARBERS: Barber[] = [
     name: "Aymen",
     slug: "aymen",
     years: "10 yrs",
-    bio: "",
+    bio: "Aymen came to Royal Look from Montreal and has been cutting in Canada since 2022. Ask for him if you want a beard trim shaped properly and finished with a solid fade.",
     specialties: ["Scissor Cuts", "Classic Styles", "Beards"],
     image: "/images/barbers/aymen.webp",
     imageAlt:
