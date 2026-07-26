@@ -180,38 +180,8 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
         </div>
       </section>
 
-      {/* ── Unique local intro ──────────────────────────────────────────── */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow" />
-              <h2 className="serif">
-                Your barber in <em>{shortArea}.</em>
-              </h2>
-            </div>
-          </div>
-
-          <div style={{ maxWidth: "70ch" }}>
-            {data.intro.split("\n\n").map((para, i) => (
-              <p
-                key={i}
-                style={{
-                  margin: "0 0 20px",
-                  color: "var(--muted)",
-                  fontSize: 17,
-                  lineHeight: 1.7,
-                }}
-              >
-                {para}
-              </p>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Locally emphasized services ──────────────────────────────────── */}
-      <section className="section section-warm" style={{ paddingTop: 0 }}>
+      <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="section-head">
             <div>
@@ -262,6 +232,42 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
 
       {/* ── Full services menu (shared with homepage) ───────────────────── */}
       <Menu />
+
+      {/* ── Unique local intro ──────────────────────────────────────────────
+          Sits below the two service blocks deliberately. Someone landing from
+          "barber {area}" wants how far, how much, and are you open — the
+          favourites block and the menu answer those at a glance, so four
+          paragraphs of prose ahead of them is a wall. Not pushed to the very
+          bottom either: this is the only genuinely page-specific copy on the
+          page, and content nobody scrolls to becomes filler.               */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow" />
+              <h2 className="serif">
+                Your barber in <em>{shortArea}.</em>
+              </h2>
+            </div>
+          </div>
+
+          <div style={{ maxWidth: "70ch" }}>
+            {data.intro.split("\n\n").map((para, i) => (
+              <p
+                key={i}
+                style={{
+                  margin: "0 0 20px",
+                  color: "var(--muted)",
+                  fontSize: 17,
+                  lineHeight: 1.7,
+                }}
+              >
+                {para}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── Good to know (area-specific FAQs, generic fallback) ─────────── */}
       <FAQ area={faqArea} />

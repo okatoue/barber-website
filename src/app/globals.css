@@ -331,7 +331,27 @@ a { color: inherit; text-decoration: none; }
 
 /* ─── Sections ─── */
 .section { padding: 96px 0; border-bottom: 1px solid var(--hairline); }
-.section-warm { background: var(--bg-2); }
+
+/*
+ * Zebra striping is positional, never hand-applied. Sections are rendered by
+ * separate components (Hero, ServiceHighlights, Gallery, FAQ, LocationPreview)
+ * plus inline <section>s in the page bodies; fragments create no DOM nodes, so
+ * they all land as direct children of the single <main>. No component knows its
+ * own position, which is why a hardcoded warm class always drifted once a page
+ * gained or lost a section. The rule below derives the parity instead: first
+ * .section plain, every second one after it warm.
+ *
+ * `of .section` counts ONLY .section siblings, so the hero (<section
+ * class="hero">, always first, carries its own photo background) and the inline
+ * JSON-LD <script> tags are skipped entirely — pages with a hero and pages
+ * without one get the same parity. Plain :nth-of-type would count the hero and
+ * flip the alternation between the two page shapes; plain :nth-child would also
+ * count the scripts.
+ *
+ * Browsers without `of S` support drop the selector and render every section on
+ * --bg; the hairline between sections still separates them.
+ */
+main > .section:nth-child(even of .section) { background: var(--bg-2); }
 
 .section-head {
   display: flex;

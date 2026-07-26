@@ -4,11 +4,7 @@ import { GALLERY_PHOTOS as PHOTOS } from "@/lib/gallery";
 
 export default function Gallery() {
   return (
-    <section
-      className="section section-warm"
-      id="work"
-      style={{ paddingTop: 0 }}
-    >
+    <section className="section" id="work" style={{ paddingTop: 0 }}>
       <div className="container">
         <div className="section-head">
           <div>

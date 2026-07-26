@@ -13,14 +13,9 @@ export default async function Hero() {
             <h1 className="serif">
               Your Barber in <em>Broadmead Village</em>
             </h1>
-            <p className="lede">
-              Looking for a barber in Broadmead or Royal Oak? Royal Look Barber
-              Shop offers precision haircuts, skin fades, beard trims, and
-              traditional straight razor and hot towel shaves for men and kids
-              across Saanich and Greater Victoria. Walk in any day, or call
-              ahead to book your preferred barber — we&rsquo;ll get you looking
-              sharp.
-            </p>
+            {/* The intro paragraph that used to sit here now has its own
+                section in app/page.tsx, matching how the landing pages are
+                built. Keeps the hero to headline, call CTA and trust bar. */}
             <div className="hero-cta-row">
               <a
                 href={`tel:${SHOP.phone.replace(/\D/g, "")}`}
