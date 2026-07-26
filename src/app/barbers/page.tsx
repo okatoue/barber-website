@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { BARBERS, SHOP, type Barber } from "@/lib/config";
 
 const BARBERS_DESCRIPTION = `Meet the barbers at ${SHOP.name} in ${SHOP.address.city}, ${SHOP.address.province} — experienced in skin fades, classic cuts, beards, and hot shaves. Walk in or call to book with your preferred barber.`;
@@ -30,6 +31,7 @@ const teamJsonLd = {
       name: b.name,
       jobTitle: "Barber",
       knowsAbout: b.specialties,
+      image: `${SHOP.siteUrl}${b.image}`,
       worksFor: { "@type": "BarberShop", name: SHOP.name, url: SHOP.siteUrl },
       url: `${SHOP.siteUrl}/barbers`,
     },
@@ -57,10 +59,13 @@ export default function BarbersPage() {
           {BARBERS.map((b) => (
             <article key={b.slug} className="team-card">
               <div className="portrait">
-                <div className="stripe" />
-                <div className="center">
-                  <div className="mono">portrait — {b.name.toLowerCase()}</div>
-                </div>
+                <Image
+                  src={b.image}
+                  alt={b.imageAlt}
+                  fill
+                  sizes="(min-width: 980px) 33vw, (min-width: 681px) 50vw, 100vw"
+                  style={{ objectFit: "cover" }}
+                />
               </div>
               <div className="t-body">
                 <div className="t-head">

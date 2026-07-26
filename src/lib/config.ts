@@ -169,6 +169,10 @@ export type Barber = {
   years: string;
   bio: string;
   specialties: string[];
+  /** 3:4 portrait in public/images/barbers/. Cropped from shop photos the
+   *  owner supplied, framed on the barber so no client's face is in shot. */
+  image: string;
+  imageAlt: string;
 };
 
 // bio is intentionally blank for both barbers — real copy needs to come
@@ -181,6 +185,9 @@ export const BARBERS: Barber[] = [
     years: "12 yrs",
     bio: "",
     specialties: ["Skin Fades", "Modern Styles", "Designs"],
+    image: "/images/barbers/zaki.webp",
+    imageAlt:
+      "Zaki working on a client at Royal Look Barber Shop in Broadmead Village, Saanich",
   },
   {
     name: "Aymen",
@@ -188,6 +195,9 @@ export const BARBERS: Barber[] = [
     years: "10 yrs",
     bio: "",
     specialties: ["Scissor Cuts", "Classic Styles", "Beards"],
+    image: "/images/barbers/aymen.webp",
+    imageAlt:
+      "Aymen finishing a cut at Royal Look Barber Shop in Broadmead Village, Saanich",
   },
 ];
 
