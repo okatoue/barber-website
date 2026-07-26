@@ -81,7 +81,17 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "BarberShop",
+              // HairSalon, NOT BarberShop. schema.org has no BarberShop type —
+              // the LocalBusiness > HealthAndBeautyBusiness branch defines only
+              // BeautySalon, DaySpa, HairSalon, HealthClub, NailSalon and
+              // TattooParlor. The Schema Markup Validator rejected BarberShop
+              // outright ("not a type defined by the recognized schema",
+              // Jul 2026), which left every property below attached to a type
+              // that does not exist. Do not "correct" this back.
+              "@type": "HairSalon",
+              // @id is an arbitrary identifier, not a type — services/page.tsx
+              // and LandingPage.tsx point `provider` at this fragment, so it
+              // must stay exactly as-is.
               "@id": `${SHOP.siteUrl}/#barbershop`,
               name: "Royal Look Barber Shop",
               description: SHOP.description,

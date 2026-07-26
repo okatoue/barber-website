@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const MENU_CUTS = [
   { name: "Skin Fade", price: 30 },
   { name: "Regular Hair Cut", price: 28 },
@@ -69,6 +71,17 @@ export default function Menu() {
             Cash, debit, Visa, Mastercard, Apple Pay. Tips appreciated, never
             expected.
           </p>
+          {/* This section duplicates the whole priced menu that /services
+              carries, and until now nothing on the site linked to /services
+              except the header nav — which is why Google left it at
+              "Discovered - currently not indexed" (GSC, Jul 2026) despite it
+              earning 434 impressions. This is the strongest internal link
+              available for it: same topic, immediately beside the duplicated
+              content. Keep it in the flow of the page, not in a nav. */}
+          <Link className="btn btn-ghost" href="/services">
+            Full menu — times, and what each service includes{" "}
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </div>
     </section>

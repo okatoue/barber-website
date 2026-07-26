@@ -29,15 +29,22 @@ export default function Footer() {
         </div>
         <div>
           <h4>Pages</h4>
+          {/* Real routes, not homepage anchors — same rule NAV_LINKS follows in
+              config.ts. "/#menu" and "/#find" sent every footer link on every
+              page back to the homepage and passed no signal to /services or
+              /location, which is part of why /services sat unindexed. */}
           <ul>
             <li>
-              <a href="/#menu">Menu</a>
+              <a href="/services">Menu</a>
+            </li>
+            <li>
+              <a href="/gallery">Work</a>
             </li>
             <li>
               <a href="/barbers">Barbers</a>
             </li>
             <li>
-              <a href="/#find">Location</a>
+              <a href="/location">Location</a>
             </li>
             <li>
               <a href="/faq">FAQ</a>

@@ -66,7 +66,7 @@ export default function ServicesPage() {
     "@type": "Service",
     name: `${category.category} — ${SHOP.name}`,
     serviceType: category.category,
-    // ID pointer only — the full BarberShop node lives in layout.tsx.
+    // ID pointer only — the full HairSalon node lives in layout.tsx.
     // Do NOT emit "@type"/"name"/"address" here (RESEARCH Pitfall 4).
     provider: { "@id": `${SHOP.siteUrl}/#barbershop` },
     areaServed: { "@type": "Place", name: SHOP.address.city },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SHOP, AREA_LINKS } from "@/lib/config";
 import OpenStatus from "@/components/OpenStatus";
 
@@ -235,7 +236,9 @@ export default function LocationPage() {
           <p style={{ ...paraStyle, maxWidth: "60ch" }}>
             We&rsquo;re the closest proper barber shop for a good stretch of the
             region. Wherever you&rsquo;re coming from, there&rsquo;s a page with
-            the details for your neighbourhood.
+            the details for your neighbourhood — and the{" "}
+            <Link href="/services">full service menu</Link> if you want the
+            prices and times before you set off.
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">

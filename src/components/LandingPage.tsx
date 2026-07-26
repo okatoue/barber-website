@@ -97,7 +97,7 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
       serviceType: svc.displayName,
       description: svc.description ?? "",
       areaServed: { "@type": "Place", name: data.areaServedName },
-      // ID pointer only — the full BarberShop node lives in layout.tsx.
+      // ID pointer only — the full HairSalon node lives in layout.tsx.
       // Do NOT emit "@type"/"name"/"address" here (RESEARCH Pitfall 4).
       provider: { "@id": `${SHOP.siteUrl}/#barbershop` },
       offers: {
