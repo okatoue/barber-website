@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/services`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/location`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/gallery`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/royal-oak-barber-shop`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/beard-trim-saanich`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/gordon-head-barber-shop`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },

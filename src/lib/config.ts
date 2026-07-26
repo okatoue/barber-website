@@ -266,9 +266,8 @@ export const FAQ_ITEMS: FaqItem[] = [
     areas: ["royal-oak", "cordova-bay"],
   },
   {
-    // gordon-head is served by the route-14 detail in "Which bus routes stop
-    // near the shop?" below; tagging both here would put two bus questions on
-    // the one page.
+    // gordon-head is served by "Which bus routes stop near the shop?" below;
+    // tagging both here would put two bus questions on the one page.
     question: "Can I get to the shop by bus?",
     answer:
       "Yes. We're a short walk from the Royal Oak Transit Exchange on Royal Oak Drive, so you can get here on BC Transit without a car. From the exchange, head into Broadmead Village Shopping Centre — we're inside, just to the left of Starbucks. Check the BC Transit schedule for the route that works from your end.",
@@ -278,7 +277,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Which bus routes stop near the shop?",
     answer:
-      "Two of them get you close. The 32 comes up from Cordova Bay in about 11 minutes and stops right in front of Broadmead Village. The 14 runs from Oak Bay, roughly 56 minutes end to end, and picks up at UVic's bus loop if you're starting from that side of town — its stop is a two-minute walk from the plaza and about four minutes from our door. Check the BC Transit schedule for times at your end.",
+      "Seven routes stop near Broadmead Village: 6A, 6B, 32, 39, 70, 72 and 75. The 32 is the one most of our Cordova Bay clients use — it comes up in about 11 minutes and stops right in front of the Village. Check BC Transit for whichever route suits your end of town.",
     category: "Visiting",
     areas: ["cordova-bay", "gordon-head", "oak-bay"],
   },
@@ -450,11 +449,12 @@ export const FAQ_ITEMS: FaqItem[] = [
 // Prefer a real route over a homepage anchor wherever one exists: an
 // anchor like "/#menu" navigates a landing-page visitor away to the
 // homepage and passes no link signal to /services or /location. "Work"
-// stays an anchor because the gallery lives only on the homepage.
+// points at /gallery for the same reason; the homepage still keeps its
+// id="work" gallery section for on-page scrolling.
 
 export const NAV_LINKS = [
   { label: "Menu", href: "/services" },
-  { label: "Work", href: "/#work" },
+  { label: "Work", href: "/gallery" },
   { label: "Team", href: "/barbers" },
   { label: "Find Us", href: "/location" },
 ];

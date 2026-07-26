@@ -193,7 +193,7 @@ export const GORDON_HEAD_DATA: LandingPageData = {
 
 Two things get asked for above everything else: the regular men's cut and the skin fade. The fade is the one that decides your week. It is sharpest in the first two weeks and softens as the skin section grows back in, so if you want it crisp for a Friday, come in on the Thursday rather than the week before. The regular cut holds its shape longer and asks less of you. A buzz cut, if that is genuinely all you need, is quicker than either.
 
-Getting here without a car is straightforward. The 14 picks up at the UVic bus loop and runs through to Broadmead — but be clear on the last stretch, because the stop is not at our door. It is a four-minute walk from the shop, and about two minutes from the edge of Broadmead plaza. Budget that on top of the ride and you will not be caught out.
+Getting here without a car is workable. Several BC Transit routes stop near Broadmead Village, and the last stretch is a short walk rather than a door-to-door drop — worth knowing before you plan the trip. Check BC Transit for the route that suits your end of Gordon Head, and budget a couple of minutes on foot at this end.
 
 By car it is a straight run down McKenzie Avenue to Quadra, then Chatterton Way into the plaza. We are open every day of the week, nine to seven Monday through Friday and nine to five on weekends, which leaves room around lectures, a shift, or the gap between the two. Walk in when it suits you, or call ahead and we will tell you what the wait looks like.`,
   emphasizedServices: [
@@ -221,7 +221,7 @@ By car it is a straight run down McKenzie Avenue to Quadra, then Chatterton Way 
     route: "McKenzie Ave → Quadra St → Chatterton Way",
     driveTime: "a short drive across Saanich",
     transit:
-      "Bus 14 picks up at the UVic bus loop. The stop at this end is a 4-minute walk from the shop — about 2 minutes from Broadmead plaza.",
+      "Several BC Transit routes stop near Broadmead Village — 6A, 6B, 32, 39, 70, 72 and 75. Check BC Transit for the one that suits your end.",
   },
   landmark: SHOP.landmarks,
   callLocation: "gordon_head_page_cta",
@@ -287,7 +287,7 @@ export const OAK_BAY_DATA: LandingPageData = {
   eyebrow: "Oak Bay · Victoria, BC",
   h1: "Oak Bay Barber Shop",
   h1Emphasis: "Barber Shop.",
-  intro: `Oak Bay is a real drive to Broadmead, and we would rather say so than pretend otherwise. Bay Street to Cook, Cook to Quadra, then Chatterton Way into the plaza. On clear roads it moves; in rush hour the same trip can stretch to thirty minutes. The 14 runs the whole way without a transfer at around fifty-six minutes end to end, and the stop at this end is a four-minute walk from the shop — about two minutes from the edge of Broadmead plaza, so leave yourself that on top of the ride.
+  intro: `Oak Bay is a real drive to Broadmead, and we would rather say so than pretend otherwise. Bay Street to Cook, Cook to Quadra, then Chatterton Way into the plaza. On clear roads it moves; in rush hour the same trip can stretch to thirty minutes. Royal Jubilee Hospital is the landmark most Oak Bay clients set off from, and the run is straightforward from there once you are past the worst of the traffic.
 
 The Oak Bay clients who make the trip sort themselves into three groups, each keeping its own hours. Students come at the weekend. Families and office workers come in the evenings, once work is done. Given the distance, a phone call before you set out is the single most useful thing you can do — thirty minutes is a long way to travel to sit and wait.
 
@@ -319,7 +319,7 @@ We are open every day of the week, nine to seven Monday through Friday and nine 
     route: "Bay St → Cook St → Quadra St → Chatterton Way",
     driveTime: "up to 30 minutes in rush hour",
     transit:
-      "Bus 14 runs the whole way, about 56 minutes. The stop at this end is a 4-minute walk from the shop — about 2 minutes from Broadmead plaza.",
+      "Several BC Transit routes stop near Broadmead Village — 6A, 6B, 32, 39, 70, 72 and 75. Check BC Transit for the one that suits your end.",
     note: "Free parking in the lot right out front.",
   },
   landmark: SHOP.landmarks,

@@ -11,8 +11,7 @@ export default async function Hero() {
           <div className="hero-copy">
             <div className="eyebrow">BROADMEAD VILLAGE SHOPPING CENTRE · VICTORIA, BC</div>
             <h1 className="serif">
-              Royal Look Barber Shop — Your Barber in{" "}
-              <em>Broadmead Village</em>, Saanich
+              Your Barber in <em>Broadmead Village</em>
             </h1>
             <p className="lede">
               Looking for a barber in Broadmead or Royal Oak? Royal Look Barber
