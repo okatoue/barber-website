@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SERVICE_COMBO } from "@/lib/config";
 
 const MENU_CUTS = [
   { name: "Skin Fade", price: 30 },
@@ -60,8 +61,8 @@ export default function Menu() {
                 paddingTop: 24,
               }}
             >
-              <span className="nm">Cut + Beard</span>
-              <span className="pr serif">$48</span>
+              <span className="nm">{SERVICE_COMBO.name}</span>
+              <span className="pr serif">{SERVICE_COMBO.price}</span>
             </div>
           </div>
         </div>

@@ -148,6 +148,17 @@ export const SERVICES: ServiceCategory[] = [
   },
 ];
 
+// The one pairing the shop quotes as a single line on the menu. It is the sum
+// of its two parts ($28 + $20), not a discount — it exists because people ask
+// for the pair by name. Rendered by the homepage menu and /services, so the
+// price lives here rather than in either component.
+export const SERVICE_COMBO = {
+  name: "Cut + Beard",
+  price: "$48",
+  /** Names in SERVICES, in the order they are performed. */
+  parts: ["Regular Hair Cut", "Trim Beard"],
+} as const;
+
 export const SERVICE_HIGHLIGHTS = [
   { name: "Regular Hair Cut", duration: "30 min", price: "$28" },
   { name: "Skin Fade", duration: "45 min", price: "$30" },
@@ -225,7 +236,11 @@ export type FaqItem = {
   areas?: string[];
 };
 
-function findService(name: string): Service {
+// Throws rather than returning null: every caller is rendering a price or a
+// duration into copy, and a silently missing service would ship a page with a
+// hole in it. A wrong name breaks the build instead. (lib/landing.ts has its
+// own nullable resolveService for the same lookup where a miss is tolerable.)
+export function findService(name: string): Service {
   for (const cat of SERVICES) {
     const item = cat.items.find((s) => s.name === name);
     if (item) return item;
