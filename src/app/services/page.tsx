@@ -114,7 +114,7 @@ const SERVICE_DETAILS: Record<string, ServiceDetail> = {
   },
   Senior: {
     displayName: "Senior cut",
-    body: "The same haircut as a regular cut — cut, shape, and a clean finish around the ears and neck — at a reduced rate and at a pace that is not in a hurry. Just mention it when you come in; there is no card to carry and nothing to prove. Weekday mornings are the quietest part of the week and it is when most of our senior clients come in: there is usually a chair free straight away, and nothing about the visit feels rushed.",
+    body: "The same haircut as a regular cut — cut, shape, and a clean finish around the ears and neck — at a reduced rate and at a pace that is not in a hurry. Just mention it when you come in; there is no card to carry and nothing to prove. Most of our senior clients come in first thing on a weekday, which is the easiest time to get a chair straight away and the part of the day when nothing in the shop feels rushed.",
   },
   "Buzz Cut": {
     body: "One length all over, straight off the clipper, no blending. The guard number sets that length — a one is very short and shows scalp, a four leaves noticeably more. If you are unsure, start longer: we can always take more off, and we cannot put it back. The neck and around the ears still get cleaned up at the end, which is most of the difference between this and doing it yourself over a sink. It grows out at one length, so it never really looks wrong — it just gets longer.",
