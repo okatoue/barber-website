@@ -291,7 +291,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Which bus routes stop near the shop?",
     answer:
-      "Seven routes stop near Broadmead Village: 6A, 6B, 32, 39, 70, 72 and 75. The 32 is the one most of our Cordova Bay clients use — it comes up in about 11 minutes and stops right in front of the Village. Check BC Transit for whichever route suits your end of town.",
+      "Seven stop near Broadmead Village: 6A, 6B, 32, 39, 70, 72 and 75. From Cordova Bay the 32 takes about 11 minutes and stops right in front of the Village. From Gordon Head take the 39. From Oak Bay it is two legs — the 14, then a transfer to the 70, since the 14 on its own does not come this far. Check BC Transit for times at your end.",
     category: "Visiting",
     areas: ["cordova-bay", "gordon-head", "oak-bay"],
   },

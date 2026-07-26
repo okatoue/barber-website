@@ -193,7 +193,7 @@ export const GORDON_HEAD_DATA: LandingPageData = {
 
 Two things get asked for above everything else: the regular men's cut and the skin fade. The fade is the one that decides your week. It is sharpest in the first two weeks and softens as the skin section grows back in, so if you want it crisp for a Friday, come in on the Thursday rather than the week before. The regular cut holds its shape longer and asks less of you. A buzz cut, if that is genuinely all you need, is quicker than either.
 
-Getting here without a car is workable. Several BC Transit routes stop near Broadmead Village, and the last stretch is a short walk rather than a door-to-door drop — worth knowing before you plan the trip. Check BC Transit for the route that suits your end of Gordon Head, and budget a couple of minutes on foot at this end.
+Getting here without a car is straightforward from Gordon Head: the 39 runs across and stops near Broadmead Village. Be clear on the last stretch though, because the stop is not at our door — it is a couple of minutes on foot from the edge of the plaza, and about four from the shop itself. Budget that on top of the ride and you will not be caught out.
 
 By car it is a straight run down McKenzie Avenue to Quadra, then Chatterton Way into the plaza. We are open every day of the week, nine to seven Monday through Friday and nine to five on weekends, which leaves room around lectures, a shift, or the gap between the two. Walk in when it suits you, or call ahead and we will tell you what the wait looks like.`,
   emphasizedServices: [
@@ -221,7 +221,7 @@ By car it is a straight run down McKenzie Avenue to Quadra, then Chatterton Way 
     route: "McKenzie Ave → Quadra St → Chatterton Way",
     driveTime: "a short drive across Saanich",
     transit:
-      "Several BC Transit routes stop near Broadmead Village — 6A, 6B, 32, 39, 70, 72 and 75. Check BC Transit for the one that suits your end.",
+      "The 39 runs from Gordon Head and stops near Broadmead Village — a short walk from the plaza. Check BC Transit for times at your end.",
   },
   landmark: SHOP.landmarks,
   callLocation: "gordon_head_page_cta",
@@ -289,6 +289,8 @@ export const OAK_BAY_DATA: LandingPageData = {
   h1Emphasis: "Barber Shop.",
   intro: `Oak Bay is a real drive to Broadmead, and we would rather say so than pretend otherwise. Bay Street to Cook, Cook to Quadra, then Chatterton Way into the plaza. On clear roads it moves; in rush hour the same trip can stretch to thirty minutes. Royal Jubilee Hospital is the landmark most Oak Bay clients set off from, and the run is straightforward from there once you are past the worst of the traffic.
 
+On the bus it is two legs rather than one: the 14 out of Oak Bay, then a transfer to the 70, which stops near Broadmead Village. The 14 by itself does not come this far, so check the connection before you set out.
+
 The Oak Bay clients who make the trip sort themselves into three groups, each keeping its own hours. Students come at the weekend. Families and office workers come in the evenings, once work is done. Given the distance, a phone call before you set out is the single most useful thing you can do — thirty minutes is a long way to travel to sit and wait.
 
 Two services account for most of it. The regular men's cut is traditional barbering: scissor work through the sides, a graduated taper, a neckline finished the way you have always worn it. The skin fade is the sharper end of the same skill, blended by hand down to bare skin and shaped to your hairline rather than to a template. If you want the easier version of the regular cut, a senior cut is the same haircut at a gentler pace and a reduced rate.
@@ -319,7 +321,7 @@ We are open every day of the week, nine to seven Monday through Friday and nine 
     route: "Bay St → Cook St → Quadra St → Chatterton Way",
     driveTime: "up to 30 minutes in rush hour",
     transit:
-      "Several BC Transit routes stop near Broadmead Village — 6A, 6B, 32, 39, 70, 72 and 75. Check BC Transit for the one that suits your end.",
+      "By bus it is two legs: the 14 out of Oak Bay, then a transfer to the 70, which stops near Broadmead Village. The 14 on its own does not come this far — check BC Transit for the connection.",
     note: "Free parking in the lot right out front.",
   },
   landmark: SHOP.landmarks,
