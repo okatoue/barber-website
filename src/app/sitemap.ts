@@ -21,6 +21,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/skin-fade-victoria`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/kids-haircut-victoria`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/hot-towel-shave-victoria`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/fade-haircut-royal-oak`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/mens-haircut-victoria`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/senior-haircut-victoria`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/privacy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
 }

@@ -80,6 +80,32 @@ export const AREA_LINKS: Record<string, string> = {
 };
 
 // ============================================================
+// SERVICE LINKS — the service landing pages, for the footer.
+// ============================================================
+// Each of these had exactly one inbound internal link — from /services, which
+// was itself sitting at "Discovered - currently not indexed" (GSC, Jul 2026).
+// A page whose only referrer is an unindexed page is effectively orphaned, so
+// the footer carries them site-wide the same way it carries the areas.
+//
+// The footer is not sufficient on its own — Google reads a footer-only link as
+// chrome, which is the lesson from /services. It is the floor. The in-content
+// links (LandingPageData.relatedLinks, and the SERVICE_DETAILS links on
+// /services) are what actually carry weight.
+//
+// Labels are the service, not the URL: the geo modifier is in each page's own
+// title and h1, and repeating it 20 times in a footer reads as keyword stuffing.
+
+export const SERVICE_LINKS: { label: string; href: string }[] = [
+  { label: "Men's haircut", href: "/mens-haircut-victoria" },
+  { label: "Fade haircut", href: "/fade-haircut-royal-oak" },
+  { label: "Skin fade", href: "/skin-fade-victoria" },
+  { label: "Senior cut", href: "/senior-haircut-victoria" },
+  { label: "Kids' haircut", href: "/kids-haircut-victoria" },
+  { label: "Beard trim", href: "/beard-trim-saanich" },
+  { label: "Hot towel shave", href: "/hot-towel-shave-victoria" },
+];
+
+// ============================================================
 // SERVICES
 // ============================================================
 
@@ -225,7 +251,8 @@ export const BARBERS: Barber[] = [
 // homepage items everywhere (duplicate content across landing pages).
 // Valid keys — area pages: "royal-oak", "saanich", "gordon-head",
 // "cadboro-bay", "oak-bay", "cordova-bay"; service pages: "skin-fade",
-// "kids-haircut", "hot-towel-shave". FAQ.tsx reads this.
+// "kids-haircut", "hot-towel-shave", "fade-haircut", "mens-haircut",
+// "senior-haircut". FAQ.tsx reads this.
 // Every key has at least 3 tagged items, and no two landing pages share more
 // than one — that overlap budget is the point of the field.
 export type FaqItem = {
@@ -329,7 +356,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     answer:
       "Weekday mornings. We open at nine, and the early part of the day is mostly our senior and retired clients — there's usually a chair free and nothing feels rushed. Afternoons are the busy stretch, on the roads around here as much as in the shop. Evenings fill up with families and people coming off work, Thursday and Friday get busy with students tidying up before the weekend, and weekends are steady all day, with a five o'clock close instead of seven. If you want the shortest wait, come early on a weekday.",
     category: "Visiting",
-    areas: ["royal-oak", "cadboro-bay", "gordon-head"],
+    areas: ["royal-oak", "cadboro-bay", "gordon-head", "senior-haircut"],
   },
   {
     question: "What's your cancellation policy?",
@@ -349,7 +376,26 @@ export const FAQ_ITEMS: FaqItem[] = [
     question: "What's included in a senior cut?",
     answer: `The same haircut as our regular cut — cut, shape, and a clean finish around the ears and neck — at a reduced rate of ${findService("Senior").price}, and at a pace that isn't rushed. It takes ${findService("Senior").duration}. Just mention it when you come in.`,
     category: "Pricing",
-    areas: ["oak-bay"],
+    areas: ["oak-bay", "senior-haircut"],
+  },
+  {
+    question:
+      "How much is a men's haircut, and does it cost more with one barber than the other?",
+    answer: `A regular men's cut is ${findService("Regular Hair Cut").price} and takes ${findService("Regular Hair Cut").duration}. It's the same price whichever chair you end up in — neither barber charges more than the other, and nothing on the menu carries a surcharge for hair that's thick, long, or further past its last cut than you'd care to admit. A skin fade is ${findService("Skin Fade").price} because the blend takes longer, not because it's a better haircut.`,
+    category: "Pricing",
+    areas: ["mens-haircut"],
+  },
+  {
+    question: "What's included in the price of a haircut?",
+    answer: `Two things people often expect to be charged as extras. Every cut starts with a short conversation about what you actually want, before any clippers come out, and every cut finishes clean around the ears and down the neck. Neither is an add-on and neither gets skipped when the shop is busy. A hair wash is the one genuine extra at ${findService("Hair Wash").price} — just ask when you sit down.`,
+    category: "Pricing",
+    areas: ["mens-haircut"],
+  },
+  {
+    question: "Do I need to show proof of age for the senior rate?",
+    answer: `No. There's no card to carry and nothing to prove — mention it when you sit down and that's the rate. A senior cut is ${findService("Senior").price} against ${findService("Regular Hair Cut").price} for the regular one, and it is the same haircut: same shape, same clean finish around the ears and neck, at a pace that isn't in a hurry.`,
+    category: "Pricing",
+    areas: ["senior-haircut"],
   },
 
   // ── Kids ──────────────────────────────────────────────────────────────────
@@ -381,14 +427,35 @@ export const FAQ_ITEMS: FaqItem[] = [
     answer:
       "That's a normal question and there's no wrong answer. Bring a photo if you have one, or just tell your barber how you want it to sit and how much work you're willing to put in each morning. We'll talk it through before the clippers come out, and if you're stuck between two ideas we'll point you at the one that suits your hair and the way it grows.",
     category: "Services",
-    areas: ["cadboro-bay"],
+    areas: ["cadboro-bay", "mens-haircut"],
   },
   {
     question: "What's the difference between a fade and a taper?",
     answer:
       "A fade blends the hair down to the skin for a sharper contrast, while a taper gradually shortens the hair but doesn't go all the way to the skin. Not sure which to pick? Your barber will help you decide.",
     category: "Services",
-    areas: ["skin-fade"],
+    areas: ["skin-fade", "fade-haircut"],
+  },
+  {
+    question: "Low, mid or high — which fade should I ask for?",
+    answer:
+      "It's a question about where the shortest part of the fade sits, not about how short it goes. A low fade stays down around the ear and the nape, so it reads tidy without announcing itself. A mid fade comes up to the temple. A high fade carries the contrast well up the side, which makes whatever you keep on top look heavier by comparison. Height changes the shape of a face more than length does, so your barber will look at your own head rather than work from the name — and a photo helps more than a description.",
+    category: "Services",
+    areas: ["fade-haircut"],
+  },
+  {
+    question: "Can you fade thick or curly hair?",
+    answer:
+      "Yes, and the difference is in what happens on top rather than at the sides. The blend works the same way on any hair type. It's the length above it that gets cut to suit what you actually have — thick hair holds a hard weight line and a squared-off shape well, while finer or curlier hair usually sits better with some texture cut through it so it doesn't read flat.",
+    category: "Services",
+    areas: ["fade-haircut"],
+  },
+  {
+    question: "Can I get a fade and still keep the length on top?",
+    answer:
+      "Yes — that pairing is most of what we cut. The two decisions are separate: the fade sets what happens at the sides, and how much you keep on top is yours. Worth knowing that the combination decides how often you're back. A short crop over a high fade wants revisiting every couple of weeks, because the contrast is what makes it, and the contrast is the first thing to go. Length left over a low taper will still look deliberate at six weeks.",
+    category: "Services",
+    areas: ["fade-haircut"],
   },
   {
     question: "How does a skin fade work?",

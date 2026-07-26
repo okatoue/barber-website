@@ -1,4 +1,4 @@
-import { SERVICES, SHOP, type Service } from "./config";
+import { SERVICES, SERVICE_COMBO, SHOP, type Service } from "./config";
 
 // ============================================================
 // TYPES
@@ -32,6 +32,26 @@ export type GettingHere = {
   note?: string;
 };
 
+/**
+ * An in-content link to a related page on this site, rendered directly under
+ * the intro prose.
+ *
+ * This exists because of the `/services` indexing failure (GSC, Jul 2026): that
+ * page sat at "Discovered – currently not indexed" for weeks on the strength of
+ * a single header-nav link, and Google reads a nav-only link as chrome rather
+ * than endorsement. The service landing pages had exactly the same problem —
+ * one inbound link each, all of them from `/services` itself.
+ *
+ * So these are deliberately in the flow of the page, below prose on the same
+ * topic, and each one is a real sentence rather than a bare slug. Point them at
+ * genuinely adjacent pages only: a link from a page about fades to a page about
+ * fades is worth something, a link to everything is worth nothing.
+ */
+export type RelatedLink = {
+  href: string;
+  label: string;
+};
+
 export type LandingPageData = {
   slug: string;
   metaTitle: string;
@@ -42,6 +62,8 @@ export type LandingPageData = {
   intro: string;
   emphasizedServices: EmphasizedService[];
   gettingHere?: GettingHere;
+  /** Omit where no page is genuinely adjacent; the block is skipped entirely. */
+  relatedLinks?: RelatedLink[];
   landmark: string;
   callLocation: string;
   callLocationPrimary: string;
@@ -130,6 +152,16 @@ We are open every day: nine to seven Monday through Friday, nine to five Saturda
     driveTime: "about 4 minutes",
     note: "Free parking in the lot right out front. Traffic around Royal Oak is busiest in the afternoon.",
   },
+  relatedLinks: [
+    {
+      href: "/fade-haircut-royal-oak",
+      label: "Fades in Royal Oak — taper, low, mid and high compared",
+    },
+    {
+      href: "/senior-haircut-victoria",
+      label: "What the senior rate covers, and when to come in for it",
+    },
+  ],
   landmark: SHOP.landmarkRoyalOak,
   callLocation: "royal_oak_page_cta",
   callLocationPrimary: "royal_oak_page_cta_primary",
@@ -171,6 +203,16 @@ Between visits, the two lines are the thing to leave alone; those are the ones p
       configName: "Regular Hair Cut",
       description:
         "The standard men's cut, and the one most often paired with beard work so the sideburn and the beard line are finished together rather than in two separate sittings.",
+    },
+  ],
+  relatedLinks: [
+    {
+      href: "/hot-towel-shave-victoria",
+      label: "Taking it all off instead: the hot-towel straight-razor shave",
+    },
+    {
+      href: "/mens-haircut-victoria",
+      label: "Pairing it with a haircut — the order, and the price",
     },
   ],
   landmark: SHOP.landmarks,
@@ -223,6 +265,12 @@ By car it is a straight run down McKenzie Avenue to Quadra, then Chatterton Way 
     transit:
       "The 39 runs from Gordon Head and stops near Broadmead Village — a short walk from the plaza. Check BC Transit for times at your end.",
   },
+  relatedLinks: [
+    {
+      href: "/fade-haircut-royal-oak",
+      label: "Which fade to ask for — taper, low, mid and high",
+    },
+  ],
   landmark: SHOP.landmarks,
   callLocation: "gordon_head_page_cta",
   callLocationPrimary: "gordon_head_page_cta_primary",
@@ -272,6 +320,12 @@ Whether you set out from Cadboro-Gyro Park or from the university end of the nei
     driveTime: "about 22 minutes at 5pm, about 30 minutes at 3pm",
     note: "Free parking in the lot right out front. Per Google Maps, leaving later beats leaving mid-afternoon.",
   },
+  relatedLinks: [
+    {
+      href: "/mens-haircut-victoria",
+      label: "What a men's cut costs here, and what is included",
+    },
+  ],
   landmark: SHOP.landmarks,
   callLocation: "cadboro_bay_page_cta",
   callLocationPrimary: "cadboro_bay_page_cta_primary",
@@ -324,6 +378,16 @@ We are open every day of the week, nine to seven Monday through Friday and nine 
       "By bus it is two legs: the 14 out of Oak Bay, then a transfer to the 70, which stops near Broadmead Village. The 14 on its own does not come this far — check BC Transit for the connection.",
     note: "Free parking in the lot right out front.",
   },
+  relatedLinks: [
+    {
+      href: "/senior-haircut-victoria",
+      label: "More on the senior cut and the quietest time to have one",
+    },
+    {
+      href: "/mens-haircut-victoria",
+      label: "The regular men's cut, and what the price covers",
+    },
+  ],
   landmark: SHOP.landmarks,
   callLocation: "oak_bay_page_cta",
   callLocationPrimary: "oak_bay_page_cta_primary",
@@ -374,6 +438,12 @@ We are open seven days, nine to seven on weekdays and nine to five on weekends, 
     transit: "Bus 32 stops right in front of Broadmead plaza — about 11 minutes.",
     note: "Free parking in the lot right out front.",
   },
+  relatedLinks: [
+    {
+      href: "/senior-haircut-victoria",
+      label: "The senior rate, and why mornings suit it best",
+    },
+  ],
   landmark: SHOP.landmarks,
   callLocation: "cordova_bay_page_cta",
   callLocationPrimary: "cordova_bay_page_cta_primary",
@@ -420,6 +490,12 @@ A fade is at its sharpest in the first two weeks and softens as the skin section
         "If you would rather not go down to bare skin, ask for this instead — the same shaping and blending, stopped at a guard length so the sides keep a little coverage.",
     },
   ],
+  relatedLinks: [
+    {
+      href: "/fade-haircut-royal-oak",
+      label: "Not sure you want bare skin? Taper, low, mid and high compared",
+    },
+  ],
   landmark: SHOP.landmarks,
   callLocation: "skin_fade_page_cta",
   callLocationPrimary: "skin_fade_page_cta_primary",
@@ -462,6 +538,12 @@ Royal Look is inside Broadmead Village Shopping Centre at Royal Oak, with free p
         "The easy option for an active kid or the start of summer. One length all over, a quick tidy at the neck, and back out of the chair within a few minutes.",
     },
   ],
+  relatedLinks: [
+    {
+      href: "/fade-haircut-royal-oak",
+      label: "The fade they are asking for, explained",
+    },
+  ],
   landmark: SHOP.landmarks,
   callLocation: "kids_cut_page_cta",
   callLocationPrimary: "kids_cut_page_cta_primary",
@@ -483,7 +565,7 @@ The sequence matters as much as the blade. A hot towel goes on first to soften t
 
 Every shave uses a fresh single-use blade, no exceptions. If your skin is prone to irritation or you get ingrown hairs, say so before your barber starts and he will keep to one pass with the grain rather than chase the closest possible finish. A traditional shave is hard on skin done carelessly and very easy on it done well.
 
-It is the service people tend to want before something that matters — a wedding, an interview, a photograph — though there is nothing stopping you making it a standing part of the month. Royal Look is inside Broadmead Village Shopping Centre at Royal Oak, with free parking in the lot right out front. We are open seven days a week and take walk-ins; call ahead if you want to check the wait.`,
+It is the service people tend to want before something that matters — a wedding, an interview, a photograph — though there is nothing stopping you making it a standing part of the month. You will find us in the Broadmead Village plaza on Royal Oak Drive, immediately left of Starbucks, with parking free in the lot outside. We are open seven days a week and take walk-ins; call ahead if you want to check the wait.`,
   emphasizedServices: [
     {
       displayName: "Hot Towel Shave",
@@ -504,9 +586,187 @@ It is the service people tend to want before something that matters — a weddin
         "Worth adding while you are already in the chair. The cut goes first and the shave after, so the neckline and the jaw get finished together in one clean pass.",
     },
   ],
+  relatedLinks: [
+    {
+      href: "/beard-trim-saanich",
+      label: "Keeping the beard instead: how a beard trim is shaped",
+    },
+  ],
   landmark: SHOP.landmarks,
   callLocation: "hot_shave_page_cta",
   callLocationPrimary: "hot_shave_page_cta_primary",
   breadcrumbLabel: "Hot Towel Shave in Victoria",
+  areaServedName: "Victoria, BC",
+};
+
+// ── The three pages below close the commercial-intent gap in the Jul 2026 SEO
+// report (§4): six bare service terms held average position ~1.1 across 193
+// impressions and returned zero clicks, while the geo-modified versions of the
+// same terms did not rank at all. `skin fade` and `beard trim` already had
+// pages; `fade haircut` (38 impressions), `barber haircut` (35) and `men's
+// haircut` (9) had none, and the senior cut had no page despite being one of
+// the three services that fill the chairs here.
+//
+// Each one is pinned to a place in its title and h1, because that is the half
+// of the query that currently ranks nowhere. `fade haircut` takes Royal Oak
+// rather than Victoria: the shop is already #1 in the Local Pack for `royal oak
+// barber`, so the neighbourhood is the stronger modifier of the two.
+
+export const FADE_HAIRCUT_DATA: LandingPageData = {
+  slug: "fade-haircut-royal-oak",
+  metaTitle:
+    "Fade Haircut in Royal Oak — Taper, Low, Mid & High | Royal Look Victoria BC",
+  metaDescription:
+    "Fade haircuts in Royal Oak from $28. Taper, low, mid and high fades blended by hand inside Broadmead Village. No appointment — walk in seven days a week.",
+  eyebrow: "Royal Oak · Fade Haircut",
+  h1: "Fade Haircut in Royal Oak",
+  h1Emphasis: "in Royal Oak.",
+  intro: `“Fade” covers a range rather than one haircut, and most of the confusion at the counter comes from that. At one end is a taper: the hair gets shorter as it goes down but never leaves the guard, so the bottom keeps some coverage. At the other is a skin fade, taken right out to bare scalp. Everything people mean by “a fade” sits somewhere on that line, and picking your spot on it is the whole conversation.
+
+The second decision is height — where on the head the shortest part sits. A low fade stays down around the ear and the nape, which reads tidy without announcing itself. A mid fade comes up to the temple. A high fade carries the contrast well up the side and makes the top look considerably heavier by comparison. Height changes the shape of a face more than length does, which is why your barber will look at your head rather than at a name for it.
+
+What you keep on top is the part people leave to chance, and it is the part that decides whether the fade looks right in a month. A short crop over a high fade is a haircut with almost no maintenance and a short life — it wants doing every fortnight. Length left on top over a low taper will still look deliberate at six weeks. Neither is the better answer; they are different amounts of coming back, and it is worth saying out loud which one you actually want before the clippers start.
+
+Royal Oak is the neighbourhood we are in rather than one we drive to, so this is the short trip. We are inside Broadmead Village Shopping Centre, a walk from the Royal Oak Transit Exchange, with free parking out front. Ask for Zaki if you want line work or a design cut into the fade — twelve years in and it is the thing regulars come to him for. No appointments, seven days a week; ring ahead if you would rather know the wait before you set off.`,
+  emphasizedServices: [
+    {
+      displayName: "Skin Fade",
+      configName: "Skin Fade",
+      description:
+        "The far end of the range — the bottom taken out to bare scalp and blended up with no step left in it. The sharpest version, and the one with the shortest shelf life at two to three weeks.",
+    },
+    {
+      displayName: "Regular Hair Cut",
+      configName: "Regular Hair Cut",
+      description:
+        "Where a tapered fade lives. The sides come down gradually but stop at a guard rather than the skin, so the finish is softer up close and holds its shape four to six weeks.",
+    },
+    {
+      displayName: "Buzz Cut",
+      configName: "Buzz Cut",
+      description:
+        "No blend at all — one guard from front to back, then the neck and ears cleaned up. Worth knowing about, because plenty of people ask for a fade when this is what they actually want.",
+    },
+  ],
+  relatedLinks: [
+    {
+      href: "/skin-fade-victoria",
+      label: "Going all the way to the skin: how a skin fade is cut",
+    },
+    {
+      href: "/royal-oak-barber-shop",
+      label: "Everything else we do for Royal Oak",
+    },
+  ],
+  landmark: SHOP.landmarkRoyalOak,
+  callLocation: "fade_haircut_page_cta",
+  callLocationPrimary: "fade_haircut_page_cta_primary",
+  breadcrumbLabel: "Fade Haircut in Royal Oak",
+  areaServedName: "Royal Oak, Victoria BC",
+};
+
+export const MENS_HAIRCUT_DATA: LandingPageData = {
+  slug: "mens-haircut-victoria",
+  metaTitle:
+    "Men's Haircut in Victoria BC — $28, Walk In 7 Days | Royal Look Barber Shop",
+  metaDescription:
+    "Men's haircuts in Victoria, BC for $28 at Royal Look in Broadmead Village. One price, no tiers, no appointment. Open seven days — walk in and take the next chair.",
+  eyebrow: "Victoria · Men's Haircut",
+  h1: "Men's Haircut in Victoria",
+  h1Emphasis: "in Victoria.",
+  intro: `A men's haircut here is ${resolveService("Regular Hair Cut")?.price ?? "$28"} and takes ${resolveService("Regular Hair Cut")?.duration ?? "30–45 min"}. That is the whole price. There are no tiers, no surcharge for hair that is thick or long or further past its last cut than you would care to admit, and it costs the same whichever of the two chairs you end up in. We would rather publish the number than make you ask for it.
+
+Two things are in that price that people expect to be extras. The first is a conversation before any clippers come out — what you want, how it should sit, and how much time you are willing to give it in the mornings, which changes the cut more than a photograph does. The second is the finish: clean around the ears and down the neck at the end. Neither is an add-on and neither gets rushed when the shop is busy.
+
+The cut itself is clipper, scissor, or both, and which one depends on your hair rather than on a house style. Thick hair holds a hard weight line and a squared-off shape; finer or curlier hair usually sits better with some texture cut through it so it does not read flat. If you want the sides shorter without going out to bare skin, that is a taper, and it is this haircut — the skin fade is a separate line on the menu because it takes longer, not because it is a better cut.
+
+Ask for a barber by name if you have a preference. Zaki has twelve years behind him and leans modern — fades, sharper shapes, line work. Aymen has ten, came to us from Montreal, and leans traditional: scissor work, classic shapes, and beards. There is no booking system and no app. Walk in, take the next free chair, and pay with cash, debit, Visa, Mastercard or Apple Pay. We are on Royal Oak Drive inside Broadmead Village, open nine to seven on weekdays and nine to five at weekends.`,
+  emphasizedServices: [
+    {
+      displayName: "Regular Hair Cut",
+      configName: "Regular Hair Cut",
+      description:
+        "The standard men's cut and the one most people are here for. Cut to your head shape rather than to a number, with the weight taken out wherever it sits heavy.",
+    },
+    {
+      displayName: "Skin Fade",
+      configName: "Skin Fade",
+      description:
+        "The same haircut with the sides carried out to bare skin instead of stopping at a guard. It is the longer service on the menu because a blend cannot be hurried.",
+    },
+    {
+      displayName: "Beard Trim",
+      configName: "Trim Beard",
+      description:
+        `Added to the cut it comes to ${SERVICE_COMBO.price} for the pair — the sum of the two, not a discount. The haircut goes first so the sideburn carries down into the beard without a break.`,
+    },
+  ],
+  relatedLinks: [
+    {
+      href: "/services",
+      label: "The full price list, and what each service includes",
+    },
+    {
+      href: "/senior-haircut-victoria",
+      label: "The same cut at the senior rate",
+    },
+  ],
+  landmark: SHOP.landmarks,
+  callLocation: "mens_haircut_page_cta",
+  callLocationPrimary: "mens_haircut_page_cta_primary",
+  breadcrumbLabel: "Men's Haircut in Victoria",
+  areaServedName: "Victoria, BC",
+};
+
+export const SENIOR_HAIRCUT_DATA: LandingPageData = {
+  slug: "senior-haircut-victoria",
+  metaTitle:
+    "Senior Haircut in Victoria BC — $25, No Appointment | Royal Look Barber Shop",
+  metaDescription:
+    "Senior haircuts in Victoria, BC for $25 at Royal Look in Broadmead Village. The same cut, an unhurried pace, no card to carry. Walk in seven days a week.",
+  eyebrow: "Victoria · Senior Haircut",
+  h1: "Senior Haircuts in Victoria",
+  h1Emphasis: "in Victoria.",
+  intro: `A senior cut is ${resolveService("Senior")?.price ?? "$25"} and takes ${resolveService("Senior")?.duration ?? "30–45 min"}. It is not a shorter or simpler version of the regular haircut — it is the same cut, the same shape, and the same clean finish around the ears and the neck, at a reduced rate and at a pace that is not in a hurry. Nothing is left out to justify the lower number.
+
+There is no card to carry and nothing to prove. Mention it when you sit down and that is the rate. We do not ask for identification, we do not run a scheme you have to sign up to, and nobody is going to make a thing of it in front of a full shop.
+
+The pace is the part that actually matters, and it is why the timing is worth knowing. Most of our senior clients come in first thing on a weekday: we open at nine, the shop is quiet, there is usually a chair free straight away, and nothing about the half hour feels rushed. Afternoons are the busy stretch — on the roads around Royal Oak as much as in here — so if you would rather not sit and wait, the morning is the answer. Weekends are steady all day and we close at five rather than seven.
+
+Finer and thinning hair asks for different handling than the sales pitch suggests, and both barbers are used to it. Taking the sides down a little tighter makes the top read fuller by contrast, and a softer front line draws less attention to a receding hairline than a hard straight one. Tell your barber what is bothering you and it will be cut to play that down. We are inside Broadmead Village Shopping Centre on Royal Oak Drive, just left of Starbucks, with free parking directly outside — and if you would like to know the wait before you leave the house, phone and we will tell you honestly.`,
+  emphasizedServices: [
+    {
+      displayName: "Senior Cut",
+      configName: "Senior",
+      description:
+        "The regular haircut at a reduced rate and an unhurried pace — less time held in one position, and careful work through hair that has gone finer than it used to be.",
+    },
+    {
+      displayName: "Regular Hair Cut",
+      configName: "Regular Hair Cut",
+      description:
+        "The same service without the reduced rate, listed here so you can see there is no difference in the cut itself — only in what it costs and how quickly it is done.",
+    },
+    {
+      displayName: "Hair Wash",
+      configName: "Hair Wash",
+      description:
+        "Ask at the chair if you want one. Some have it first because clean, damp hair is easier to read; others have it at the end to get the clippings off before heading home.",
+    },
+  ],
+  relatedLinks: [
+    {
+      href: "/mens-haircut-victoria",
+      label: "The regular men's cut, and what the price covers",
+    },
+    {
+      href: "/royal-oak-barber-shop",
+      label: "Getting here from Royal Oak and Broadmead",
+    },
+  ],
+  landmark: SHOP.landmarks,
+  callLocation: "senior_haircut_page_cta",
+  callLocationPrimary: "senior_haircut_page_cta_primary",
+  breadcrumbLabel: "Senior Haircuts in Victoria",
   areaServedName: "Victoria, BC",
 };

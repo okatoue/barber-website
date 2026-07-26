@@ -1,4 +1,4 @@
-import { SHOP, AREA_LINKS } from "@/lib/config";
+import { SHOP, AREA_LINKS, SERVICE_LINKS } from "@/lib/config";
 
 export default function Footer() {
   return (
@@ -52,6 +52,16 @@ export default function Footer() {
             <li>
               <a href="/privacy">Privacy</a>
             </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            {SERVICE_LINKS.map((service) => (
+              <li key={service.href}>
+                <a href={service.href}>{service.label}</a>
+              </li>
+            ))}
           </ul>
         </div>
         <div>

@@ -700,8 +700,11 @@ main > .section:nth-child(even of .section) { background: var(--bg-2); }
 }
 .footer .container {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 48px;
+  /* Brand, then Visit / Pages / Services / Areas Served. The Services column
+     was added so the service landing pages have a site-wide link; the gap comes
+     down from 48px to keep five columns off each other at container width. */
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 40px;
 }
 .footer .ft-logo {
   font-family: var(--font-serif);
