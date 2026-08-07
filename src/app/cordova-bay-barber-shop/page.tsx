@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import LandingPage from "@/components/LandingPage";
 import { CORDOVA_BAY_DATA } from "@/lib/landing";
-import { SHOP } from "@/lib/config";
 
-const DESCRIPTION = CORDOVA_BAY_DATA.metaDescription;
+const { metaTitle: TITLE, metaDescription: DESCRIPTION } = CORDOVA_BAY_DATA;
 
 export const metadata: Metadata = {
-  title: "Cordova Bay Barber Shop",
+  // `absolute` because metaTitle already ends in the brand — without it the
+  // layout template appends " | Royal Look Barber Shop" a second time.
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   alternates: { canonical: "/cordova-bay-barber-shop" },
   openGraph: {
-    title: `Cordova Bay Barber Shop | ${SHOP.name}`,
+    title: TITLE,
     description: DESCRIPTION,
   },
 };

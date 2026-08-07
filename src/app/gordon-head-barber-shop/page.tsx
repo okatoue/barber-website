@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import LandingPage from "@/components/LandingPage";
 import { GORDON_HEAD_DATA } from "@/lib/landing";
-import { SHOP } from "@/lib/config";
 
-const DESCRIPTION = GORDON_HEAD_DATA.metaDescription;
+const { metaTitle: TITLE, metaDescription: DESCRIPTION } = GORDON_HEAD_DATA;
 
 export const metadata: Metadata = {
-  title: "Gordon Head Barber Shop",
+  // `absolute` because metaTitle already ends in the brand — without it the
+  // layout template appends " | Royal Look Barber Shop" a second time.
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   alternates: { canonical: "/gordon-head-barber-shop" },
   openGraph: {
-    title: `Gordon Head Barber Shop | ${SHOP.name}`,
+    title: TITLE,
     description: DESCRIPTION,
   },
 };

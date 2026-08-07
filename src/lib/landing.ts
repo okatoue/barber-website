@@ -90,10 +90,9 @@ export function resolveService(configName: string): Service | null {
 
 export const ROYAL_OAK_DATA: LandingPageData = {
   slug: "royal-oak-barber-shop",
-  metaTitle:
-    "Royal Oak Barber Shop — Skin Fades & Kids' Cuts | Royal Look Victoria BC",
+  metaTitle: "Royal Oak Barber Shop — Walk In 7 Days | Royal Look",
   metaDescription:
-    "Royal Oak barber shop inside Broadmead Village, steps from the transit exchange. Expert skin fades, kids' cuts, and classic cuts. Walk in seven days a week.",
+    "Royal Look is the barber shop inside Broadmead Village at Royal Oak — walk in 7 days, no appointment. Skin fade $30, kids' cut $25, free parking.",
   eyebrow: "Royal Oak · Victoria, BC",
   h1: "Royal Oak Barber Shop",
   h1Emphasis: "Barber Shop.",
@@ -139,10 +138,9 @@ We are open every day: nine to seven Monday through Friday, nine to five Saturda
 
 export const SAANICH_DATA: LandingPageData = {
   slug: "beard-trim-saanich",
-  metaTitle:
-    "Beard Trim in Saanich — Hot-Towel Straight-Razor Shave | Royal Look Victoria BC",
+  metaTitle: "Beard Trim in Saanich — $20, Walk In 7 Days | Royal Look",
   metaDescription:
-    "Beard trim in Saanich at Royal Look, inside Broadmead Village. Hot-towel straight-razor shaves, beard shaping, and classic cuts. Walk in seven days a week.",
+    "Beard trim $20 in Saanich at Royal Look, inside Broadmead Village. Hot-towel straight-razor shave $35, cut and beard $48. Walk in 7 days, free parking.",
   eyebrow: "Saanich · Victoria, BC",
   h1: "Beard Trim in Saanich",
   h1Emphasis: "in Saanich.",
@@ -182,10 +180,9 @@ Between visits, the two lines are the thing to leave alone; those are the ones p
 
 export const GORDON_HEAD_DATA: LandingPageData = {
   slug: "gordon-head-barber-shop",
-  metaTitle:
-    "Gordon Head Barber Shop — Skin Fades & Student Cuts | Royal Look Victoria BC",
+  metaTitle: "Gordon Head Barber Shop — Fades from $30 | Royal Look",
   metaDescription:
-    "Barber shop for Gordon Head and the UVic area at Royal Look in Broadmead Village. Sharp skin fades, buzz cuts, and classic cuts. Walk in seven days a week.",
+    "Gordon Head to Broadmead is a straight run down McKenzie, or the 39 bus. Walk in 7 days: skin fade $30, buzz cut $20, regular cut $28. Free parking.",
   eyebrow: "Gordon Head · Victoria, BC",
   h1: "Gordon Head Barber Shop",
   h1Emphasis: "Barber Shop.",
@@ -232,10 +229,9 @@ By car it is a straight run down McKenzie Avenue to Quadra, then Chatterton Way 
 
 export const CADBORO_BAY_DATA: LandingPageData = {
   slug: "cadboro-bay-barber-shop",
-  metaTitle:
-    "Cadboro Bay Barber Shop — Family Cuts & Beard Trims | Royal Look Victoria BC",
+  metaTitle: "Cadboro Bay Barber Shop — Kids' & Family Cuts | Royal Look",
   metaDescription:
-    "Barber shop for Cadboro Bay families at Royal Look in Broadmead Village. Classic cuts, kids' haircuts, and beard trims. Walk in seven days a week.",
+    "Cadboro Bay families walk in to Royal Look in Broadmead Village — no appointment, 7 days a week. Kids' cuts $25, regular cut $28, beard trim $20.",
   eyebrow: "Cadboro Bay · Victoria, BC",
   h1: "Cadboro Bay Barber Shop",
   h1Emphasis: "Barber Shop.",
@@ -281,9 +277,9 @@ Whether you set out from Cadboro-Gyro Park or from the university end of the nei
 
 export const OAK_BAY_DATA: LandingPageData = {
   slug: "oak-bay-barber-shop",
-  metaTitle: "Oak Bay Barber Shop — Classic Cuts & Skin Fades | Royal Look Victoria BC",
+  metaTitle: "Oak Bay Barber Shop — Walk-Ins, 4.9 Stars | Royal Look",
   metaDescription:
-    "Barber shop for Oak Bay at Royal Look in Broadmead Village. Classic gentleman's cuts, clean skin fades, and senior cuts. Walk in seven days a week.",
+    "From Oak Bay take the 14 then the 70, or drive to Broadmead. Walk in 7 days, no appointment — call (778) 430-0040 first and we'll tell you the wait.",
   eyebrow: "Oak Bay · Victoria, BC",
   h1: "Oak Bay Barber Shop",
   h1Emphasis: "Barber Shop.",
@@ -333,10 +329,14 @@ We are open every day of the week, nine to seven Monday through Friday and nine 
 
 export const CORDOVA_BAY_DATA: LandingPageData = {
   slug: "cordova-bay-barber-shop",
-  metaTitle:
-    "Cordova Bay Barber Shop — Classic Cuts & Beard Trims | Royal Look Victoria BC",
+  // The title deliberately does NOT read as a shop located in Cordova Bay.
+  // "Cordova Hair and Barbershop" is a real business at Mattick's Farm, and we
+  // are ~4km away, so we can never enter the Cordova Bay map pack. This page
+  // ranks organic #2–4 under that pack; the click has to be won by being
+  // plainly the out-of-area option, not by reading like the local incumbent.
+  metaTitle: "Cordova Bay's Barber Option in Broadmead | Royal Look",
   metaDescription:
-    "Barber shop for Cordova Bay at Royal Look in Broadmead Village. Classic men's cuts, beard trims, and clean skin fades. Walk in seven days a week.",
+    "Royal Look is 10 minutes from Cordova Bay, in Broadmead Village — the 32 stops out front. Walk in 7 days, no appointment, free parking. 4.9 stars.",
   eyebrow: "Cordova Bay · Victoria, BC",
   h1: "Cordova Bay Barber Shop",
   h1Emphasis: "Barber Shop.",
