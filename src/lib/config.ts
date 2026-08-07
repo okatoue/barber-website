@@ -6,7 +6,7 @@ export const SHOP = {
   name: "Royal Look Barber Shop",
   tagline: "Premium Barber Shop in Victoria, BC",
   description:
-    "Modern fades, beard trims, and classic cuts. Walk in 7 days a week or call to book your preferred barber.",
+    "Modern fades, beard trims, and classic cuts. Walk in 7 days a week — no appointment needed. Ask for your preferred barber.",
   phone: "(778) 430-0040",
   email: "royal10look@gmail.com",
   address: {

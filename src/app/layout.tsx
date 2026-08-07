@@ -31,7 +31,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const HOME_DESCRIPTION =
-  "Royal Look Barber Shop in Broadmead Village, Saanich. Skin fades, beard trims, straight razor and hot towel shaves, kids' cuts. Call 778-430-0040 to book.";
+  "Royal Look Barber Shop in Broadmead Village, Saanich. Skin fades, beard trims, straight razor and hot towel shaves, kids' cuts. Walk in — call (778) 430-0040.";
 
 // schema.org expects 24-hour "HH:MM"; config keeps the 12-hour display strings.
 function to24Hour(time: string): string {
@@ -102,7 +102,7 @@ export default async function RootLayout({
                 `${SHOP.siteUrl}/images/royal-look-interior.jpg`,
                 `${SHOP.siteUrl}/images/gallery/gallery-1.jpeg`,
               ],
-              priceRange: "$",
+              priceRange: "$7-$48",
               foundingDate: SHOP.foundedYear,
               currenciesAccepted: "CAD",
               paymentAccepted:
