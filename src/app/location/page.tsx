@@ -6,11 +6,11 @@ import OpenStatus from "@/components/OpenStatus";
 const LOCATION_DESCRIPTION = `Visit ${SHOP.name} at 777 Royal Oak Dr in Broadmead Village, ${SHOP.address.city} ${SHOP.address.province}. Map, hours, parking, and directions. Walk in seven days a week.`;
 
 export const metadata: Metadata = {
-  title: "Location — Barber Shop in Victoria, BC",
+  title: "Location — Barber Shop in Victoria",
   description: LOCATION_DESCRIPTION,
   alternates: { canonical: "/location" },
   openGraph: {
-    title: `Location — Barber Shop in Victoria, BC | ${SHOP.name}`,
+    title: `Location — Barber Shop in Victoria | ${SHOP.name}`,
     description: LOCATION_DESCRIPTION,
   },
 };

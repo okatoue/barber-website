@@ -103,9 +103,9 @@ export default function PrivacyPage() {
           <Block title="What we collect directly">
             <P>
               Nothing. There are no accounts, no contact forms, and no online
-              booking on this site. If you want an appointment you call us or
-              walk in, and we don&apos;t store anything from your visit here to
-              make that happen.
+              booking on this site. If you want to ask about the wait you call
+              us or walk in, and we don&apos;t store anything from your visit
+              here to make that happen.
             </P>
             <P>
               What follows is about third-party tools embedded in the site,

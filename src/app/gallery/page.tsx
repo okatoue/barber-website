@@ -7,11 +7,11 @@ const DESCRIPTION =
   "Photos of our work — skin fades, beard lineups, kids' cuts, and hot towel shaves from our barber shop in Broadmead Village, Saanich. Walk in seven days a week.";
 
 export const metadata: Metadata = {
-  title: "Haircut Gallery — Barber Shop in Victoria, BC",
+  title: "Haircut Gallery — Victoria, BC",
   description: DESCRIPTION,
   alternates: { canonical: "/gallery" },
   openGraph: {
-    title: `Haircut Gallery — Barber Shop in Victoria, BC | ${SHOP.name}`,
+    title: `Haircut Gallery — Victoria, BC | ${SHOP.name}`,
     description: DESCRIPTION,
   },
 };

@@ -7,11 +7,11 @@ const DESCRIPTION =
   "Haircut, skin fade, beard trim and hot towel shave prices in Victoria, BC — what each service includes and how long it takes. Walk in seven days a week.";
 
 export const metadata: Metadata = {
-  title: "Barber Services & Prices in Victoria, BC",
+  title: "Barber Services & Prices — Victoria",
   description: DESCRIPTION,
   alternates: { canonical: "/services" },
   openGraph: {
-    title: `Barber Services & Prices in Victoria, BC | ${SHOP.name}`,
+    title: `Barber Services & Prices — Victoria | ${SHOP.name}`,
     description: DESCRIPTION,
   },
 };

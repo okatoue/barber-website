@@ -96,6 +96,20 @@ const teamJsonLd = {
 
 const phoneDigits = SHOP.phone.replace(/\D/g, "");
 
+// Hours are looked up by day name, not by array index: reordering or inserting
+// a day in config would otherwise silently swap the weekday and weekend times
+// in the CTA. Throws at build like the BARBER_DETAIL guard above.
+function hoursFor(day: string) {
+  const entry = SHOP.hours.find((h) => h.day === day);
+  if (!entry) {
+    throw new Error(`SHOP.hours in lib/config.ts has no entry for "${day}".`);
+  }
+  return entry;
+}
+
+const weekdayHours = hoursFor("Monday");
+const weekendHours = hoursFor("Saturday");
+
 export default function BarbersPage() {
   return (
     <>
@@ -236,8 +250,8 @@ export default function BarbersPage() {
             <h3>Walk in and ask for either.</h3>
             <p>{SHOP.landmarks}</p>
             <p>
-              Open {SHOP.hours[0].open} &ndash; {SHOP.hours[0].close} Monday to
-              Friday, {SHOP.hours[5].open} &ndash; {SHOP.hours[5].close}{" "}
+              Open {weekdayHours.open} &ndash; {weekdayHours.close} Monday to
+              Friday, {weekendHours.open} &ndash; {weekendHours.close}{" "}
               Saturday and Sunday.
             </p>
             <div className="row">

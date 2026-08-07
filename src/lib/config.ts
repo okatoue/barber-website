@@ -27,7 +27,7 @@ export const SHOP = {
     { day: "Sunday", open: "9:00 AM", close: "5:00 PM" },
   ],
   googleRating: "4.9",
-  googleReviewCount: 127,
+  googleReviewCount: 155, // fallback when Places API unavailable; update occasionally
   googleReviewUrl: "https://g.page/royallook/review",
   googleBusinessUrl:
     "https://www.google.com/maps/place/Royal+Look+Barber+Shop/data=!4m2!3m1!1s0x0:0x41df978b9274788d?sa=X&ved=1t:2428&hl=en&ictx=111",
@@ -458,7 +458,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How long does a straight-razor shave stay smooth?",
     answer:
-      "It gets closer than a cartridge razor and usually holds a day longer, because the blade takes the hair off level with the skin instead of skating over it. How long that lasts comes down to how fast your beard grows. Plenty of clients book one ahead of a wedding, an interview, or anything they'll be photographed at.",
+      "It gets closer than a cartridge razor and usually holds a day longer, because the blade takes the hair off level with the skin instead of skating over it. How long that lasts comes down to how fast your beard grows. Plenty of clients get one ahead of a wedding, an interview, or anything they'll be photographed at.",
     category: "Services",
     areas: ["hot-towel-shave"],
   },

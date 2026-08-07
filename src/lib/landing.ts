@@ -247,7 +247,7 @@ Whether you set out from Cadboro-Gyro Park or from the university end of the nei
       displayName: "Regular Hair Cut",
       configName: "Regular Hair Cut",
       description:
-        "The same cut, the same way, every visit. We keep the proportions consistent from one appointment to the next and only change the length when you ask us to change it.",
+        "The same cut, the same way, every visit. We keep the proportions consistent from one visit to the next and only change the length when you ask us to change it.",
     },
     {
       displayName: "Kids' Haircut",
@@ -277,6 +277,8 @@ Whether you set out from Cadboro-Gyro Park or from the university end of the nei
 
 export const OAK_BAY_DATA: LandingPageData = {
   slug: "oak-bay-barber-shop",
+  // NOTE: "4.9 stars" is a literal in Oak Bay title + Cordova Bay meta — update
+  // if the Google rating moves (see CORDOVA_BAY_DATA.metaDescription below).
   metaTitle: "Oak Bay Barber Shop — Walk-Ins, 4.9 Stars | Royal Look",
   metaDescription:
     "From Oak Bay take the 14 then the 70, or drive to Broadmead. Walk in 7 days, no appointment — call (778) 430-0040 first and we'll tell you the wait.",
@@ -473,7 +475,7 @@ export const HOT_SHAVE_DATA: LandingPageData = {
   slug: "hot-towel-shave-victoria",
   metaTitle: "Hot Towel Shave in Victoria BC | Royal Look Barber Shop",
   metaDescription:
-    "Hot towel straight-razor shave at Royal Look Barber Shop in Victoria, BC. Fresh single-use blade every time, inside Broadmead Village. Walk in seven days a week.",
+    "Hot towel straight-razor shave at Royal Look Barber Shop in Victoria, BC. Fresh single-use blade every time, inside Broadmead Village. Walk in 7 days a week.",
   eyebrow: "Victoria · Hot Towel Shave",
   h1: "Hot Towel Shave in Victoria",
   h1Emphasis: "in Victoria.",
