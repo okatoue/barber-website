@@ -29,6 +29,15 @@ const FAQ_AREA_BY_SLUG: Record<string, string | undefined> = {
   "hot-towel-shave-victoria": "hot-towel-shave",
 };
 
+// Areas the shop serves but does not sit in — the shop is in Broadmead Village
+// at Royal Oak, so these pages say "your barber FOR {area}", never "in".
+const OUT_OF_AREA_SLUGS = new Set([
+  "gordon-head-barber-shop",
+  "cadboro-bay-barber-shop",
+  "oak-bay-barber-shop",
+  "cordova-bay-barber-shop",
+]);
+
 export default async function LandingPage({ data }: { data: LandingPageData }) {
   const stats = await getGoogleStats();
 
@@ -41,6 +50,9 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
 
   // Short area label for the intro heading, e.g. "Royal Oak · Victoria, BC" → "Royal Oak".
   const shortArea = data.eyebrow.split("·")[0].trim();
+
+  // "in" claims the shop sits in that area; "for" claims only that it serves it.
+  const areaPreposition = OUT_OF_AREA_SLUGS.has(data.slug) ? "for" : "in";
 
   // Build-time today name used to highlight the current day row in the hours
   // grid — mirrors the same pattern in LocationPreview.tsx (static export site;
@@ -246,7 +258,7 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
             <div>
               <div className="eyebrow" />
               <h2 className="serif">
-                Your barber in <em>{shortArea}.</em>
+                Your barber {areaPreposition} <em>{shortArea}.</em>
               </h2>
             </div>
           </div>

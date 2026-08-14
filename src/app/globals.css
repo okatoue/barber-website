@@ -193,7 +193,7 @@ a { color: inherit; text-decoration: none; }
   font-style: italic;
   color: var(--accent);
   /* Block so the emphasis always starts its own line. Short headings like
-     "Oak Bay Barber Shop." would otherwise sit on one line while longer
+     "Royal Oak Barber Shop." would otherwise sit on one line while longer
      ones wrapped, giving the hero an inconsistent shape page to page. */
   display: block;
 }

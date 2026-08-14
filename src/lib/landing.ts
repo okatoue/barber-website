@@ -180,19 +180,20 @@ Between visits, the two lines are the thing to leave alone; those are the ones p
 
 export const GORDON_HEAD_DATA: LandingPageData = {
   slug: "gordon-head-barber-shop",
-  metaTitle: "Gordon Head Barber Shop — Fades from $30 | Royal Look",
+  // Title/h1/breadcrumb read as the out-of-area option on purpose — see CORDOVA_BAY_DATA below.
+  metaTitle: "Gordon Head's Barber Option in Broadmead | Royal Look",
   metaDescription:
-    "Gordon Head to Broadmead is a straight run down McKenzie, or the 39 bus. Walk in 7 days: skin fade $30, buzz cut $20, regular cut $28. Free parking.",
+    "Royal Look is in Broadmead Village, 15 minutes from Gordon Head down McKenzie or on the 39 bus. Walk in 7 days: skin fade $30, buzz cut $20. Free parking.",
   eyebrow: "Gordon Head · Victoria, BC",
-  h1: "Gordon Head Barber Shop",
-  h1Emphasis: "Barber Shop.",
-  intro: `Thursday and Friday are the Gordon Head days. That is when the students come in — hair sorted before the weekend starts rather than after it, which is the sensible order and not the one most people manage. It is the most consistent pattern we see from any neighbourhood we serve, and it means the back half of the week is the busier one for anyone coming from the university side of Saanich.
+  h1: "Serving Gordon Head from Broadmead",
+  h1Emphasis: "from Broadmead.",
+  intro: `Thursday and Friday are the Gordon Head days at Royal Look. That is when the students come in — hair sorted before the weekend starts rather than after it, which is the sensible order and not the one most people manage. It is the most consistent pattern we see from any neighbourhood we serve, and it means the back half of the week is the busier one for anyone coming from the university side of Saanich. The shop is not in Gordon Head itself: we are over at Royal Oak, inside Broadmead Village Shopping Centre, so the trip is part of the plan.
 
 Two things get asked for above everything else: the regular men's cut and the skin fade. The fade is the one that decides your week. It is sharpest in the first two weeks and softens as the skin section grows back in, so if you want it crisp for a Friday, come in on the Thursday rather than the week before. The regular cut holds its shape longer and asks less of you. A buzz cut, if that is genuinely all you need, is quicker than either.
 
 Getting here without a car is straightforward from Gordon Head: the 39 runs across and stops near Broadmead Village. Be clear on the last stretch though, because the stop is not at our door — it is a couple of minutes on foot from the edge of the plaza, and about four from the shop itself. Budget that on top of the ride and you will not be caught out.
 
-By car it is a straight run down McKenzie Avenue to Quadra, then Chatterton Way into the plaza. We are open every day of the week, nine to seven Monday through Friday and nine to five on weekends, which leaves room around lectures, a shift, or the gap between the two. Walk in when it suits you, or call ahead and we will tell you what the wait looks like.`,
+By car it is a straight run down McKenzie Avenue to Quadra, then Chatterton Way into the plaza — about fifteen minutes. We are open every day of the week, nine to seven Monday through Friday and nine to five on weekends, which leaves room around lectures, a shift, or the gap between the two. Walk in when it suits you, or call ahead and we will tell you what the wait looks like.`,
   emphasizedServices: [
     {
       displayName: "Skin Fade",
@@ -216,30 +217,33 @@ By car it is a straight run down McKenzie Avenue to Quadra, then Chatterton Way 
   gettingHere: {
     from: "UVic",
     route: "McKenzie Ave → Quadra St → Chatterton Way",
-    driveTime: "a short drive across Saanich",
+    driveTime: "about 15 minutes",
     transit:
       "The 39 runs from Gordon Head and stops near Broadmead Village — a short walk from the plaza. Check BC Transit for times at your end.",
   },
   landmark: SHOP.landmarks,
   callLocation: "gordon_head_page_cta",
   callLocationPrimary: "gordon_head_page_cta_primary",
-  breadcrumbLabel: "Gordon Head Barber Shop",
+  breadcrumbLabel: "Gordon Head",
   areaServedName: "Gordon Head, Victoria BC",
 };
 
 export const CADBORO_BAY_DATA: LandingPageData = {
   slug: "cadboro-bay-barber-shop",
-  metaTitle: "Cadboro Bay Barber Shop — Kids' & Family Cuts | Royal Look",
+  // Out-of-area framing for the same reason as CORDOVA_BAY_DATA below (salons
+  // on Cadboro Bay Rd and Sinclair Rd hold that map pack): the title, h1 and
+  // breadcrumb read as the Broadmead option, not as a shop in Cadboro Bay.
+  metaTitle: "Cadboro Bay's Barber Option in Broadmead | Royal Look",
   metaDescription:
     "Cadboro Bay families walk in to Royal Look in Broadmead Village — no appointment, 7 days a week. Kids' cuts $25, regular cut $28, beard trim $20.",
   eyebrow: "Cadboro Bay · Victoria, BC",
-  h1: "Cadboro Bay Barber Shop",
-  h1Emphasis: "Barber Shop.",
-  intro: `Here is a piece of local knowledge worth having: from Cadboro Bay, leaving later is faster. Google Maps puts the drive at about twenty-two minutes at five o'clock and about thirty at three. The road is identical either way — Sinclair Road onto McKenzie, McKenzie to Quadra, then Chatterton Way into the Broadmead plaza — so the whole difference is traffic, and it does not run the direction most people assume.
+  h1: "Serving Cadboro Bay from Broadmead",
+  h1Emphasis: "from Broadmead.",
+  intro: `Here is a piece of local knowledge worth having: from Cadboro Bay, leaving later is faster. Google Maps puts the drive to Royal Look at about twenty-two minutes at five o'clock and about thirty at three. The road is identical either way — Sinclair Road onto McKenzie, McKenzie to Quadra, then Chatterton Way into the Broadmead plaza — so the whole difference is traffic, and it does not run the direction most people assume.
 
-Our Cadboro Bay clients are a full cross-section: students, families, and retirees, spread through the week rather than bunched into one part of it. Students turn up at the weekend. Retirees come through the day, whenever suits them. Families arrive in the evenings, once work is finished. There is no single Cadboro Bay hour — they filter through, and the shop stays open either way.
+The clients who come to us from Cadboro Bay are a full cross-section: students, families, and retirees, spread through the week rather than bunched into one part of it. Students turn up at the weekend. Retirees come through the day, whenever suits them. Families arrive in the evenings, once work is finished. There is no single Cadboro Bay hour — they filter through, and the shop stays open either way.
 
-The mix shows in the work. Senior cuts, the regular men's cut, kids' cuts, and skin fades are the four we do most from this end of town, with beard trims alongside. Whoever is in the chair, the method does not change: the shape agreed before anything comes off, the length cut to what you asked for rather than to what is quick, and the ears and neck finished properly at the end.
+The mix shows in the work. Senior cuts, the regular men's cut, kids' cuts, and skin fades are the four we do most for people coming from that end of town, with beard trims alongside. Whoever is in the chair, the method does not change: the shape agreed before anything comes off, the length cut to what you asked for rather than to what is quick, and the ears and neck finished properly at the end.
 
 Whether you set out from Cadboro-Gyro Park or from the university end of the neighbourhood, it is the same road in. Parking is free in the lot right out front. We are open seven days a week, nine to seven on weekdays and nine to five on weekends, and walk-ins are welcome on all of them — call first if you want to know what the wait looks like.`,
   emphasizedServices: [
@@ -271,21 +275,27 @@ Whether you set out from Cadboro-Gyro Park or from the university end of the nei
   landmark: SHOP.landmarks,
   callLocation: "cadboro_bay_page_cta",
   callLocationPrimary: "cadboro_bay_page_cta_primary",
-  breadcrumbLabel: "Cadboro Bay Barber Shop",
+  breadcrumbLabel: "Cadboro Bay",
   areaServedName: "Cadboro Bay, Victoria BC",
 };
 
 export const OAK_BAY_DATA: LandingPageData = {
   slug: "oak-bay-barber-shop",
-  // NOTE: "4.9 stars" is a literal in Oak Bay title + Cordova Bay meta — update
-  // if the Google rating moves (see CORDOVA_BAY_DATA.metaDescription below).
-  metaTitle: "Oak Bay Barber Shop — Walk-Ins, 4.9 Stars | Royal Look",
+  // The title, h1 and breadcrumb deliberately do NOT read as a shop located in
+  // Oak Bay. "Oak Bay Barber Shoppe" — formerly trading as exactly "Oak Bay
+  // Barber Shop" — is a real, still-operating business in Estevan Village, so
+  // this page has to read plainly as the out-of-area option rather than as the
+  // local incumbent: "Serving Oak Bay from Broadmead", not the "<Area> Barber
+  // Shop" pattern the other area pages use. Same reasoning as CORDOVA_BAY_DATA.
+  // NOTE: "4.9 stars" is now a literal in CORDOVA_BAY_DATA.metaDescription only
+  // — update it there if the Google rating moves.
+  metaTitle: "Oak Bay's Barber Option in Broadmead | Royal Look",
   metaDescription:
-    "From Oak Bay take the 14 then the 70, or drive to Broadmead. Walk in 7 days, no appointment — call (778) 430-0040 first and we'll tell you the wait.",
+    "Royal Look is in Broadmead Village — from Oak Bay take the 14 then the 70, or drive. Walk in 7 days, no appointment. Call (778) 430-0040 for the wait.",
   eyebrow: "Oak Bay · Victoria, BC",
-  h1: "Oak Bay Barber Shop",
-  h1Emphasis: "Barber Shop.",
-  intro: `Oak Bay is a real drive to Broadmead, and we would rather say so than pretend otherwise. Bay Street to Cook, Cook to Quadra, then Chatterton Way into the plaza. On clear roads it moves; in rush hour the same trip can stretch to thirty minutes. Royal Jubilee Hospital is the landmark most Oak Bay clients set off from, and the run is straightforward from there once you are past the worst of the traffic.
+  h1: "Serving Oak Bay from Broadmead",
+  h1Emphasis: "from Broadmead.",
+  intro: `Oak Bay is a real drive out to Royal Look in Broadmead, and we would rather say so than pretend otherwise. Bay Street to Cook, Cook to Quadra, then Chatterton Way into the plaza. On clear roads it moves; in rush hour the same trip can stretch to thirty minutes. Royal Jubilee Hospital is the landmark most Oak Bay clients set off from, and the run is straightforward from there once you are past the worst of the traffic.
 
 On the bus it is two legs rather than one: the 14 out of Oak Bay, then a transfer to the 70, which stops near Broadmead Village. The 14 by itself does not come this far, so check the connection before you set out.
 
@@ -325,24 +335,26 @@ We are open every day of the week, nine to seven Monday through Friday and nine 
   landmark: SHOP.landmarks,
   callLocation: "oak_bay_page_cta",
   callLocationPrimary: "oak_bay_page_cta_primary",
-  breadcrumbLabel: "Oak Bay Barber Shop",
+  breadcrumbLabel: "Oak Bay",
   areaServedName: "Oak Bay, Victoria BC",
 };
 
 export const CORDOVA_BAY_DATA: LandingPageData = {
   slug: "cordova-bay-barber-shop",
-  // The title deliberately does NOT read as a shop located in Cordova Bay.
-  // "Cordova Hair and Barbershop" is a real business at Mattick's Farm, and we
-  // are ~4km away, so we can never enter the Cordova Bay map pack. This page
-  // ranks organic #2–4 under that pack; the click has to be won by being
-  // plainly the out-of-area option, not by reading like the local incumbent.
+  // The title, h1 and breadcrumb deliberately do NOT read as a shop located in
+  // Cordova Bay. "Cordova Hair and Barbershop" is a real business at Mattick's
+  // Farm, and we are ~4km away, so we can never enter the Cordova Bay map pack.
+  // This page ranks organic #2–4 under that pack; the click has to be won by
+  // being plainly the out-of-area option, not by reading like the local
+  // incumbent — hence "Serving Cordova Bay from Broadmead" rather than the
+  // "<Area> Barber Shop" pattern the other area pages use.
   metaTitle: "Cordova Bay's Barber Option in Broadmead | Royal Look",
   metaDescription:
     "Royal Look is 10 minutes from Cordova Bay, in Broadmead Village — the 32 stops out front. Walk in 7 days, no appointment, free parking. 4.9 stars.",
   eyebrow: "Cordova Bay · Victoria, BC",
-  h1: "Cordova Bay Barber Shop",
-  h1Emphasis: "Barber Shop.",
-  intro: `The Cordova Bay half of our week arrives in two waves. Seniors come through the morning, when the shop is quiet and there is time to talk. Families come after work on weekdays and at any hour over the weekend, usually with at least one child who would rather be somewhere else. Two very different visits, and the shop runs at two different speeds because of it.
+  h1: "Serving Cordova Bay from Broadmead",
+  h1Emphasis: "from Broadmead.",
+  intro: `The Cordova Bay half of Royal Look's week arrives in two waves. Seniors come through the morning, when the shop is quiet and there is time to talk. Families come after work on weekdays and at any hour over the weekend, usually with at least one child who would rather be somewhere else. Two very different visits, and the shop runs at two different speeds because of it.
 
 The service list follows the same split. Senior cuts and the regular men's cut, kids' cuts, and the hot-towel straight-razor shave are what Cordova Bay asks for most. The shave is the outlier there and the one worth planning around — it runs slower than any haircut on the menu, so it sits better in a morning than squeezed into the end of a working day. Beard trims and skin fades cover most of the rest.
 
@@ -379,7 +391,7 @@ We are open seven days, nine to seven on weekdays and nine to five on weekends, 
   landmark: SHOP.landmarks,
   callLocation: "cordova_bay_page_cta",
   callLocationPrimary: "cordova_bay_page_cta_primary",
-  breadcrumbLabel: "Cordova Bay Barber Shop",
+  breadcrumbLabel: "Cordova Bay",
   areaServedName: "Cordova Bay, Victoria BC",
 };
 
