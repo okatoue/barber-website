@@ -11,6 +11,9 @@ next-env.d.ts
 *.log
 nul
 
+# private audit reports — public repo; contain owner email + business analytics (report item 15)
+SEO-REPORT-*.md
+
 # local design references (not part of the deployed site)
 /design-import/
 /case study/
