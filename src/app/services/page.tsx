@@ -87,34 +87,58 @@ const PRICING_NOTES = [
 //
 // Where a service has its own landing page, the entry here stays a summary and
 // links out rather than restating it. The two must not converge.
+//
+// `links` is a list because "Skin Fade" now has two destinations — the skin
+// version at /skin-fade-victoria and the taper/low/mid/high comparison at
+// /fade-haircut-royal-oak — and a reader deciding between them wants both.
 type ServiceDetail = {
   displayName?: string;
   body: string;
-  link?: { href: string; label: string };
+  links?: { href: string; label: string }[];
 };
 
 const SERVICE_DETAILS: Record<string, ServiceDetail> = {
   "Regular Hair Cut": {
     body: "The standard cut, and the one most people come in for. Clipper, scissor, or both, depending on what your hair does and how you want it to sit. The sides can be tapered short without going down to bare skin — that is the difference between this and a skin fade, and it means the bottom keeps a little coverage. If you have no idea what to ask for, ask for this one and talk it through in the chair. A photo helps more than a description, but nobody expects you to arrive with one.",
+    links: [
+      {
+        href: "/mens-haircut-victoria",
+        label: "What the price covers, and how the cut is decided",
+      },
+    ],
   },
   "Skin Fade": {
     body: "The hair at the bottom of the sides and back comes right down to bare skin, then blends up through the guards until it meets the length on top with no visible step anywhere in the gradient. Low, mid or high is a decision about where the shortest part sits, and your barber will show you on your own head rather than guess from a name. It is the longest service on the cutting side of the menu, for the good reason that a blend cannot be hurried. Ask for Zaki if you want line work or a design cut into it.",
-    link: {
-      href: "/skin-fade-victoria",
-      label: "How a skin fade is cut, step by step",
-    },
+    links: [
+      {
+        href: "/skin-fade-victoria",
+        label: "How a skin fade is cut, step by step",
+      },
+      {
+        href: "/fade-haircut-royal-oak",
+        label: "Taper, low, mid or high — choosing between the fades",
+      },
+    ],
   },
   Kids: {
     displayName: "Kids' haircut",
     body: "Kids' haircuts from about three years old. The haircut is rarely the hard part — it is the sitting still, and the sound of the clippers the first time round. Our barbers cut the shape first and the fine detail second, so if a child has had enough there is already a finished haircut there. Parents are welcome right beside the chair, and it helps if you tell us exactly what you want rather than leave it open: length on top, how short around the ears, whether the fringe stays. Kids who come in asking for a fade get a proper one.",
-    link: {
-      href: "/kids-haircut-victoria",
-      label: "More on kids' cuts and first haircuts",
-    },
+    links: [
+      {
+        href: "/kids-haircut-victoria",
+        label: "More on kids' cuts and first haircuts",
+      },
+    ],
   },
   Senior: {
     displayName: "Senior cut",
     body: "The same haircut as a regular cut — cut, shape, and a clean finish around the ears and neck — at a reduced rate and at a pace that is not in a hurry. Just mention it when you come in; there is no card to carry and nothing to prove. Most of our senior clients come in first thing on a weekday, which is the easiest time to get a chair straight away and the part of the day when nothing in the shop feels rushed.",
+    links: [
+      {
+        href: "/senior-haircut-victoria",
+        label: "The senior rate in full, and when to come in for it",
+      },
+    ],
   },
   "Buzz Cut": {
     body: "One length all over, straight off the clipper, no blending. The guard number sets that length — a one is very short and shows scalp, a four leaves noticeably more. If you are unsure, start longer: we can always take more off, and we cannot put it back. The neck and around the ears still get cleaned up at the end, which is most of the difference between this and doing it yourself over a sink. It grows out at one length, so it never really looks wrong — it just gets longer.",
@@ -122,18 +146,22 @@ const SERVICE_DETAILS: Record<string, ServiceDetail> = {
   "Trim Beard": {
     displayName: "Beard trim",
     body: "The beard is shaped to the length you want and the lines along the cheeks and the neck are set clean. Those two lines are most of the job: too high on the cheek and the beard reads thin, too high on the neck and it reads like a collar. A beard trim stands on its own — plenty of clients come in for just this — or it goes on the end of a haircut, in that order, so the beard is shaped to agree with the cut rather than the other way round. Between visits, leave the lines where your barber put them and take stray hairs off with scissors.",
-    link: {
-      href: "/beard-trim-saanich",
-      label: "Beard trims for Saanich clients",
-    },
+    links: [
+      {
+        href: "/beard-trim-saanich",
+        label: "Beard trims for Saanich clients",
+      },
+    ],
   },
   "Hot Shave": {
     displayName: "Hot towel shave",
     body: "A hot towel to soften the beard and open the pores, lather worked in with a brush, then a straight razor — with the grain first, and across it afterwards wherever the skin will take it. A cool towel closes everything down at the end. Every shave uses a fresh single-use blade, no exceptions. If you are prone to razor bumps or ingrown hairs, say so before your barber starts and he will keep to a single pass rather than chase the closest possible finish. It is the service people want before a wedding, an interview, or anything they will be photographed at.",
-    link: {
-      href: "/hot-towel-shave-victoria",
-      label: "What a traditional shave involves",
-    },
+    links: [
+      {
+        href: "/hot-towel-shave-victoria",
+        label: "What a traditional shave involves",
+      },
+    ],
   },
   "Hair Wash": {
     body: "An add-on rather than a service in its own right, and not something anyone needs to arrange in advance — come in with your hair however it is and your barber will work with it. Ask when you sit down if you want it. Some people have it first because clean, damp hair is easier to read; others have it at the end to get the clippings off before going back to work.",
@@ -362,15 +390,26 @@ export default function ServicesPage() {
                     : ""}
                 </div>
                 <p style={DETAIL_BODY}>{detail.body}</p>
-                {detail.link && (
-                  <Link
-                    className="team-link"
-                    href={detail.link.href}
-                    style={{ display: "inline-block", marginTop: 12 }}
+                {detail.links?.length ? (
+                  <ul
+                    style={{
+                      listStyle: "none",
+                      padding: 0,
+                      margin: "12px 0 0",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 8,
+                    }}
                   >
-                    {detail.link.label} <span aria-hidden="true">&rarr;</span>
-                  </Link>
-                )}
+                    {detail.links.map((link) => (
+                      <li key={link.href}>
+                        <Link className="team-link" href={link.href}>
+                          {link.label} <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </div>
             ))}
 

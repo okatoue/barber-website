@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SHOP } from "@/lib/config";
 import { resolveService, type LandingPageData } from "@/lib/landing";
 import { getGoogleStats } from "@/lib/google-reviews";
@@ -27,6 +28,9 @@ const FAQ_AREA_BY_SLUG: Record<string, string | undefined> = {
   "skin-fade-victoria": "skin-fade",
   "kids-haircut-victoria": "kids-haircut",
   "hot-towel-shave-victoria": "hot-towel-shave",
+  "fade-haircut-royal-oak": "fade-haircut",
+  "mens-haircut-victoria": "mens-haircut",
+  "senior-haircut-victoria": "senior-haircut",
 };
 
 // Areas the shop serves but does not sit in — the shop is in Broadmead Village
@@ -277,6 +281,32 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
                 {para}
               </p>
             ))}
+
+            {/* Related pages — in the flow of the prose, deliberately. See the
+                RelatedLink note in lib/landing.ts: a nav-or-footer-only link is
+                what left /services unindexed for weeks, so every landing page
+                that has a genuinely adjacent page links it from its body copy
+                as well as from the footer. Omitted entirely when there is none. */}
+            {data.relatedLinks?.length ? (
+              <ul
+                style={{
+                  listStyle: "none",
+                  padding: 0,
+                  margin: "12px 0 0",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 10,
+                }}
+              >
+                {data.relatedLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link className="team-link" href={link.href}>
+                      {link.label} <span aria-hidden="true">&rarr;</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
         </div>
       </section>
