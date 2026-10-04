@@ -29,6 +29,14 @@ export default function MetaPixel() {
     if (!FB_PIXEL_ID) return;
     const handler = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
+      // Directions taps map to Meta's standard FindLocation event.
+      const dir = target?.closest?.("a[data-directions-location]");
+      if (dir) {
+        window.fbq?.("track", "FindLocation", {
+          directions_location: dir.getAttribute("data-directions-location"),
+        });
+        return;
+      }
       const link = target?.closest?.('a[href^="tel:"]');
       if (!link) return;
       window.fbq?.("track", "Contact", {

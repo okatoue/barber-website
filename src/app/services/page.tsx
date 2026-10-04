@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/seo";
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import { SERVICES, SERVICE_COMBO, SHOP, findService } from "@/lib/config";
@@ -10,10 +11,7 @@ export const metadata: Metadata = {
   title: "Barber Services & Prices — Victoria",
   description: DESCRIPTION,
   alternates: { canonical: "/services" },
-  openGraph: {
-    title: `Barber Services & Prices — Victoria | ${SHOP.name}`,
-    description: DESCRIPTION,
-  },
+  ...socialMetadata("/services", `Barber Services & Prices — Victoria | ${SHOP.name}`, DESCRIPTION),
 };
 
 const CATEGORY_SUBTITLES: Record<string, string> = {
@@ -249,7 +247,7 @@ export default function ServicesPage() {
           <div className="menu-grid">
             {SERVICES.map((category) => (
               <div className="menu-col" key={category.category}>
-                <h3 className="serif">{category.category}</h3>
+                <h2 className="serif">{category.category}</h2>
                 {CATEGORY_SUBTITLES[category.category] && (
                   <div className="col-sub">
                     {CATEGORY_SUBTITLES[category.category]}

@@ -167,6 +167,15 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
                 >
                   Call {SHOP.phone}
                 </a>
+                <a
+                  href={SHOP.directionsUrl}
+                  target="_blank"
+                  rel="noopener"
+                  className="btn btn-ghost"
+                  data-directions-location={`${data.callLocationPrimary}_hero`}
+                >
+                  Get directions
+                </a>
               </div>
               <div className="hero-trust">
                 <div className="stat">
@@ -423,15 +432,26 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
                 </div>
               ) : null}
 
-              {/* Primary Call CTA — tracked via Analytics delegated listener */}
-              <a
-                className="btn btn-secondary"
-                href={`tel:${phoneDigits}`}
-                data-call-location={data.callLocationPrimary}
-                style={{ alignSelf: "flex-start" }}
-              >
-                Call {SHOP.phone}
-              </a>
+              {/* Call + directions CTAs — both tracked via the delegated
+                  listeners in Analytics.tsx and MetaPixel.tsx */}
+              <div className="hero-cta-row">
+                <a
+                  className="btn btn-secondary"
+                  href={`tel:${phoneDigits}`}
+                  data-call-location={data.callLocationPrimary}
+                >
+                  Call {SHOP.phone}
+                </a>
+                <a
+                  className="btn btn-ghost"
+                  href={SHOP.directionsUrl}
+                  target="_blank"
+                  rel="noopener"
+                  data-directions-location={`${data.callLocationPrimary}_find`}
+                >
+                  Get directions
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/seo";
 import LandingPage from "@/components/LandingPage";
 import { HOT_SHAVE_DATA } from "@/lib/landing";
-import { SHOP } from "@/lib/config";
 
-const DESCRIPTION = HOT_SHAVE_DATA.metaDescription;
+const { metaTitle: TITLE, metaDescription: DESCRIPTION } = HOT_SHAVE_DATA;
 
 export const metadata: Metadata = {
-  title: "Hot Towel Shave in Victoria",
+  // `absolute` because metaTitle already ends in the brand — without it the
+  // layout template appends " | Royal Look Barber Shop" a second time.
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   alternates: { canonical: "/hot-towel-shave-victoria" },
-  openGraph: {
-    title: `Hot Towel Shave in Victoria | ${SHOP.name}`,
-    description: DESCRIPTION,
-  },
+  ...socialMetadata("/hot-towel-shave-victoria", TITLE, DESCRIPTION),
 };
 
 export default function HotTowelShaveVictoriaPage() {

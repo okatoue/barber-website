@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { SHOP } from "@/lib/config";
 import { GALLERY_PHOTOS as PHOTOS } from "@/lib/gallery";
@@ -10,10 +11,7 @@ export const metadata: Metadata = {
   title: "Haircut Gallery — Victoria, BC",
   description: DESCRIPTION,
   alternates: { canonical: "/gallery" },
-  openGraph: {
-    title: `Haircut Gallery — Victoria, BC | ${SHOP.name}`,
-    description: DESCRIPTION,
-  },
+  ...socialMetadata("/gallery", `Haircut Gallery — Victoria, BC | ${SHOP.name}`, DESCRIPTION),
 };
 
 const breadcrumbJsonLd = {

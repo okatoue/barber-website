@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/seo";
 import { SHOP } from "@/lib/config";
 
 const DESCRIPTION =
@@ -12,10 +13,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description: DESCRIPTION,
   alternates: { canonical: "/privacy" },
-  openGraph: {
-    title: `Privacy Policy | ${SHOP.name}`,
-    description: DESCRIPTION,
-  },
+  ...socialMetadata("/privacy", `Privacy Policy | ${SHOP.name}`, DESCRIPTION),
 };
 
 const bodyStyle = {

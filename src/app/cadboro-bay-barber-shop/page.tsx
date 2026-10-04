@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/seo";
 import LandingPage from "@/components/LandingPage";
 import { CADBORO_BAY_DATA } from "@/lib/landing";
 
@@ -10,10 +11,7 @@ export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   alternates: { canonical: "/cadboro-bay-barber-shop" },
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-  },
+  ...socialMetadata("/cadboro-bay-barber-shop", TITLE, DESCRIPTION),
 };
 
 export default function CadboroBayPage() {

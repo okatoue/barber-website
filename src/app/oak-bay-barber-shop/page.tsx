@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/seo";
 import LandingPage from "@/components/LandingPage";
 import { OAK_BAY_DATA } from "@/lib/landing";
 
@@ -10,10 +11,7 @@ export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   alternates: { canonical: "/oak-bay-barber-shop" },
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-  },
+  ...socialMetadata("/oak-bay-barber-shop", TITLE, DESCRIPTION),
 };
 
 export default function OakBayPage() {

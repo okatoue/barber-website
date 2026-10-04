@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/seo";
 import LandingPage from "@/components/LandingPage";
 import { ROYAL_OAK_DATA } from "@/lib/landing";
 
@@ -10,10 +11,7 @@ export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   alternates: { canonical: "/royal-oak-barber-shop" },
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-  },
+  ...socialMetadata("/royal-oak-barber-shop", TITLE, DESCRIPTION),
 };
 
 export default function RoyalOakPage() {

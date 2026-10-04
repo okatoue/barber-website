@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/seo";
 import { FAQ_ITEMS, SHOP } from "@/lib/config";
 
 const DESCRIPTION =
@@ -8,10 +9,7 @@ export const metadata: Metadata = {
   title: "Barber FAQ — Victoria, BC",
   description: DESCRIPTION,
   alternates: { canonical: "/faq" },
-  openGraph: {
-    title: `Barber FAQ — Victoria, BC | ${SHOP.name}`,
-    description: DESCRIPTION,
-  },
+  ...socialMetadata("/faq", `Barber FAQ — Victoria, BC | ${SHOP.name}`, DESCRIPTION),
 };
 
 const CATEGORY_ORDER = ["Visiting", "Pricing", "Kids", "Services"];
@@ -55,9 +53,9 @@ export default function FaqPage() {
           if (items.length === 0) return null;
           return (
             <div key={category} style={{ marginBottom: 48 }}>
-              <div className="eyebrow" style={{ padding: "0 4px 16px" }}>
+              <h2 className="eyebrow" style={{ padding: "0 4px 16px", margin: 0 }}>
                 {category}
-              </div>
+              </h2>
               <div className="faq-list">
                 {items.map((item) => (
                   <div key={item.question} className="faq-item">

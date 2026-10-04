@@ -17,15 +17,24 @@ export default function Analytics() {
     window.gtag("event", "page_view", { page_path: pathname });
   }, [pathname]);
 
-  // Track taps on any "Call" button. One delegated listener catches every
-  // tel: link on the site — current and future. The data-call-location
-  // attribute tells us which button was tapped.
+  // Track taps on any "Call" or "Get directions" button. One delegated
+  // listener catches every tel: link and every data-directions-location
+  // link on the site — current and future. The data-*-location attribute
+  // tells us which button was tapped.
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
+      if (typeof window.gtag !== "function") return;
+      // Directions taps — the GBP's biggest action, so measure the site's too.
+      const dir = target?.closest?.("a[data-directions-location]");
+      if (dir) {
+        window.gtag("event", "directions_click", {
+          directions_location: dir.getAttribute("data-directions-location"),
+        });
+        return;
+      }
       const link = target?.closest?.('a[href^="tel:"]');
       if (!link) return;
-      if (typeof window.gtag !== "function") return;
       window.gtag("event", "call_click", {
         call_location: link.getAttribute("data-call-location") || "unknown",
         link_url: link.getAttribute("href"),

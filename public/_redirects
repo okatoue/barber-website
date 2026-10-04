@@ -1,3 +1,5 @@
 # Cloudflare Pages redirects. Copied verbatim into out/ at build time.
 /victoria-barber-shop / 301
 /victoria-barber-shop/ / 301
+/policies /privacy 301
+/policies/ /privacy 301

@@ -24,6 +24,15 @@ export default async function Hero() {
               >
                 Call {SHOP.phone}
               </a>
+              <a
+                href={SHOP.directionsUrl}
+                target="_blank"
+                rel="noopener"
+                className="btn btn-ghost"
+                data-directions-location="hero"
+              >
+                Get directions
+              </a>
             </div>
             <div className="hero-trust">
               <div className="stat">

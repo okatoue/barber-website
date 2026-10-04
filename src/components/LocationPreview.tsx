@@ -61,6 +61,17 @@ export default function FindUs() {
               Saanich, Oak Bay and beyond.
             </p>
 
+            <a
+              className="btn btn-secondary"
+              href={SHOP.directionsUrl}
+              target="_blank"
+              rel="noopener"
+              data-directions-location="home_find"
+              style={{ alignSelf: "flex-start" }}
+            >
+              Get directions
+            </a>
+
             <OpenStatus variant="pill" />
 
             <div className="hours-grid">

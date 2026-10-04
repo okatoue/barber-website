@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/seo";
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,10 +14,7 @@ export const metadata: Metadata = {
   title: "Our Barbers in Victoria, BC",
   description: BARBERS_DESCRIPTION,
   alternates: { canonical: "/barbers" },
-  openGraph: {
-    title: `Our Barbers in Victoria, BC | ${SHOP.name}`,
-    description: BARBERS_DESCRIPTION,
-  },
+  ...socialMetadata("/barbers", `Our Barbers in Victoria, BC | ${SHOP.name}`, BARBERS_DESCRIPTION),
 };
 
 function blurb(b: Barber): string {
@@ -86,9 +84,9 @@ const teamJsonLd = {
       jobTitle: "Barber",
       knowsAbout: b.specialties,
       image: `${SHOP.siteUrl}${b.image}`,
-      // HairSalon, not BarberShop — see the note in layout.tsx. BarberShop is
-      // not a schema.org type.
-      worksFor: { "@type": "HairSalon", name: SHOP.name, url: SHOP.siteUrl },
+      // Reference the one business entity from layout.tsx by @id. An inline
+      // HairSalon here read as a second, thinner copy of the business.
+      worksFor: { "@id": `${SHOP.siteUrl}/#barbershop` },
       url: `${SHOP.siteUrl}/barbers`,
     },
   })),

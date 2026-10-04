@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/seo";
 import LandingPage from "@/components/LandingPage";
 import { SAANICH_DATA } from "@/lib/landing";
 
@@ -10,10 +11,7 @@ export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   alternates: { canonical: "/beard-trim-saanich" },
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-  },
+  ...socialMetadata("/beard-trim-saanich", TITLE, DESCRIPTION),
 };
 
 export default function BeardTrimSaanichPage() {

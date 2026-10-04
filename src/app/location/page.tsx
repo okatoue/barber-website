@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/seo";
 import Link from "next/link";
-import { SHOP, AREA_LINKS } from "@/lib/config";
+import { SHOP, AREA_LINK_LIST } from "@/lib/config";
 import OpenStatus from "@/components/OpenStatus";
 
 const LOCATION_DESCRIPTION = `Visit ${SHOP.name} at 777 Royal Oak Dr in Broadmead Village, ${SHOP.address.city} ${SHOP.address.province}. Map, hours, parking, and directions. Walk in seven days a week.`;
 
+// Targets directions/parking intent, not "barber shop Victoria" — the homepage
+// owns that term and this title used to compete with it.
+const LOCATION_TITLE = "Directions & Parking — Broadmead Village | Royal Look";
+
 export const metadata: Metadata = {
-  title: "Location — Barber Shop in Victoria",
+  title: { absolute: LOCATION_TITLE },
   description: LOCATION_DESCRIPTION,
   alternates: { canonical: "/location" },
-  openGraph: {
-    title: `Location — Barber Shop in Victoria | ${SHOP.name}`,
-    description: LOCATION_DESCRIPTION,
-  },
+  ...socialMetadata("/location", LOCATION_TITLE, LOCATION_DESCRIPTION),
 };
 
 const breadcrumbJsonLd = {
@@ -57,7 +59,6 @@ export default function LocationPage() {
     weekday: "long",
   });
   const phoneDigits = SHOP.phone.replace(/\D/g, "");
-  const areas = SHOP.areasServed.filter((a) => AREA_LINKS[a]);
 
   return (
     <>
@@ -168,14 +169,24 @@ export default function LocationPage() {
                 })}
               </div>
 
-              <a
-                className="btn btn-secondary"
-                href={`tel:${phoneDigits}`}
-                data-call-location="location_page_cta"
-                style={{ alignSelf: "flex-start" }}
-              >
-                Call {SHOP.phone}
-              </a>
+              <div className="hero-cta-row">
+                <a
+                  className="btn btn-secondary"
+                  href={SHOP.directionsUrl}
+                  target="_blank"
+                  rel="noopener"
+                  data-directions-location="location_page_cta"
+                >
+                  Get directions
+                </a>
+                <a
+                  className="btn btn-ghost"
+                  href={`tel:${phoneDigits}`}
+                  data-call-location="location_page_cta"
+                >
+                  Call {SHOP.phone}
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -242,11 +253,11 @@ export default function LocationPage() {
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {areas.map((area) => (
+            {AREA_LINK_LIST.map(({ area, href }) => (
               <a
                 key={area}
                 className="btn btn-ghost"
-                href={AREA_LINKS[area]}
+                href={href}
                 style={{ justifyContent: "space-between" }}
               >
                 {area}

@@ -6,6 +6,7 @@ import Analytics from "@/components/Analytics";
 import MetaPixel from "@/components/MetaPixel";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import { SHOP } from "@/lib/config";
+import { socialMetadata } from "@/lib/seo";
 import "./globals.css";
 
 const geist = Geist({
@@ -43,23 +44,18 @@ function to24Hour(time: string): string {
   return `${String(hour).padStart(2, "0")}:${minutes}`;
 }
 
+// The homepage owns the broad "barber shop Victoria" term — no other page's
+// title is allowed to compete for it (/location targets directions instead).
+const HOME_TITLE = "Walk-In Barber Shop in Broadmead, Victoria BC | Royal Look";
+
 export const metadata: Metadata = {
   title: {
-    default: "Barber in Broadmead Village | Royal Look Barber Shop",
+    default: HOME_TITLE,
     template: `%s | ${SHOP.name}`,
   },
   description: HOME_DESCRIPTION,
   metadataBase: new URL(SHOP.siteUrl),
-  openGraph: {
-    type: "website",
-    locale: "en_CA",
-    siteName: SHOP.name,
-    title: "Barber in Broadmead Village | Royal Look Barber Shop",
-    description: HOME_DESCRIPTION,
-  },
-  twitter: {
-    card: "summary_large_image",
-  },
+  ...socialMetadata("/", HOME_TITLE, HOME_DESCRIPTION),
   other: {
     "theme-color": "#13132f",
   },
@@ -96,8 +92,10 @@ export default async function RootLayout({
               name: "Royal Look Barber Shop",
               description: SHOP.description,
               url: SHOP.siteUrl,
-              telephone: SHOP.phone,
+              // E.164-style for machines; the page keeps the (778) display format.
+              telephone: `+1-${SHOP.phone.replace(/\D/g, "").replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")}`,
               email: SHOP.email,
+              logo: `${SHOP.siteUrl}/images/logo.webp`,
               image: [
                 `${SHOP.siteUrl}/images/royal-look-interior.jpg`,
                 `${SHOP.siteUrl}/images/gallery/gallery-1.jpeg`,

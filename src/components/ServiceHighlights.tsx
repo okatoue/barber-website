@@ -1,17 +1,22 @@
 import Link from "next/link";
 import { SERVICE_COMBO } from "@/lib/config";
 
-const MENU_CUTS = [
-  { name: "Skin Fade", price: 30 },
+// href links a row to its dedicated service page. These rows render on the
+// homepage and all nine landing pages, so they are what gives the service
+// pages real internal links (before this, only /services linked to them).
+type MenuItem = { name: string; price: number; href?: string };
+
+const MENU_CUTS: MenuItem[] = [
+  { name: "Skin Fade", price: 30, href: "/skin-fade-victoria" },
   { name: "Regular Hair Cut", price: 28 },
   { name: "Buzz Cut", price: 20 },
-  { name: "Kids", price: 25 },
+  { name: "Kids", price: 25, href: "/kids-haircut-victoria" },
   { name: "Senior", price: 25 },
 ];
 
-const MENU_GROOMING = [
-  { name: "Hot Shave", price: 35 },
-  { name: "Trim Beard", price: 20 },
+const MENU_GROOMING: MenuItem[] = [
+  { name: "Hot Shave", price: 35, href: "/hot-towel-shave-victoria" },
+  { name: "Trim Beard", price: 20, href: "/beard-trim-saanich" },
   { name: "Hair Wash", price: 7 },
 ];
 
@@ -38,7 +43,7 @@ export default function Menu() {
             <div className="col-sub">Clippers · scissors · the works</div>
             {MENU_CUTS.map((s) => (
               <div key={s.name} className="menu-row">
-                <span className="nm">{s.name}</span>
+                <span className="nm">{s.href ? <Link href={s.href}>{s.name}</Link> : s.name}</span>
                 <span className="pr serif">${s.price}</span>
               </div>
             ))}
@@ -48,7 +53,7 @@ export default function Menu() {
             <div className="col-sub">Beards · shaves · finishing</div>
             {MENU_GROOMING.map((s) => (
               <div key={s.name} className="menu-row">
-                <span className="nm">{s.name}</span>
+                <span className="nm">{s.href ? <Link href={s.href}>{s.name}</Link> : s.name}</span>
                 <span className="pr serif">${s.price}</span>
               </div>
             ))}

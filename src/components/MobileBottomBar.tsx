@@ -52,6 +52,15 @@ export default function MobileBottomBar() {
         </svg>
         Call Now
       </a>
+      <a
+        href={SHOP.directionsUrl}
+        target="_blank"
+        rel="noopener"
+        className="btn btn-ghost"
+        data-directions-location="mobile_bar"
+      >
+        Directions
+      </a>
     </div>
   );
 }

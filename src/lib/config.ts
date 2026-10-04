@@ -29,8 +29,13 @@ export const SHOP = {
   googleRating: "4.9",
   googleReviewCount: 155, // fallback when Places API unavailable; update occasionally
   googleReviewUrl: "https://g.page/royallook/review",
-  googleBusinessUrl:
-    "https://www.google.com/maps/place/Royal+Look+Barber+Shop/data=!4m2!3m1!1s0x0:0x41df978b9274788d?sa=X&ved=1t:2428&hl=en&ictx=111",
+  // Stable CID form of the Google Business Profile (decimal of the 0x41df978b9274788d
+  // feature id). The old copy-pasted /maps/place link carried session junk
+  // (sa, ved, ictx) and was emitted as-is in the schema's sameAs.
+  googleBusinessUrl: "https://maps.google.com/?cid=4746679157985147021",
+  // Opens Google Maps navigation straight to the shop's listing.
+  directionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=Royal+Look+Barber+Shop%2C+777+Royal+Oak+Dr+%23530%2C+Victoria%2C+BC+V8X+4V1",
   foundedYear: "2025",
   googleMapsEmbed:
     "https://maps.google.com/maps?q=48.496876336605936,-123.38071633357313&t=&z=17&ie=UTF8&iwloc=&output=embed",
@@ -70,14 +75,27 @@ export const AREA_LINKS: Record<string, string> = {
   "Cordova Bay": "/cordova-bay-barber-shop",
   "Gordon Head": "/gordon-head-barber-shop",
   "Cadboro Bay": "/cadboro-bay-barber-shop",
-  Saanich: "/beard-trim-saanich",
+  // The shop is physically in Saanich, so "Saanich" means the homepage — not
+  // /beard-trim-saanich, which is a service page.
+  Saanich: "/",
   "Oak Bay": "/oak-bay-barber-shop",
-  // Victoria and Broadmead both point at the homepage: it already targets the
-  // broad Victoria/Broadmead term, and /victoria-barber-shop was removed (it
-  // competed with the homepage for that head term). public/_redirects 301s the
-  // old URL here.
+  // Victoria, Broadmead and Saanich all point at the homepage: it already
+  // targets the broad term, and /victoria-barber-shop was removed (it competed
+  // with the homepage for that head term). public/_redirects 301s the old URL
+  // here. The footer links the homepage once and lists these as plain text.
   Victoria: "/",
 };
+
+// Served areas as links, one per destination page: the first area to claim a
+// page keeps the link ("Broadmead" for the homepage), so Saanich and Victoria
+// don't add two more identical homepage links with different anchor text.
+export const AREA_LINK_LIST: { area: string; href: string }[] =
+  SHOP.areasServed
+    .map((area) => ({ area, href: AREA_LINKS[area] }))
+    .filter(
+      (link, i, all) =>
+        link.href && all.findIndex((l) => l.href === link.href) === i
+    );
 
 // ============================================================
 // SERVICES
@@ -330,12 +348,6 @@ export const FAQ_ITEMS: FaqItem[] = [
       "Weekday mornings. We open at nine, and the early part of the day is mostly our senior and retired clients — there's usually a chair free and nothing feels rushed. Afternoons are the busy stretch, on the roads around here as much as in the shop. Evenings fill up with families and people coming off work, Thursday and Friday get busy with students tidying up before the weekend, and weekends are steady all day, with a five o'clock close instead of seven. If you want the shortest wait, come early on a weekday.",
     category: "Visiting",
     areas: ["royal-oak", "cadboro-bay", "gordon-head"],
-  },
-  {
-    question: "What's your cancellation policy?",
-    answer:
-      "We ask for at least 12 hours' notice if you need to cancel or reschedule. Late cancellations or no-shows may incur a fee. Just give us a call to cancel or reschedule.",
-    category: "Visiting",
   },
 
   // ── Pricing ───────────────────────────────────────────────────────────────
