@@ -1,11 +1,12 @@
 import { SHOP } from "@/lib/config";
+import HeroPhoto from "@/components/HeroPhoto";
 import { getGoogleStats } from "@/lib/google-reviews";
 
 export default async function Hero() {
   const stats = await getGoogleStats();
   return (
     <section className="hero">
-      <div className="hero-photo" aria-hidden="true" />
+      <HeroPhoto />
       <div className="container">
         <div className="hero-grid">
           <div className="hero-copy">

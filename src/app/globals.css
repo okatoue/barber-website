@@ -270,24 +270,22 @@ a { color: inherit; text-decoration: none; }
 .hero-photo {
   position: absolute;
   inset: 0;
-  background-image: url("/images/interior.webp");
-  background-size: cover;
-  background-position: center right;
-  background-repeat: no-repeat;
   background-color: var(--card);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Phones pull a 900px variant instead of the 1920px desktop file — 57 KB
-   vs 191 KB on the LCP element, where most of this shop's traffic is.
-   Uses the same 680px breakpoint as the rest of this stylesheet; the
-   image is a darkened backdrop under the ::after gradient, so the lower
-   pixel density doesn't read on the largest phones. */
-@media (max-width: 680px) {
-  .hero-photo {
-    background-image: url("/images/interior-mobile.webp");
-  }
+/* The photo is an <img> (HeroPhoto.tsx) so the browser can discover and
+   prioritise it. Phones get the 900px file via <picture> — 57 KB vs 191 KB
+   on the LCP element; it's a darkened backdrop under the ::after gradient,
+   so the lower pixel density doesn't read on the largest phones. */
+.hero-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
 }
 .hero-photo::after {
   content: "";

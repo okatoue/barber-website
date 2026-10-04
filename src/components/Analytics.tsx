@@ -48,9 +48,14 @@ export default function Analytics() {
 
   return (
     <>
+      {/* The ~150 KB gtag.js library waits for the page to finish loading —
+          it cost ~0.8s of main-thread blocking during render (Lighthouse,
+          Oct 2026). Nothing is lost: the tiny inline init below defines
+          gtag() as a dataLayer queue right away, so the first page_view and
+          any early clicks are queued and sent once the library arrives. */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
       <Script id="ga4-init" strategy="afterInteractive">
         {`window.dataLayer = window.dataLayer || [];

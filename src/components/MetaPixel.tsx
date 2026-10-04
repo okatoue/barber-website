@@ -49,18 +49,26 @@ export default function MetaPixel() {
 
   if (!FB_PIXEL_ID) return null;
 
+  // This is Meta's standard base code split in two. The inline part defines
+  // the fbq() queue immediately, so init, PageView and early Contact events
+  // are recorded from the first moment. The ~200 KB fbevents.js library,
+  // which the stock snippet injects straight away, is the single biggest
+  // main-thread cost on the site (~1.4s blocking, Lighthouse Oct 2026), so it
+  // loads after the page has finished loading and then flushes the queue.
   return (
-    <Script id="meta-pixel" strategy="afterInteractive">
-      {`!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    <>
+      <Script id="meta-pixel" strategy="afterInteractive">
+        {`!function(f){if(f.fbq)return;var n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window,document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+n.queue=[]}(window);
 fbq('init', '${FB_PIXEL_ID}');
 fbq('track', 'PageView');`}
-    </Script>
+      </Script>
+      <Script
+        src="https://connect.facebook.net/en_US/fbevents.js"
+        strategy="lazyOnload"
+      />
+    </>
   );
 }

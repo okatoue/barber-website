@@ -46,7 +46,14 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ) : (
-                <Link key={link.href} href={link.href}>
+                // /gallery is excluded from prefetch: its payload preloads the
+                // first gallery photos, so prefetching it from the nav pulled
+                // ~600 KB of JPEGs onto every page (Lighthouse, Oct 2026).
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  prefetch={link.href === "/gallery" ? false : undefined}
+                >
                   {link.label}
                 </Link>
               )

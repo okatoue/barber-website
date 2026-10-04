@@ -1,0 +1,19 @@
+# Cloudflare Pages custom headers. Copied verbatim into out/ at build time.
+# Overlapping rules merge (they don't override), so keep each header in one rule.
+
+# The *.pages.dev hostnames serve a full copy of the site. Keep them out of the
+# index so royallook.ca is the only indexable version (audit, Oct 2026).
+# Covers both the production alias and per-deploy preview URLs.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+# Next.js build assets have content hashes in their filenames — a changed file
+# gets a new URL, so they can be cached for a year.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Photos keep their filenames when replaced, so cache for a week, not forever.
+/images/*
+  Cache-Control: public, max-age=604800

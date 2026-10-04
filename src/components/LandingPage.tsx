@@ -2,6 +2,7 @@ import { SHOP } from "@/lib/config";
 import { resolveService, type LandingPageData } from "@/lib/landing";
 import { getGoogleStats } from "@/lib/google-reviews";
 import Menu from "@/components/ServiceHighlights";
+import HeroPhoto from "@/components/HeroPhoto";
 import FAQ from "@/components/FAQ";
 import OpenStatus from "@/components/OpenStatus";
 
@@ -150,7 +151,7 @@ export default async function LandingPage({ data }: { data: LandingPageData }) {
 
       {/* ── Hero: photo · headline · call CTA · trust bar ───────────────── */}
       <section className="hero">
-        <div className="hero-photo" aria-hidden="true" />
+        <HeroPhoto />
         <div className="container">
           <div className="hero-grid">
             <div className="hero-copy">

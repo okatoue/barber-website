@@ -23,7 +23,10 @@ export default function Gallery() {
                 alt={p.alt}
                 fill
                 sizes="(min-width: 980px) 25vw, (min-width: 681px) 33vw, 50vw"
-                loading={i < 4 ? "eager" : "lazy"}
+                // All lazy: on the homepage and landing pages the gallery sits
+                // well below the fold, and eager here emitted ~600 KB of
+                // image preloads that competed with the hero (LCP).
+                loading="lazy"
                 style={{ objectFit: "cover" }}
               />
             </div>
